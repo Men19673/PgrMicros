@@ -13,8 +13,7 @@
 %PSECTS
 $build/default/production/Lab2Pgr.o
 resVect CODE 0 0 0 3 2
-code CODE 0 0 0 141 2
-udata_bank0 BANK0 1 20 20 2 1
+code CODE 0 0 0 13C 2
 config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -22,22 +21,22 @@ config CONFIG 4 2007 2007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 22-6F 1
+RAM 20-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 22-6F 1
+BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 141-1FFF 2
-ENTRY 141-1FFF 2
+CONST 13C-1FFF 2
+ENTRY 13C-1FFF 2
 IDLOC 2000-2003 2
-CODE 141-1FFF 2
+CODE 13C-1FFF 2
 COMMON 70-7F 1
 EEDATA 2100-21FF 2
-STRCODE 141-1FFF 2
-STRING 141-1FFF 2
+STRCODE 13C-1FFF 2
+STRING 13C-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -52,67 +51,67 @@ STRING 141-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $build/default/production/Lab2Pgr.o
+0 resVect CODE >39:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 0 resVect CODE >40:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 0 resVect CODE >41:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-0 resVect CODE >42:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-2 resVect CODE >43:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-0 code CODE >46:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+2 resVect CODE >42:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+0 code CODE >45:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+100 code CODE >49:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 100 code CODE >50:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-100 code CODE >51:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-102 code CODE >52:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-103 code CODE >53:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-104 code CODE >56:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-105 code CODE >58:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-107 code CODE >60:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-108 code CODE >61:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-109 code CODE >62:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-10A code CODE >63:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-10B code CODE >65:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-10D code CODE >66:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-10E code CODE >67:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-10F code CODE >68:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-110 code CODE >72:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+102 code CODE >51:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+103 code CODE >52:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+104 code CODE >55:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+105 code CODE >57:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+107 code CODE >59:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+108 code CODE >62:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+109 code CODE >63:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+10A code CODE >64:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+10B code CODE >66:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+10D code CODE >67:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+10E code CODE >68:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+10F code CODE >69:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 110 code CODE >73:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-111 code CODE >74:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-112 code CODE >75:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-113 code CODE >76:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-114 code CODE >77:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-115 code CODE >78:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-116 code CODE >79:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-117 code CODE >80:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-118 code CODE >81:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-119 code CODE >85:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-119 code CODE >86:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-11A code CODE >87:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+110 code CODE >74:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+111 code CODE >75:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+112 code CODE >76:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+113 code CODE >77:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+114 code CODE >78:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+115 code CODE >79:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+116 code CODE >80:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+117 code CODE >81:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+118 code CODE >82:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+119 code CODE >83:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+11A code CODE >84:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 11B code CODE >88:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-11C code CODE >89:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-11D code CODE >90:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-11E code CODE >91:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-11F code CODE >92:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+11B code CODE >89:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+11C code CODE >90:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+11D code CODE >91:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+11E code CODE >92:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+11F code CODE >93:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 120 code CODE >94:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-120 code CODE >95:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 121 code CODE >96:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-122 code CODE >97:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-123 code CODE >98:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-124 code CODE >99:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-125 code CODE >100:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-126 code CODE >101:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+121 code CODE >97:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+122 code CODE >98:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+123 code CODE >99:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+124 code CODE >100:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+125 code CODE >101:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+126 code CODE >102:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 127 code CODE >103:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-127 code CODE >104:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 128 code CODE >105:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-129 code CODE >106:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-12A code CODE >107:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-12B code CODE >108:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-12C code CODE >109:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-12D code CODE >110:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-12E code CODE >112:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+128 code CODE >106:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+129 code CODE >107:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+12A code CODE >108:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+12B code CODE >109:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+12C code CODE >110:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+12D code CODE >111:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 12E code CODE >113:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-12F code CODE >114:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-130 code CODE >115:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-131 code CODE >116:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-132 code CODE >117:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-133 code CODE >118:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-134 code CODE >119:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+12E code CODE >114:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+12F code CODE >115:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+130 code CODE >116:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+131 code CODE >117:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+132 code CODE >118:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+133 code CODE >119:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
+134 code CODE >120:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 135 code CODE >123:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 135 code CODE >124:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 136 code CODE >125:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
@@ -121,12 +120,6 @@ $build/default/production/Lab2Pgr.o
 139 code CODE >128:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 13A code CODE >129:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 13B code CODE >131:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-13B code CODE >132:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-13C code CODE >133:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-13D code CODE >134:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-13E code CODE >135:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-13F code CODE >136:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
-140 code CODE >138:C:\Users\diego\Desktop\PgrMicros\Lab2\Lab2Pgr.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -139,8 +132,8 @@ $build/default/production/Lab2Pgr.o
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 141 0 ABS 0 - -
-__Hspace_1 22 0 ABS 0 - -
+__Hspace_0 13C 0 ABS 0 - -
+__Hspace_1 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Hudata_bank0 0 0 ABS 0 udata_bank0 -
@@ -158,7 +151,7 @@ __Hdata 0 0 ABS 0 data -
 __Lcode 0 0 ABS 0 code -
 __Ldata 0 0 ABS 0 data -
 __S0 0 0 ABS 0 - -
-__S1 22 0 ABS 0 - -
+__S1 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __HresVect 0 0 ABS 0 resVect -
 __Lconfig 0 0 CONFIG 4 config -
@@ -196,7 +189,6 @@ __Ludata_shr 0 0 ABS 0 udata_shr -
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-udata_bank0 1 20 20 2 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

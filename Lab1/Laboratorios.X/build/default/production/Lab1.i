@@ -1,16 +1,16 @@
-# 1 "Lab2Pgr.s"
+# 1 "Lab1.s"
 # 1 "<built-in>" 1
-# 1 "Lab2Pgr.s" 2
-; Archivo: Lab2Pgr.s
+# 1 "Lab1.s" 2
+; Archivo: Lab1.s
 ; Dispositivo: PIC16F887
 ; Autor: Diego Mendez
 ; Compilador: pic-as (v2.30), MPLABX v5.40
 ;
-; Programa: contador
-; Hardware: Push buttons puerto A, leds puertos B,C,D
+; Programa: contador en el puerto A
+; Hardware: LEDs en el puerto A
 ;
-; Creado: 9 feb, 2021
-; Ãšltima modificaciÃ³n: 9 feb, 2021
+; Creado: 2 feb, 2021
+; Última modificación: 2 feb, 2021
 
 PROCESSOR 16F887
 
@@ -2459,11 +2459,11 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\xc.inc" 2 3
-# 14 "Lab2Pgr.s" 2
+# 14 "Lab1.s" 2
 ;------------------------- CONFIGURATION WORDS----------------------------------
 
     ; config 1
- CONFIG FOSC=XT
+ CONFIG FOSC=INTRC_NOCLKOUT
  CONFIG WDTE=OFF
  CONFIG PWRTE=ON
  CONFIG MCLRE=OFF
@@ -2481,7 +2481,8 @@ ENDM
 
 ;------------------------------VARIABLES---------------------------------------
  PSECT udata_bank0 ;common memory
-
+     cont_small: DS 1 ; 1 byte
+     cont_big: DS 1
 
     PSECT resVect, class=CODE, abs, delta=2
 ;---------------------------VECTOR RESET--------------------------------------
@@ -2496,85 +2497,39 @@ ENDM
 ;----------------------------------CONFIGURACION--------------------------------
 
     main:
- banksel ANSEL
- clrf ANSEL ;Configurar los puertos como digitales
+ bsf STATUS, 5 ; banco 11
+ bsf STATUS, 6
+ clrf ANSEL ;pines digitales
  clrf ANSELH
 
+ bsf STATUS, 5 ; banco 01
+ bcf STATUS, 6
 
- MOVLW 00011111B ;Designar valor de W a los puertos que deseo como inputs
+ clrf TRISA ; port A como salida
 
- banksel TRISA
-
- MOVWF TRISA ;Mover el valor de W al TRISA
-
-
- clrf TRISB ;Configurar los puertos B.
- clrf TRISC
- clrf TRISD
-
- banksel PORTA ;Moverme al banco de los PORTS
- clrf PORTB ;Colocar los puertos en 0
- clrf PORTC
- clrf PORTD
-
+ bcf STATUS, 5 ; banco 00
+ bcf STATUS, 6
 
 ;--------------------------------LOOP-------------------------------------------
     loop:
- btfss PORTA, 0
- call inc_portb
- btfss PORTA, 1
- call dec_portb
- btfss PORTA, 2
- call inc_portc
- btfss PORTA, 3
- call dec_portc
- btfss PORTA, 4
- call result
+ incf PORTA, 1
+ call delay_big
  goto loop
 
 ;---------------------------------SUBRUTINA-------------------------------------
+    delay_big:
+ movlw 200 ;valor inicial del contador
+ movwf cont_big
+ call delay_small ;rutina del delay
+ decfsz cont_big, 1 ;decrementar el contador
+ goto $-2 ; ejecutar las lineas de atras
+ return
 
-    inc_portb:
- btfss PORTA, 0 ;Revisar si el boton sigue apachado o no
- goto $-1 ;Esperar a que se deje de apachar
- incf PORTB, F ;Incrementar el contador
- btfsc PORTB, 4 ;Si los 4 bits se encuentran encendidos resetear
- clrf PORTB
- RETURN ;Regresar al loop
+    delay_small:
+ movlw 250 ;valor inicial del contador
+ movwf cont_small
+ decfsz cont_small, 1 ;decrementar el contador
+ goto $-1 ; ejecutar las lineas de atras
+ return
 
-    dec_portb:
- btfss PORTA, 1 ;Revisar que se haya dejado de apacahar
- goto $-1 ;Regresar al anterior
- decf PORTB, F ;Decrementar el puerto
- MOVLW 0x0F ;Cargar valor a W para cuando se decrementa de 0 a F hex
- btfsc PORTB, 7 ;Revisar si se encuentra el bit8 encendido
- MOVWF PORTB ;Cargar W en puerto para que solo esten encendido 4 bits
- RETURN
-
-    inc_portc:
- btfss PORTA, 2
- goto $-1
- incf PORTC, F
- btfsc PORTC,4
- clrf PORTC
- RETURN
-
-    dec_portc:
- btfss PORTA, 3
- goto $-1
- decf PORTC, F
- MOVLW 0x0F
- btfsc PORTC, 7
- MOVWF PORTC
- RETURN
-
-
-    result:
- btfss PORTA, 4 ;Revisar si Boton de Resultado ya no esta presionado
- goto $-1
- MOVF PORTB ,0 ;Cargar Port B en W
- ADDWF PORTC ,0 ;Sumar W con PORTC y guardar en W
- MOVWF PORTD
- RETURN
-
-RETURN
+return

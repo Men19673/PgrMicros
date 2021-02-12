@@ -32,8 +32,7 @@ PROCESSOR 16F887
     
 ;------------------------------VARIABLES---------------------------------------
 	PSECT udata_bank0 ;common memory
-	    cont_small: DS 1 ; 1 byte
-	    cont_big:	DS 1 
+	    
     
     PSECT resVect, class=CODE, abs, delta=2
 ;---------------------------VECTOR RESET--------------------------------------
@@ -53,16 +52,18 @@ PROCESSOR 16F887
 	clrf	ANSELH
 	
 	
-	MOVLW 11111111B ;Designar valor de W a los puertos que deseo como inputs
+	MOVLW 00011111B ;Designar valor de W a los puertos que deseo como inputs
 	
 	banksel	TRISA
 	
 	MOVWF	TRISA	;Mover el valor de W al TRISA
-	clrf	TRISB	;Configurar los puertos B,C,D como salidas
+	
+	
+	clrf	TRISB	;Configurar los puertos B.
 	clrf	TRISC
 	clrf	TRISD
 	
-	banksel	PORTA	
+	banksel	PORTA	;Moverme al banco de los PORTS
 	clrf	PORTB	;Colocar los puertos en 0
 	clrf	PORTC
 	clrf	PORTD
@@ -78,63 +79,53 @@ PROCESSOR 16F887
 	call inc_portc
 	btfss PORTA, 3
 	call dec_portc
+	btfss PORTA, 4
+	call result
 	goto loop
 
 ;---------------------------------SUBRUTINA-------------------------------------
     	
     inc_portb:
-	btfsc PORTA, 0
-	goto  $-1
-	call delay_small
-	btfsc PORTA, 0
-	goto loop
-	incf PORTB, F
-	goto loop
+	btfss PORTA, 0	    ;Revisar si el boton sigue apachado o no
+	goto $-1	    ;Esperar a que se deje de apachar
+	incf PORTB, F	    ;Incrementar el contador
+	btfsc PORTB, 4	    ;Si los 4 bits se encuentran encendidos resetear
+	clrf  PORTB
+	RETURN		    ;Regresar al loop
     
     dec_portb:
-	btfsc PORTA, 1
-	goto  $-1
-	call delay_small
-	btfsc PORTA, 1
-	goto loop
-	decf PORTB, F
-	goto loop
+	btfss PORTA, 1	  ;Revisar que se haya dejado de apacahar
+	goto $-1	  ;Regresar al anterior
+	decf PORTB, F	  ;Decrementar el puerto
+	MOVLW 0x0F	  ;Cargar valor a W para cuando se decrementa de 0 a F hex
+	btfsc PORTB, 7	  ;Revisar si se encuentra el bit8 encendido
+	MOVWF PORTB	  ;Cargar W en puerto para que solo esten encendido 4 bits
+	RETURN
 	
     inc_portc:
-	btfsc PORTA, 2
-	goto  $-1
-	call delay_small
-	btfsc PORTA, 2
-	goto loop
-	incf PORTC, F
-	goto loop
+	btfss PORTA, 2	    ;Revisar que se haya dejado de apacahar
+	goto $-1	    ;Regresar al anterior
+	incf PORTC, F	    ;Incrementar el contador
+	btfsc PORTC,4	    ;Si los 4 bits se encuentran encendidos resetear
+	clrf  PORTC
+	RETURN		    ;Regresar al loop
 	
     dec_portc:
-	btfsc PORTA, 3
-	goto  $-1
-	call delay_small
-	btfsc PORTA, 3
-	goto loop
-	decf PORTC, F
-	goto loop
+	btfss PORTA, 3	    ;Revisar que se haya dejado de apacahar
+	goto $-1	    ;Regresar al anterior
+	decf PORTC, F	    ;Decrementar el puerto
+	MOVLW 0x0F	    ;Cargar valor a W para cuando se decrementa de 0 a F hex
+	btfsc PORTC, 7	    ;Revisar si se encuentra el bit8 encendido
+	MOVWF PORTC	    ;Cargar W en puerto para que solo esten encendido 4 bits
+	RETURN
     
 	
-    
-    delay_big:
-	movlw   200		    ;valor inicial del contador
-	movwf   cont_big
-	call    delay_small	    ;rutina del delay 
-	decfsz  cont_big, 1	    ;decrementar el contador
-	goto    $-2		    ; ejecutar las lineas de atras
-	return
+    result:
+	btfss	PORTA, 4  ;Revisar si Boton de Resultado ya no esta presionado
+	goto	$-1
+	MOVF	PORTB ,0  ;Cargar Port B en W
+	ADDWF   PORTC ,0  ;Sumar W con PORTC y guardar en W
+	MOVWF	PORTD
+	RETURN
 
-    delay_small:
-	movlw   250		    ;valor inicial del contador
-	movwf   cont_small
-	decfsz  cont_small, 1	    ;decrementar el contador
-	goto    $-1		    ; ejecutar las lineas de atras
-	return
-
-return
-
-
+RETURN
