@@ -2578,12 +2578,12 @@ ENDM
 
     SETVAR:
  MOVLW 0 ;Debido a que timer0 cuenta 2ms
- MOVWF var500ms
+ MOVWF var500ms ;Definir el valor de la variable o reiniciarla
  RETURN
 
     INCVAR:
- call Ntimer0
- INCF var500ms
+ call Ntimer0 ;Reiniciar timer 0
+ INCF var500ms ;Incrementar variable de control de tiempo
  RETURN
 
     inc_portb:
@@ -2600,15 +2600,15 @@ ENDM
  RETURN
 
     inc_portD:
- btfss flag,0
+ btfss flag,0 ;antirrebote
  RETURN
  clrf flag
  incf condisp, F ;Incrementar el contador
  btfsc condisp,4 ;Si los 4 bits se encuentran encendidos resetear
- clrf condisp
- MOVF condisp, 0
- call table0
- MOVWF PORTD
+ clrf condisp ;Limpiar si se pasa de los 4 bits
+ MOVF condisp, 0 ;Copiar el valor del contador para busacr en la tabla
+ call table0 ;Llamar en la tabla los bits que deben estar encendidos
+ MOVWF PORTD ;Guardar en el port los bits para el display
  RETURN ;Regresar al loop
 
     antirrebote2:
@@ -2621,20 +2621,20 @@ ENDM
  clrf flag
  decf condisp, F ;Decrementar el puerto
  MOVLW 0x0F ;Cargar valor a W para cuando se decrementa de 0 a F hex
- btfsc condisp, 7 ;Revisar si se encuentra el bit8 encendido
+ btfsc condisp, 7;Revisar si se encuentra el bit8 encendido
  MOVWF condisp ;Cargar W en puerto para que solo esten encendido 4 bits
- MOVF condisp, 0
- call table0
- MOVWF PORTD
+ MOVF condisp, 0 ;Cargar el valor de la variable contador a W
+ call table0 ;Llamar a la tabla donde estan los bits para el display
+ MOVWF PORTD ;Mover el valor de W a PORTD con los bits de la table
  RETURN
 
     compare:
- MOVF condisp, W
- SUBWF PORTB, W
- btfss STATUS, 2
+ MOVF condisp, W ;Mover el valor eb el que esta el display a W
+ SUBWF PORTB, W ;Restarle al valor del puerto B, W
+ btfss STATUS, 2 ;Revisar si la bandera de 0 esta encendida
+ RETURN ;Regresar si no esta encendida
+ clrf PORTB ;Limpiar el contador del timer si esta encendida
+ bsf PORTD,7 ;Encender la luz led de alarma
  RETURN
- clrf PORTB
- bsf PORTD,7
- RETURN
-# 201 "Lab3Pgr.s"
+
 END
