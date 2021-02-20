@@ -50,7 +50,7 @@ PROCESSOR 16F887
    ORG 100h ; posicion para el codigo       
     table0:
 	clrf PCLATH
-	bsf  PCLATH,0
+	bsf  PCLATH,0	;Ubicar el PCLATH para que PC este en 100h
 	ADDWF PCL, 1
 	RETLW 00111111B ;0
 	RETLW 00000110B ;1
@@ -130,6 +130,7 @@ PROCESSOR 16F887
     SETVAR:
 	MOVLW	0		;Debido a que timer0 cuenta 2ms
 	MOVWF	var500ms	;Definir el valor de la variable o reiniciarla
+	BCF	PORTD, 7
 	RETURN
 	
     INCVAR:
@@ -184,8 +185,8 @@ PROCESSOR 16F887
 	SUBWF PORTB, W	    ;Restarle al valor del puerto B, W
 	btfss STATUS, 2	    ;Revisar si la bandera de 0 esta encendida
 	RETURN		    ;Regresar si no esta encendida
-	clrf PORTB	    ;Limpiar el contador del timer si esta encendida
 	bsf PORTD,7	    ;Encender la luz led de alarma
+	clrf PORTB	    ;Limpiar el contador del timer si esta encendida
 	RETURN		    
 
 END
