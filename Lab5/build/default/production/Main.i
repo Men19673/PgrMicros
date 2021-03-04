@@ -2670,6 +2670,7 @@ ENDM
  clrf centenas
  clrf decenas
  clrf unidades
+ clrf varbin
 
 ;--------------------------------LOOP-------------------------------------------
     loop:
@@ -2728,11 +2729,6 @@ ENDM
  clrf decenas ;Limpiar contador
  clrf unidades ;Limpiar contador
  incf PORTA, F ;Incrementar el contador
- ;btfsc PORTA,4 ;Si los 4 bits se encuentran encendidos resetear
- ;clrf PORTA ;Limpiar si se pasa de los 4 bits
- ;MOVF PORTA, 0 ;Copiar el valor del contador para busacr en la tabla
- ;call table0 ;Llamar en la tabla los bits que deben estar encendidos
- ;MOVWF PORTC ;Guardar en el port los bits para el display
  RETURN ;Regresar al loop
 
 
@@ -2743,12 +2739,6 @@ ENDM
  clrf decenas ;Limpiar contador
  clrf unidades ;Limpiar contador
  decf PORTA, F ;Decrementar el puerto
- ;MOVLW 0x0F ;Cargar valor a W para cuando se decrementa de 0 a F hex
- ;btfsc PORTA, 7;Revisar si se encuentra el bit8 encendido
- ;MOVWF PORTA ;Cargar W en puerto para que solo esten encendido 4 bits
- ;MOVF PORTA, 0 ;Cargar el valor de la variable contador a W
- ;call table0 ;Llamar a la tabla donde estan los bits para el display
- ;MOVWF PORTC ;Mover el valor de W a PORTD con los bits de la table
  RETURN
 
     split_nibbles:
@@ -2764,7 +2754,9 @@ ENDM
  BSF flagnum, 1
  BSF flagnum, 2
  MOVF PORTA, W
+ btfss flagnum, 4
  MOVWF varbin ;Mover el valor binario a una variable
+ BSF flagnum, 4
  MOVLW 100
  SUBWF varbin, F ;Restar 100 a varbin
  btfsc STATUS, 0 ;Revisar si ocurrio un borrow
@@ -2780,22 +2772,17 @@ ENDM
  RETURN
 
     resdec:
- BSF flagnum,2
+ BSF flagnum, 2
  MOVLW 10
  SUBWF varbin, F ;Restar 10 al valor
-
  btfsc STATUS, 0 ;Revisar si ocurrio un borrow
  INCF decenas ;Incrementar el contador de decenas
-
  btfss STATUS, 0 ;Revisar si ocurrio un borrow
  BSF flagnum, 1 ;Levantar la bandera
-
- btfss STATUS, 0 ;Revisar si ocurrio un borrow
- BCF flagnum, 2 ;Levantar la bandera
-
  btfss STATUS, 0
- ADDWF varbin ;Sumar 10 al valor anterior para regresar al numero
-
+ BCF flagnum,2
+ btfss STATUS, 0
+ ADDWF varbin
  RETURN
 
     resun:

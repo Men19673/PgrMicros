@@ -13,7 +13,7 @@
 %PSECTS
 $build/default/production/Main.o
 resVect CODE 0 0 0 43 2
-code CODE 0 0 0 198 2
+code CODE 0 0 0 19B 2
 udata_bank0 BANK0 1 20 20 10 1
 config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
@@ -30,14 +30,14 @@ BANK0 30-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 198-1FFF 2
-ENTRY 198-1FFF 2
+CONST 19B-1FFF 2
+ENTRY 19B-1FFF 2
 IDLOC 2000-2003 2
-CODE 198-1FFF 2
+CODE 19B-1FFF 2
 COMMON 70-7F 1
 EEDATA 2100-21FF 2
-STRCODE 198-1FFF 2
-STRING 198-1FFF 2
+STRCODE 19B-1FFF 2
+STRING 19B-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -191,103 +191,106 @@ F resVect CODE >82:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 13C code CODE >221:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 13D code CODE >222:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 13E code CODE >223:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-13F code CODE >226:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-13F code CODE >227:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+13F code CODE >224:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+140 code CODE >227:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 140 code CODE >228:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 141 code CODE >229:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 142 code CODE >230:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 143 code CODE >231:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-144 code CODE >233:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+144 code CODE >232:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 145 code CODE >234:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 146 code CODE >235:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 147 code CODE >236:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 148 code CODE >237:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 149 code CODE >238:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-14A code CODE >240:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-14B code CODE >242:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-14C code CODE >249:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-14C code CODE >250:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+14A code CODE >239:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+14B code CODE >241:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+14C code CODE >243:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+14D code CODE >250:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 14D code CODE >251:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 14E code CODE >252:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 14F code CODE >253:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-150 code CODE >255:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+150 code CODE >254:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 151 code CODE >256:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 152 code CODE >257:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-153 code CODE >259:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+153 code CODE >258:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 154 code CODE >260:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 155 code CODE >261:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-156 code CODE >264:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+156 code CODE >262:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 157 code CODE >265:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 158 code CODE >266:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-159 code CODE >268:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+159 code CODE >267:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 15A code CODE >269:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 15B code CODE >270:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-15C code CODE >272:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-15D code CODE >275:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-15D code CODE >276:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+15C code CODE >271:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+15D code CODE >273:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+15E code CODE >276:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 15E code CODE >277:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 15F code CODE >278:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 160 code CODE >279:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 161 code CODE >280:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 162 code CODE >281:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-163 code CODE >287:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-164 code CODE >290:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-164 code CODE >291:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-165 code CODE >292:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-166 code CODE >293:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-167 code CODE >294:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-168 code CODE >295:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-169 code CODE >296:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-16A code CODE >303:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-16B code CODE >305:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-16B code CODE >306:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-16C code CODE >307:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-16D code CODE >308:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-16E code CODE >309:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-16F code CODE >310:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-170 code CODE >311:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-171 code CODE >312:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-172 code CODE >314:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-172 code CODE >315:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-173 code CODE >316:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-174 code CODE >317:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-175 code CODE >318:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-176 code CODE >319:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-177 code CODE >320:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-178 code CODE >321:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-179 code CODE >322:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-17A code CODE >323:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-17B code CODE >324:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-17C code CODE >325:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-17D code CODE >326:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-17E code CODE >327:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-17F code CODE >328:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-180 code CODE >329:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-181 code CODE >330:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-182 code CODE >331:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-183 code CODE >333:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-183 code CODE >334:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-184 code CODE >335:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-185 code CODE >336:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-186 code CODE >338:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-187 code CODE >339:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-188 code CODE >341:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-189 code CODE >342:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18A code CODE >344:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18B code CODE >345:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18C code CODE >347:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18D code CODE >348:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18E code CODE >350:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18F code CODE >352:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18F code CODE >353:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-190 code CODE >354:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-191 code CODE >355:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-192 code CODE >356:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-193 code CODE >357:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-194 code CODE >358:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-195 code CODE >359:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-196 code CODE >360:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-197 code CODE >361:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+163 code CODE >282:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+164 code CODE >283:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+165 code CODE >286:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+165 code CODE >287:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+166 code CODE >288:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+167 code CODE >289:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+168 code CODE >290:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+169 code CODE >291:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+16A code CODE >292:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+16B code CODE >293:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+16C code CODE >295:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+16C code CODE >296:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+16D code CODE >297:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+16E code CODE >298:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+16F code CODE >299:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+170 code CODE >300:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+171 code CODE >301:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+172 code CODE >302:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+173 code CODE >304:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+173 code CODE >305:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+174 code CODE >306:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+175 code CODE >307:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+176 code CODE >308:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+177 code CODE >309:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+178 code CODE >310:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+179 code CODE >311:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+17A code CODE >312:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+17B code CODE >313:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+17C code CODE >314:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+17D code CODE >315:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+17E code CODE >316:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+17F code CODE >317:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+180 code CODE >318:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+181 code CODE >319:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+182 code CODE >320:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+183 code CODE >321:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+184 code CODE >322:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+185 code CODE >323:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+186 code CODE >325:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+186 code CODE >326:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+187 code CODE >327:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+188 code CODE >328:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+189 code CODE >329:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18A code CODE >330:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18B code CODE >331:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18C code CODE >332:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18D code CODE >333:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18E code CODE >334:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18F code CODE >335:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+190 code CODE >336:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+191 code CODE >337:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+192 code CODE >339:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+192 code CODE >340:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+193 code CODE >341:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+194 code CODE >342:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+195 code CODE >343:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+196 code CODE >344:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+197 code CODE >345:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+198 code CODE >346:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+199 code CODE >347:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+19A code CODE >348:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -300,7 +303,7 @@ F resVect CODE >82:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 198 0 ABS 0 - -
+__Hspace_0 19B 0 ABS 0 - -
 __Hspace_1 30 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
