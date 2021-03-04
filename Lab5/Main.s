@@ -47,7 +47,8 @@ PROCESSOR 16F887
 	unidades:   DS 1; 1 byte
 	varbin:	    DS 1; 1 byte
     
-    GLOBAL flagint, condisp, selec_disp, W_Temp, STAT_Temp, nibblelow, nibblehigh
+    GLOBAL flagint, condisp, selec_disp, W_Temp, STAT_Temp, nibblelow
+    GLOBAL nibblehigh, varbin, flagnum, centenas, decenas, unidades
 	
 	    
     
@@ -132,7 +133,7 @@ PROCESSOR 16F887
     goto    next_disp
     
    display4:
-    MOVF    condisp1,W	   ;Mover el valor de unidades al PORTC
+    MOVF    condisp1+2,W	   ;Mover el valor de unidades al PORTC
     MOVWF   PORTC
     BSF	    PORTD, 4	    ;Encender el display 4
     MOVLW   0	    ;Proximo display sea 0
@@ -216,7 +217,10 @@ PROCESSOR 16F887
 	MOVWF PORTC
 	
 	clrf condisp
-	
+	clrf flagnum
+	clrf centenas
+	clrf decenas
+	clrf unidades
 	
 ;--------------------------------LOOP-------------------------------------------
     loop:
@@ -225,14 +229,14 @@ PROCESSOR 16F887
 	BTFSC flagint, 1
 	call  dec_portA
 	call split_nibbles
-	/*
+	
 	BTFSS flagnum, 0
 	call rescen
 	BTFSS flagnum, 1
 	call resdec
 	BTFSS flagnum, 2
 	call resun
-	BTFSC flagint, 2*/
+	
 	call  disp_refresh
 	
 	goto  loop
@@ -255,22 +259,25 @@ PROCESSOR 16F887
 	MOVF	centenas, W
 	call	table0
 	MOVWF	condisp1    ;Guardar en variable las centenas
-	clrf	decenas	    ;Limpiar contador
+	
 	
 	MOVF	decenas, W
 	call	table0
 	MOVWF	condisp1+1  ;Guardar en variable las decenas
-	clrf	decenas	    ;Limpiar contador
 	
 	MOVF	unidades, W
 	call	table0
 	MOVWF	condisp1+2  ;Guardar en variable las unidades
-	clrf	unidades    ;Limpiar contador
+	
 	RETURN
 
 	
     inc_portA:
+	clrf flagnum
 	clrf flagint
+	clrf centenas	    ;Limpiar contador
+	clrf decenas	    ;Limpiar contador
+	clrf unidades    ;Limpiar contador
 	incf PORTA, F	    ;Incrementar el contador
 	;btfsc PORTA,4	    ;Si los 4 bits se encuentran encendidos resetear
 	;clrf  PORTA	    ;Limpiar si se pasa de los 4 bits
@@ -281,7 +288,11 @@ PROCESSOR 16F887
 
 	
     dec_portA:
+	clrf flagnum
 	clrf flagint
+	clrf centenas	    ;Limpiar contador
+	clrf decenas	    ;Limpiar contador
+	clrf unidades    ;Limpiar contador
 	decf PORTA, F	 ;Decrementar el puerto
 	;MOVLW 0x0F	;Cargar valor a W para cuando se decrementa de 0 a F hex
 	;btfsc PORTA, 7;Revisar si se encuentra el bit8 encendido
@@ -301,34 +312,43 @@ PROCESSOR 16F887
 	RETURN
 	
     rescen:
+	BSF flagnum, 1
+	BSF flagnum, 2
 	MOVF PORTA, W
 	MOVWF varbin	    ;Mover el valor binario a una variable
 	MOVLW	100
 	SUBWF	varbin, F   ;Restar 100 a varbin
-	btfss	STATUS, 0   ;Revisar si ocurrio un borrow
+	btfsc	STATUS, 0   ;Revisar si ocurrio un borrow
 	INCF	centenas    ;Incrementar el contador de centenas
-	btfsc	STATUS, 0  
-	BSF	flagnum, 0
+	btfss	STATUS, 0  
+	BSF	flagnum,0
+	btfss	STATUS, 0  
+	BCF	flagnum,1
+	btfss	STATUS, 0  
+	BCF	flagnum,2
+	btfss	STATUS, 0
+	ADDWF	varbin	    ;Sumar 100 al valor anterior para regresar al numero
 	RETURN
 
     resdec:
-	ADDWF	varbin	    ;Sumar 100 al valor anterior para regresar al numero
+	BSF	flagnum,2
 	MOVLW	10
 	SUBWF	varbin, F   ;Restar 10 al valor
-	btfss	STATUS, 0   ;Revisar si ocurrio un borrow
+	btfsc	STATUS, 0   ;Revisar si ocurrio un borrow
 	INCF	decenas	    ;Incrementar el contador de decenas
-	btfsc	STATUS,	0   ;Revisar si ocurrio un borrow
+	btfss	STATUS,	0   ;Revisar si ocurrio un borrow
 	BSF	flagnum, 1  ;Levantar la bandera
 	RETURN
     
     resun:
-	ADDWF	varbin	    ;Sumar 10 al valor anterior para regresar al numero
 	MOVLW	1
 	SUBWF	varbin,F    ;Restar uno a una variable
-	btfss	STATUS, 0
+	btfsc	STATUS, 0
 	INCF	unidades    ;Incrementar el contador de unidades
-	btfsc	STATUS,0    ;Revisar si ocurrio un borrow
+	btfss	STATUS,0    ;Revisar si ocurrio un borrow
 	BSF	flagnum, 2  ;Levantar bandera
+	btfss	STATUS, 0
+	ADDWF	varbin
 	RETURN
     
 

@@ -11,9 +11,9 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$build/default/production/Main.o
+$build/default/debug/Main.o
 resVect CODE 0 0 0 43 2
-code CODE 0 0 0 198 2
+code CODE 0 0 0 194 2
 udata_bank0 BANK0 1 20 20 10 1
 config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
@@ -30,14 +30,14 @@ BANK0 30-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 198-1FFF 2
-ENTRY 198-1FFF 2
+CONST 194-1FFF 2
+ENTRY 194-1FFF 2
 IDLOC 2000-2003 2
-CODE 198-1FFF 2
+CODE 194-1FFF 2
 COMMON 70-7F 1
 EEDATA 2100-21FF 2
-STRCODE 198-1FFF 2
-STRING 198-1FFF 2
+STRCODE 194-1FFF 2
+STRING 194-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -51,7 +51,7 @@ STRING 198-1FFF 2
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
-$build/default/production/Main.o
+$build/default/debug/Main.o
 0 resVect CODE >58:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 0 resVect CODE >59:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 0 resVect CODE >60:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
@@ -269,25 +269,21 @@ F resVect CODE >82:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 183 code CODE >334:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 184 code CODE >335:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 185 code CODE >336:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-186 code CODE >338:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-187 code CODE >339:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-188 code CODE >341:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-189 code CODE >342:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18A code CODE >344:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18B code CODE >345:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18C code CODE >347:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18D code CODE >348:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18E code CODE >350:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18F code CODE >352:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-18F code CODE >353:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-190 code CODE >354:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-191 code CODE >355:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-192 code CODE >356:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-193 code CODE >357:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-194 code CODE >358:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-195 code CODE >359:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-196 code CODE >360:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
-197 code CODE >361:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+186 code CODE >337:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+187 code CODE >338:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+188 code CODE >339:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+189 code CODE >340:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18A code CODE >341:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18B code CODE >343:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18B code CODE >344:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18C code CODE >345:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18D code CODE >346:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18E code CODE >347:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+18F code CODE >348:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+190 code CODE >349:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+191 code CODE >350:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+192 code CODE >351:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
+193 code CODE >352:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -300,18 +296,18 @@ F resVect CODE >82:C:\Users\diego\Desktop\PgrMicros\Lab5\Main.s
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 198 0 ABS 0 - -
+__Hspace_0 194 0 ABS 0 - -
 __Hspace_1 30 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
-decenas 2D 0 BANK0 1 udata_bank0 build/default/production/Main.o
+decenas 2D 0 BANK0 1 udata_bank0 build/default/debug/Main.o
 __Hudata_bank0 0 0 ABS 0 udata_bank0 -
 __Hudata_bank1 0 0 ABS 0 udata_bank1 -
 __Hudata_bank2 0 0 ABS 0 udata_bank2 -
 __Hudata_bank3 0 0 ABS 0 udata_bank3 -
-varbin 2F 0 BANK0 1 udata_bank0 build/default/production/Main.o
-centenas 2C 0 BANK0 1 udata_bank0 build/default/production/Main.o
-nibblelow 2A 0 BANK0 1 udata_bank0 build/default/production/Main.o
+varbin 2F 0 BANK0 1 udata_bank0 build/default/debug/Main.o
+centenas 2C 0 BANK0 1 udata_bank0 build/default/debug/Main.o
+nibblelow 2A 0 BANK0 1 udata_bank0 build/default/debug/Main.o
 __LresVect 0 0 ABS 0 resVect -
 __Hedata 0 0 ABS 0 edata -
 __Hudata 0 0 ABS 0 udata -
@@ -325,13 +321,13 @@ __Ldata 0 0 ABS 0 data -
 __S0 0 0 ABS 0 - -
 __S1 30 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-unidades 2E 0 BANK0 1 udata_bank0 build/default/production/Main.o
-STAT_Temp 27 0 BANK0 1 udata_bank0 build/default/production/Main.o
+unidades 2E 0 BANK0 1 udata_bank0 build/default/debug/Main.o
+STAT_Temp 27 0 BANK0 1 udata_bank0 build/default/debug/Main.o
 __HresVect 0 0 ABS 0 resVect -
 __Lconfig 0 0 CONFIG 4 config -
-nibblehigh 2B 0 BANK0 1 udata_bank0 build/default/production/Main.o
-flagint 28 0 BANK0 1 udata_bank0 build/default/production/Main.o
-flagnum 29 0 BANK0 1 udata_bank0 build/default/production/Main.o
+nibblehigh 2B 0 BANK0 1 udata_bank0 build/default/debug/Main.o
+flagint 28 0 BANK0 1 udata_bank0 build/default/debug/Main.o
+flagnum 29 0 BANK0 1 udata_bank0 build/default/debug/Main.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
@@ -340,10 +336,10 @@ __Ludata_bank0 0 0 ABS 0 udata_bank0 -
 __Ludata_bank1 0 0 ABS 0 udata_bank1 -
 __Ludata_bank2 0 0 ABS 0 udata_bank2 -
 __Ludata_bank3 0 0 ABS 0 udata_bank3 -
-condisp 21 0 BANK0 1 udata_bank0 build/default/production/Main.o
-W_Temp 26 0 BANK0 1 udata_bank0 build/default/production/Main.o
+condisp 21 0 BANK0 1 udata_bank0 build/default/debug/Main.o
+W_Temp 26 0 BANK0 1 udata_bank0 build/default/debug/Main.o
 __Hudata_shr 0 0 ABS 0 udata_shr -
-selec_disp 20 0 BANK0 1 udata_bank0 build/default/production/Main.o
+selec_disp 20 0 BANK0 1 udata_bank0 build/default/debug/Main.o
 __Ludata_shr 0 0 ABS 0 udata_shr -
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.

@@ -2783,19 +2783,10 @@ ENDM
  BSF flagnum,2
  MOVLW 10
  SUBWF varbin, F ;Restar 10 al valor
-
  btfsc STATUS, 0 ;Revisar si ocurrio un borrow
  INCF decenas ;Incrementar el contador de decenas
-
  btfss STATUS, 0 ;Revisar si ocurrio un borrow
  BSF flagnum, 1 ;Levantar la bandera
-
- btfss STATUS, 0 ;Revisar si ocurrio un borrow
- BCF flagnum, 2 ;Levantar la bandera
-
- btfss STATUS, 0
- ADDWF varbin ;Sumar 10 al valor anterior para regresar al numero
-
  RETURN
 
     resun:
