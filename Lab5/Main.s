@@ -108,39 +108,38 @@ PROCESSOR 16F887
     MOVF    condisp+1, W	    ;Mover el valor de la variable al PORT
     MOVWF   PORTC
     BSF	    PORTD,0	    ;Encender el display 0
-    MOVLW   1		    ;Proximo interrupt ir a display1
-    goto    next_disp	    
+    BSF   selec_disp, 0		    ;Proximo interrupt ir a display1
+    RETURN	    
    
    display1:
+    BCF	    selec_disp, 0
     MOVF    condisp, W    ;Mover el valor de la variable al port
     MOVWF   PORTC	    
     BSF	    PORTD,1	    ;Encender el display 1
-    MOVLW   2		   ;Proximo interrupt ir a display2
-    goto    next_disp
+    BSF	    selec_disp, 1		   ;Proximo interrupt ir a display2
+    RETURN
     
    display2:
+    BCF	    selec_disp, 1
     MOVF    condisp1,W	   ;Mover el valor de centenas al PORTC
     MOVWF   PORTC
     BSF	    PORTD, 2	    ;Encender el display 2
-    MOVLW   4   ;Proximo display sea 3
-    goto    next_disp
+    BSF	    selec_disp, 2   ;Proximo display sea 3
+    RETURN
     
    display3:
+    BCF	    selec_disp, 2
     MOVF    condisp1+1,W    ;Mover el valor de decenas al PORTC
     MOVWF   PORTC
     BSF	    PORTD, 3	    ;Encender el display 3
-    MOVLW   8   ;Proximo display sea 4
-    goto    next_disp
+    BSF	    selec_disp,	3
+    RETURN
     
    display4:
     MOVF    condisp1+2,W	   ;Mover el valor de unidades al PORTC
     MOVWF   PORTC
     BSF	    PORTD, 4	    ;Encender el display 4
-    MOVLW   0	    ;Proximo display sea 0
-    goto    next_disp
-    
-   next_disp:
-    MOVWF   selec_disp
+    clrf    selec_disp
     RETURN
     
    Ntimer0:
