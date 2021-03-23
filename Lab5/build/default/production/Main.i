@@ -2561,7 +2561,7 @@ ENDM
     RETURN
 
    display1:
-    BCF selec_disp, 0
+    BCF selec_disp, 0 ;Limpiar bandera de display 1
     MOVF condisp, W ;Mover el valor de la variable al port
     MOVWF PORTC
     BSF PORTD,1 ;Encender el display 1
@@ -2569,7 +2569,7 @@ ENDM
     RETURN
 
    display2:
-    BCF selec_disp, 1
+    BCF selec_disp, 1 ;Limpiar bandera de display 2
     MOVF condisp1,W ;Mover el valor de centenas al PORTC
     MOVWF PORTC
     BSF PORTD, 2 ;Encender el display 2
@@ -2577,18 +2577,18 @@ ENDM
     RETURN
 
    display3:
-    BCF selec_disp, 2
+    BCF selec_disp, 2 ;Limpiar bandera de display 3
     MOVF condisp1+1,W ;Mover el valor de decenas al PORTC
     MOVWF PORTC
     BSF PORTD, 3 ;Encender el display 3
-    BSF selec_disp, 3
+    BSF selec_disp, 3 ;Proximo display sea el 4
     RETURN
 
    display4:
     MOVF condisp1+2,W ;Mover el valor de unidades al PORTC
     MOVWF PORTC
     BSF PORTD, 4 ;Encender el display 4
-    clrf selec_disp
+    clrf selec_disp ;Proximo display sea 0
     RETURN
 
    Ntimer0:
@@ -2664,7 +2664,7 @@ ENDM
  MOVWF PORTD
  MOVWF PORTC
 
- clrf condisp
+ clrf condisp ;Limpiar todas las variables
  clrf flagnum
  clrf centenas
  clrf decenas
@@ -2673,20 +2673,20 @@ ENDM
 
 ;--------------------------------LOOP-------------------------------------------
     loop:
- BTFSC flagint, 0
- CALL inc_portA
- BTFSC flagint, 1
- call dec_portA
- call split_nibbles
+ BTFSC flagint, 0 ;Verificar si la bandera de PORTB 0 on change
+ CALL inc_portA ;Incrementar contador
+ BTFSC flagint, 1 ;Verificar si la bandera de PORTB 1 on change
+ call dec_portA ;Decrementar contador
+ call split_nibbles ;Separar los nibbles para display HEX
 
- BTFSS flagnum, 0
+ BTFSS flagnum, 0 ;Revisar bandera de terminar centenas
  call rescen
- BTFSS flagnum, 1
+ BTFSS flagnum, 1 ;Revisar banderas de terminar decenas
  call resdec
- BTFSS flagnum, 2
+ BTFSS flagnum, 2 ;Revisar banderas de terminar unidades
  call resun
 
- call disp_refresh
+ call disp_refresh ;preparar para un refresh
 
  goto loop
 
@@ -2750,38 +2750,44 @@ ENDM
  RETURN
 
     rescen:
- BSF flagnum, 1
+ BSF flagnum, 1 ;Apagar la resta de decenas y centenas
  BSF flagnum, 2
+
  MOVF PORTA, W
- btfss flagnum, 4
+ btfss flagnum, 4 ;Verificar si ya se copio una vez el valor del PORTA
  MOVWF varbin ;Mover el valor binario a una variable
- BSF flagnum, 4
+ BSF flagnum, 4 ;Hacer que no vuelva a tomar el valor de PORTA
+
  MOVLW 100
  SUBWF varbin, F ;Restar 100 a varbin
+
  btfsc STATUS, 0 ;Revisar si ocurrio un borrow
  INCF centenas ;Incrementar el contador de centenas
- btfss STATUS, 0
- BSF flagnum,0
+
+ btfss STATUS, 0 ;Si la bandera de estatus se encuentra en 1
+ BSF flagnum,0 ;significa que no ha terminado de contar
  btfss STATUS, 0
  BCF flagnum,1
- btfss STATUS, 0
- BCF flagnum,2
+
  btfss STATUS, 0
  ADDWF varbin ;Sumar 100 al valor anterior para regresar al numero
+
  RETURN
 
     resdec:
- BSF flagnum, 2
  MOVLW 10
  SUBWF varbin, F ;Restar 10 al valor
  btfsc STATUS, 0 ;Revisar si ocurrio un borrow
  INCF decenas ;Incrementar el contador de decenas
+
  btfss STATUS, 0 ;Revisar si ocurrio un borrow
  BSF flagnum, 1 ;Levantar la bandera
- btfss STATUS, 0
+ btfss STATUS, 0 ;Encender la resta de unidades
  BCF flagnum,2
+
  btfss STATUS, 0
- ADDWF varbin
+ ADDWF varbin ;Sumar 10 al valor para no perder el numero
+
  RETURN
 
     resun:

@@ -3,7 +3,7 @@
 ; Autor: Diego Mendez
 ; Compilador: pic-as (v2.30), MPLABX v5.40
 ; 
-; Programa: Utilizando Interrupts, un contador hex y decima
+; Programa: Utilizando Interrupts, un contadores decimales y luces
 ; Hardware: Push buttons puerto B, 2Displays y Leds
 ; 
 ; Creado: 22 feb, 2021
@@ -73,7 +73,9 @@ PROCESSOR 16F887
 	BTFSC	INTCON, 0   ;Revisar si existe cambio en b
 	call	pushbt
 	BTFSC	INTCON, 2   ;Revisar si la interrupcion fue por el timer overflow
-	call	timerflag
+	call	timerflag   
+	BTFSC	PIR1, 0
+	call	timer1flag
 	
    POP:
 	SWAPF	STAT_Temp, W ;Guardar STATUS original en W 
@@ -90,6 +92,9 @@ PROCESSOR 16F887
     BSF	    flagint, 1
     bcf	    INTCON,0	;Limpiar bandera RBIF
     RETURN
+    
+   timer1flag:
+    banksel
     
    timerflag:
     BSF	    flagint, 2	;Encender una bandera externa
@@ -187,9 +192,13 @@ PROCESSOR 16F887
 	clrf	TRISD	;Configurar puerto D
 	clrf	TRISE
 	
+	bsf	OSCCON,0    ; El reloj interno utiliza el oscilador interno
+	
 	BSF INTCON, 7	;Activar global Int
+	BSF INTCON, 6   ;Activar el external Interrupt para Timer 1
 	BSF INTCON, 5	;Timer0 INt
 	BSF INTCON, 3	;PORTB int
+	
 	
 	banksel	PORTA	;Moverme al banco de los PORTS
 	clrf	PORTA	;Colocar pines de A en 0
@@ -207,14 +216,22 @@ PROCESSOR 16F887
 	MOVWF	WPUB
 	MOVWF	IOCB    ;Configurar b0 y b1 para que funcione int-on-change
 	
-	banksel OSCCON
-	bsf	OSCCON,0    ; El reloj interno utiliza el oscilador interno
+	
 	
 	banksel PORTA
 	MOVLW 00111111B	  ;Darle un valor al puerto D
 	MOVWF PORTD
 	MOVWF PORTC
 	
+	;Configurar Timer1, banksel no es necesario debido a que esta en el mismo
+	;Originalmente se encuentra en 1:1
+	bcf T1CON, 1	    ;Timer 1 utiliza el clock interno
+	clrf	TMR1H	    ;Limpiar el timer 1
+	clrf	TMR1L
+	banksel PIE1
+	BSF PIE1,   0	;Enable interrupt Timer1
+	
+	banksel PORTA
 	clrf condisp	    ;Limpiar todas las variables
 	clrf flagnum
 	clrf centenas
@@ -230,12 +247,6 @@ PROCESSOR 16F887
 	call  dec_portA		;Decrementar contador
 	call split_nibbles	;Separar los nibbles para display HEX
 	
-	BTFSS flagnum, 0	;Revisar bandera de terminar centenas
-	call rescen		
-	BTFSS flagnum, 1	;Revisar banderas de terminar decenas
-	call resdec
-	BTFSS flagnum, 2	;Revisar banderas de terminar unidades
-	call resun
 	
 	call  disp_refresh	;preparar para un refresh
 	
@@ -300,30 +311,6 @@ PROCESSOR 16F887
 	MOVWF nibblehigh    ;Guardar los 4bits superiores en variable
 	RETURN
 	
-    rescen:
-	BSF flagnum, 1	;Apagar la resta de decenas y centenas
-	BSF flagnum, 2
-	
-	MOVF PORTA, W	    
-	btfss	flagnum, 4  ;Verificar si ya se copio una vez el valor del PORTA
-	MOVWF varbin	    ;Mover el valor binario a una variable
-	BSF flagnum, 4	    ;Hacer que no vuelva a tomar el valor de PORTA 
-	
-	MOVLW	100
-	SUBWF	varbin, F   ;Restar 100 a varbin
-	
-	btfsc	STATUS, 0   ;Revisar si ocurrio un borrow
-	INCF	centenas    ;Incrementar el contador de centenas
-    	
-	btfss	STATUS, 0   ;Si la bandera de estatus se encuentra en 1 
-	BSF	flagnum,0   ;significa que no ha terminado de contar
-	btfss	STATUS, 0  
-	BCF	flagnum,1
-	
-	btfss	STATUS, 0
-	ADDWF	varbin	    ;Sumar 100 al valor anterior para regresar al numero
-	
-	RETURN
 
     resdec:
 	MOVLW	10
@@ -354,3 +341,5 @@ PROCESSOR 16F887
     
 
 END
+
+
