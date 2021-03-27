@@ -37,8 +37,11 @@ PROCESSOR 16F887
 	W_Temp:	    DS 1; 1 byte
 	STAT_Temp:  DS 1; 1 byte
     
-	flagint:    DS 1; 1 byte 
+	flagint:    DS 1; 1 byte
+	flagnum:    DS 1; 1 byte
+	varbin:	    DS 1; 1 byte
 	
+        condisp:    DS 2; 2 bytes
 	condisp1:    DS 2; 2 bytes
 	condisp2:    DS 2; 2 bytes
 	condisp3:    DS 2; 2 bytes
@@ -61,7 +64,7 @@ PROCESSOR 16F887
 	oneseg:	    DS 1; 1 byte
 	tempt:	    DS 1; 1 byte
     
-    GLOBAL flagint, condisp, selec_disp, W_Temp, STAT_Temp
+    GLOBAL flagint, condisp1, selec_disp, W_Temp, STAT_Temp
     GLOBAL decenas1, unidades1
 	
 	    
@@ -314,7 +317,7 @@ PROCESSOR 16F887
 	MOVLW 10
 	MOVWF	semaforo1
 	MOVWF	semaforo2
-	MOVFW	semaforo3
+	MOVWF	semaforo3
 	RETURN
     
     semafdec:
@@ -325,7 +328,7 @@ PROCESSOR 16F887
     
     disp_refresh:
 	BCF  flagint, 2	    ;Limpiar bandera de que hubo un int por el Timer0
-	MOVF	centenas1, W   
+	MOVF	decenas1, W   
 	call	table0	    ;Buscar el nibble menos significativo en la tabla 
 	MOVWF	condisp	    ;Guardar en el condisp
 	
@@ -381,7 +384,7 @@ PROCESSOR 16F887
 	MOVLW	1
 	SUBWF	varbin,F    ;Restar uno a una variable
 	btfsc	STATUS, 0
-	INCF	unidades    ;Incrementar el contador de unidades
+	INCF	unidades1    ;Incrementar el contador de unidades
 	btfss	STATUS,0    ;Revisar si ocurrio un borrow
 	BSF	flagnum, 2  ;Levantar bandera
 	btfss	STATUS, 0
