@@ -2487,8 +2487,8 @@ ENDM
  STAT_Temp: DS 1; 1 byte
 
  flagint: DS 1; 1 byte
- flagnum: DS 1; 1 byte
- varbin: DS 1; 1 byte
+ flagmode: DS 1; 1 byte
+ flag: DS 1; 1 byte
 
         condisp: DS 2; 2 bytes
  condisp1: DS 2; 2 bytes
@@ -2496,11 +2496,13 @@ ENDM
  condisp3: DS 2; 2 bytes
  condisp4: DS 2; 2 bytes
 
+        decenas: DS 1; 1 byte
  decenas1: DS 1; 1 byte
  decenas2: DS 1; 1 byte
  decenas3: DS 1; 1 byte
  decenas4: DS 1; 1 byte
 
+        unidades: DS 1; 1 byte
  unidades1: DS 1; 1 byte
  unidades2: DS 1; 1 byte
  unidades3: DS 1; 1 byte
@@ -2512,9 +2514,10 @@ ENDM
  semaforo3: DS 1; 1 byte
  oneseg: DS 1; 1 byte
  tempt: DS 1; 1 byte
+ valor: DS 1; 1 byte
 
     GLOBAL flagint, condisp1, selec_disp, W_Temp, STAT_Temp
-    GLOBAL decenas1, unidades1
+    GLOBAL decenas1, unidades1, condisp4
 
 
 
@@ -2571,7 +2574,7 @@ ENDM
     RETURN
 
    timer0flag:
-    BSF flagint, 2 ;Encender una bandera externa
+    BSF flagint, 4 ;Encender una bandera externa
     call Ntimer0 ;Reiniciar el timer0
     clrf PORTD ;Limpiar el selector de pantalla
     btfsc selec_disp, 0 ;Ver si la display pasada fue la 4
@@ -2649,6 +2652,7 @@ ENDM
     MOVF condisp4+1,W ;Mover el valor de decenas al PORTC
     MOVWF PORTC
     BSF PORTD, 7 ;Encender el display 7
+    clrf selec_disp
     RETURN
 
 
@@ -2732,6 +2736,8 @@ ENDM
  MOVLW 01000100B ;Poner el prescaler en 32, activar PULLUP y WDT en timer0
  MOVWF OPTION_REG
 
+
+
  ;Weak PULLUP y IOCB se encuentran en el mismo banco que option_reg
  MOVLW 00000111B ;Configurar b0, b1 y b2 para que tengan weak pullup
  MOVWF WPUB
@@ -2745,100 +2751,197 @@ ENDM
  MOVWF PORTC
 
  MOVLW 10
+ MOVWF oneseg
+
 
 ;--------------------------------LOOP-------------------------------------------
     loop:
- BTFSC flagint, 0 ;Verificar si la bandera de PORTB 0 on change
- CALL inc_portA ;Incrementar contador
- BTFSC flagint, 1 ;Verificar si la bandera de PORTB 1 on change
- call dec_portA ;Decrementar contador
+ ;BTFSC flagint, 0
 
+ BTFSC flagint, 1 ;Verificar si la bandera de PORTB 0 on change
+ CALL inc_num ;Incrementar contador
+ BTFSC flagint, 2 ;Verificar si la bandera de PORTB 1 on change
+ CALL dec_num ;Decrementar contador
 
+ CALL mode0
 
-
- call disp_refresh ;preparar para un refresh
+ CALL decimales
+ CALL disp_refresh ;preparar para un refresh
 
  goto loop
 
 ;---------------------------------SUBRUTINA-------------------------------------
 
+
+
+    mode0:
+ call via1
+
+ RETURN
+
+
     setvar1:
  MOVLW 10
  MOVWF semaforo1
+ ADDLW 3
  MOVWF semaforo2
+ ADDWF semaforo2, W
  MOVWF semaforo3
  RETURN
 
+    setvar2:
+ MOVLW 3
+ MOVWF semaforo1
+ RETURN
+
+    via1:
+ BTFSS flag,0
+ call setvar1
+ BSF flag,0
+ BTFSC flagint, 3
+ call semafdec
+ BCF flagint, 3
+ BTFSC flag, 1 ;Revisar bandera de Zero
+ call setvar2
+ RETURN
+
+
     semafdec:
  DECF semaforo1
+ BTFSC STATUS, 2 ;Revisar bandera de Zero
+ BSF flag,1
  DECF semaforo2
+ BTFSC STATUS, 2 ;Revisar bandera de Zero
+ BSF flag,2
  DECF semaforo3
+ BTFSC STATUS, 2 ;Revisar bandera de Zero
+ BSF flag,3
  RETURN
 
     disp_refresh:
- BCF flagint, 2 ;Limpiar bandera de que hubo un int por el Timer0
+ BCF flagint, 4 ;Limpiar bandera de que hubo un int por el Timer0
  MOVF decenas1, W
  call table0 ;Buscar el nibble menos significativo en la tabla
- MOVWF condisp ;Guardar en el condisp
+ MOVWF condisp1 ;Guardar en el condisp
 
  MOVF unidades1, W
  call table0 ;Buscar el nibble mas significativo en la tabla
- MOVWF condisp+1 ;Guardar en el segundo byte de condisp
+ MOVWF condisp1+1 ;Guardar en el segundo byte de condisp
 
  MOVF decenas2, W
  call table0
- MOVWF condisp1 ;Guardar en variable las centenas
+ MOVWF condisp2 ;Guardar en variable las centenas
 
 
  MOVF unidades2, W
  call table0
- MOVWF condisp1+1 ;Guardar en variable las decenas
+ MOVWF condisp2+1 ;Guardar en variable las decenas
 
  MOVF decenas3, W
  call table0
- MOVWF condisp2 ;Guardar en variable las unidades
+ MOVWF condisp3 ;Guardar en variable las unidades
+
+ MOVF unidades3, W
+ call table0
+ MOVWF condisp3+1 ;Guardar en variable las unidades
+
+ MOVF decenas4, W
+ call table0
+ MOVWF condisp4 ;Guardar en variable las unidades
+
+ MOVF unidades4, W
+ call table0
+ MOVWF condisp4+1 ;Guardar en variable las unidades
 
  RETURN
 
 
-    inc_portA:
+    inc_num:
+ bcf flagint,1
  incf tempt, F ;Incrementar el contador
+ MOVF tempt, W
+ call restas
+ MOVF decenas, W ;Mover el contador de decenas a variable de display
+ MOVWF decenas4, F
+
+ MOVF unidades, W ;Mover el contador de unidades a
+ MOVWF unidades4, F
+
+ clrf unidades
+ clrf decenas
  RETURN ;Regresar al loop
 
 
-    dec_portA:
+    dec_num:
+ bcf flagint, 2
  decf tempt, F ;Decrementar el puerto
+ MOVF tempt, W
+ call restas
+ MOVF decenas, W ;Mover el contador de decenas a variable de display
+ MOVWF decenas4, F
+
+ MOVF unidades, W ;Mover el contador de unidades a
+ MOVWF unidades4, F
+
+ clrf unidades
+ clrf decenas
  RETURN
 
+   decimales:
+ MOVF semaforo1, W
+ call restas ;Llamar a subrutina de restas
 
-    decimal:
+ MOVF decenas, W ;Mover el contador de decenas a variable de display
+ MOVWF decenas1, F
+
+ MOVF unidades, W ;Mover el contador de unidades a
+ MOVWF unidades1, F
+
+ clrf unidades
+ clrf decenas
+
+ MOVF semaforo2, W
+ call restas ;Llamar a subrutina de restas
+
+ MOVF decenas, W ;Mover el contador de decenas a variable de display
+ MOVWF decenas2, F
+
+ MOVF unidades, W ;Mover el contador de unidades a
+ MOVWF unidades2, F
+
+ clrf unidades
+ clrf decenas
+
+ MOVF semaforo3, W
+ call restas ;Llamar a subrutina de restas
+
+ MOVF decenas, W ;Mover el contador de decenas a variable de display
+ MOVWF decenas3, F
+
+ MOVF unidades, W ;Mover el contador de unidades a
+ MOVWF unidades3, F
+
+ clrf unidades
+ clrf decenas
+ RETURN
+
+    restas: ;pasar a decimal
+ MOVWF valor, F
  MOVLW 10
- SUBWF semaforo1, F ;Restar 10 al valor
- btfsc STATUS, 0 ;Revisar si ocurrio un borrow, 1= no borrow
- INCF decenas1 ;Incrementar el contador de decenas
- btfss STATUS, 0
- ADDWF varbin ;Sumar 10 al valor para no perder el numero
-
- btfss STATUS, 0 ;Revisar si ocurrio un borrow
- BSF flagnum, 1 ;Levantar la bandera
- btfss STATUS, 0 ;Encender la resta de unidades
- BCF flagnum,2
-
- btfss STATUS, 0
- ADDWF varbin ;Sumar 10 al valor para no perder el numero
-
- RETURN
-
-    resun:
+ SUBWF valor, F ;Restar 10 al valor
+ btfsc STATUS, 0 ;Revisar si ocurrio un borrow, 1= no borrow, 0 = borrow
+ INCF decenas ;Incrementar el contador de decenas
+ btfsc STATUS, 0 ;Revisar si ocurrio un borrow, 1= no borrow, 0 = borrow
+ goto $-4
+ ADDWF valor ;Sumar 10 al valor para no perder el numero
+ ;Termina decenas
  MOVLW 1
- SUBWF varbin,F ;Restar uno a una variable
+ SUBWF valor,F ;Restar uno a una variable
  btfsc STATUS, 0
- INCF unidades1 ;Incrementar el contador de unidades
- btfss STATUS,0 ;Revisar si ocurrio un borrow
- BSF flagnum, 2 ;Levantar bandera
- btfss STATUS, 0
- ADDWF varbin
+ INCF unidades ;Incrementar el contador de unidades
+ btfsc STATUS,0 ;Revisar si ocurrio un borrow
+ goto $-4 ;Regresar para restar varias veces unidades
+ ADDWF valor
  RETURN
-
 
 END
