@@ -2489,6 +2489,7 @@ ENDM
  flagint: DS 1; 1 byte
  flagmode: DS 1; 1 byte
  flag: DS 1; 1 byte
+ flagnum: DS 1; 1 byte
 
         condisp: DS 2; 2 bytes
  condisp1: DS 2; 2 bytes
@@ -2508,6 +2509,9 @@ ENDM
  unidades3: DS 1; 1 byte
  unidades4: DS 1; 1 byte
 
+ valorsemaf1: DS 1; 1 byte
+ valorsemaf2: DS 1; 1 byte
+ valorsemaf3: DS 1; 1 byte
 
  semaforo1: DS 1; 1 byte
  semaforo2: DS 1; 1 byte
@@ -2775,13 +2779,23 @@ ENDM
 
 
     mode0:
+ MOVLW 10
+ MOVWF valorsemaf1
+ MOVWF valorsemaf2
+ MOVWF valorsemaf3
+        BTFSS flagnum, 3
  call via1
+ BTFSS flagnum, 4
+ call via2
+ BTFSS flagnum, 5
+ call via3
+
 
  RETURN
 
 
-    setvar1:
- MOVLW 10
+    setvar1: ;La via 1 empieza con 10
+ MOVF valorsemaf1
  MOVWF semaforo1
  ADDLW 3
  MOVWF semaforo2
@@ -2791,31 +2805,119 @@ ENDM
 
     setvar2:
  MOVLW 3
+ RETURN
+
+    setvar3:
+ MOVF valorsemaf2
+ MOVWF semaforo2
+ ADDLW 3
+ MOVWF semaforo3
+ ADDWF semaforo3, W
  MOVWF semaforo1
  RETURN
 
-    via1:
- BTFSS flag,0
- call setvar1
- BSF flag,0
- BTFSC flagint, 3
- call semafdec
- BCF flagint, 3
- BTFSC flag, 1 ;Revisar bandera de Zero
- call setvar2
+    setvar4:
+ MOVF valorsemaf3
+ MOVWF semaforo3
+ ADDLW 3
+ MOVWF semaforo1
+ ADDWF semaforo1, W
+ MOVWF semaforo2
  RETURN
 
+    via1:
+ BSF flagnum, 4 ;Desactivar el modulo via 2 y 3
+ BSF flagnum, 5
+ BSF PORTA, 0
+ BTFSS flagnum,0 ;Hacer que solo se carguen valores 1 vez
+ call setvar1
+ BSF flagnum,0
+ BTFSC flagint, 3
+ call semafdec ;decrementar semaforos
+
+ BTFSC flag, 0 ;Revisar bandera de Zero en el semaforo 1
+ call setvar2
+ BTFSC flag, 0
+ MOVWF semaforo1 ;Cargar los 3 segundos de amarillo
+ BTFSC flag, 0
+ BCF PORTA, 0
+ BTFSC flag, 0
+ BSF PORTA, 1
+
+ BTFSC flag, 0
+ BCF flag, 0
+
+ BTFSC flag, 1
+ BSF flagnum, 3 ;Avisar que la siguiente es via 2
+ BTFSC flag, 1
+ BCF flagnum, 4
+ BCF flag, 1
+ RETURN
+
+    via2:
+ clrf PORTA
+ BSF PORTA, 2
+ BSF PORTA, 3
+ BTFSS flagnum, 1
+ call setvar3 ;Colocar valores iniciales para la via dos
+ BSF flagnum, 1 ;Encender la bandera para que no se repita
+ BTFSC flagint, 3 ;Revisar si paso un segundo
+ call semafdec
+ ;3 segundos amarillo
+ BTFSC flag, 1
+ call setvar2
+ BTFSC flag, 1
+ MOVWF semaforo2
+ BTFSC flag, 1
+ BCF flag, 1
+ ;Avisar que la siguiente es via 3
+ BTFSC flag, 2 ;Revisar si el semaforo 3 esta en 0
+ BSF flagnum, 4 ;Avisar que la siguiente es via 2
+ BTFSC flag, 2
+ BCF flagnum, 5 ;Activar el modulo de via 3
+ BCF flag, 2
+ RETURN
+
+     via3:
+ BTFSS flagnum, 2
+ call setvar4 ;Colocar valores iniciales para la via dos
+ BSF flagnum, 2 ;Encender la bandera para que no se repita
+ BTFSC flagint, 3 ;Revisar si paso un segundo
+ call semafdec
+ ;3 segundos amarillo
+ BTFSC flag, 2
+ call setvar2
+ BTFSC flag, 2
+ MOVWF semaforo3
+ BTFSC flag, 2
+ BCF flag, 2
+ ;Avisar que la siguiente es via 3
+ BTFSC flag, 0 ;Revisar si el semaforo 1 esta en 0
+ BSF flagnum, 5 ;Avisar que la siguiente es via 2
+ BTFSC flag, 0
+ BCF flagnum, 3 ;Activar el modulo de via 1
+
+ ;Activar la lectura de intial values
+ BTFSC flag, 0
+ BCF flagnum, 0
+ BTFSC flag, 0
+ BCF flagnum, 1
+ BTFSC flag, 0
+ BCF flagnum, 2
+ BCF flag, 0
+ RETURN
 
     semafdec:
+ BCF flagint, 3 ;Limpiar la interrupcion
  DECF semaforo1
  BTFSC STATUS, 2 ;Revisar bandera de Zero
- BSF flag,1
+ BSF flag,0
  DECF semaforo2
  BTFSC STATUS, 2 ;Revisar bandera de Zero
- BSF flag,2
+ BSF flag,1
  DECF semaforo3
  BTFSC STATUS, 2 ;Revisar bandera de Zero
- BSF flag,3
+ BSF flag,2
  RETURN
 
     disp_refresh:

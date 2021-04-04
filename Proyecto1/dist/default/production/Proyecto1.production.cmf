@@ -13,8 +13,8 @@
 %PSECTS
 $build/default/production/nbproject/Main.o
 resVect CODE 0 0 0 70 2
-code CODE 0 0 0 1BE 2
-udata_bank0 BANK0 1 20 20 20 1
+code CODE 0 0 0 20F 2
+udata_bank0 BANK0 1 20 20 24 1
 config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -22,22 +22,22 @@ config CONFIG 4 2007 2007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 40-6F 1
+RAM 44-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 40-6F 1
+BANK0 44-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 1BE-1FFF 2
-ENTRY 1BE-1FFF 2
+CONST 20F-1FFF 2
+ENTRY 20F-1FFF 2
 IDLOC 2000-2003 2
-CODE 1BE-1FFF 2
+CODE 20F-1FFF 2
 COMMON 70-7F 1
 EEDATA 2100-21FF 2
-STRCODE 1BE-1FFF 2
-STRING 1BE-1FFF 2
+STRCODE 20F-1FFF 2
+STRING 20F-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -52,206 +52,205 @@ STRING 1BE-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $build/default/production/nbproject/Main.o
-0 resVect CODE >78:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-0 resVect CODE >79:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-0 resVect CODE >80:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-2 resVect CODE >81:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-3 resVect CODE >85:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-4 resVect CODE >86:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-4 resVect CODE >87:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-5 resVect CODE >88:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-6 resVect CODE >89:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-7 resVect CODE >90:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-8 resVect CODE >91:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-8 resVect CODE >93:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-9 resVect CODE >94:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-A resVect CODE >95:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-B resVect CODE >96:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-C resVect CODE >97:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-D resVect CODE >98:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-E resVect CODE >100:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-E resVect CODE >101:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-F resVect CODE >102:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-10 resVect CODE >103:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-11 resVect CODE >104:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-12 resVect CODE >105:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-13 resVect CODE >108:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-13 resVect CODE >109:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-14 resVect CODE >110:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-15 resVect CODE >111:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-16 resVect CODE >112:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-17 resVect CODE >113:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-18 resVect CODE >114:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-19 resVect CODE >115:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A resVect CODE >116:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B resVect CODE >118:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B resVect CODE >119:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1C resVect CODE >120:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1D resVect CODE >121:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1E resVect CODE >122:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1F resVect CODE >123:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-20 resVect CODE >124:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-21 resVect CODE >125:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-22 resVect CODE >127:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-22 resVect CODE >128:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-23 resVect CODE >129:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-24 resVect CODE >130:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-25 resVect CODE >131:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-26 resVect CODE >132:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-27 resVect CODE >133:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-28 resVect CODE >134:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-29 resVect CODE >135:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-2A resVect CODE >136:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-2B resVect CODE >137:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-2C resVect CODE >138:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-2D resVect CODE >139:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-2E resVect CODE >140:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-2F resVect CODE >141:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-30 resVect CODE >142:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-31 resVect CODE >143:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-32 resVect CODE >144:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-33 resVect CODE >146:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-33 resVect CODE >147:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-34 resVect CODE >148:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-35 resVect CODE >149:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-36 resVect CODE >150:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-37 resVect CODE >151:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-38 resVect CODE >153:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-38 resVect CODE >154:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-39 resVect CODE >155:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-3A resVect CODE >156:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-3B resVect CODE >157:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-3C resVect CODE >158:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-3D resVect CODE >159:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-3E resVect CODE >161:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-3E resVect CODE >162:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-3F resVect CODE >163:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-40 resVect CODE >164:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-41 resVect CODE >165:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-42 resVect CODE >166:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-43 resVect CODE >167:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-44 resVect CODE >169:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-44 resVect CODE >170:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-45 resVect CODE >171:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-46 resVect CODE >172:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-47 resVect CODE >173:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-48 resVect CODE >174:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-49 resVect CODE >175:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-4A resVect CODE >177:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-4A resVect CODE >178:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-4B resVect CODE >179:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-4C resVect CODE >180:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-4D resVect CODE >181:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-4E resVect CODE >182:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-4F resVect CODE >183:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-50 resVect CODE >185:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-50 resVect CODE >186:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-51 resVect CODE >187:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-52 resVect CODE >188:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-53 resVect CODE >189:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-54 resVect CODE >190:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-55 resVect CODE >191:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-56 resVect CODE >193:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-56 resVect CODE >194:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-57 resVect CODE >195:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-58 resVect CODE >196:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-59 resVect CODE >197:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-5A resVect CODE >198:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-5B resVect CODE >199:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-5C resVect CODE >201:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-5C resVect CODE >202:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-5D resVect CODE >203:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-5E resVect CODE >204:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-5F resVect CODE >205:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-60 resVect CODE >206:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-61 resVect CODE >207:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-62 resVect CODE >210:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-62 resVect CODE >211:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-64 resVect CODE >212:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-65 resVect CODE >213:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-66 resVect CODE >214:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-67 resVect CODE >215:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-68 resVect CODE >217:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-68 resVect CODE >218:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-6A resVect CODE >219:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-6B resVect CODE >220:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-6C resVect CODE >221:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-6D resVect CODE >222:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-6E resVect CODE >223:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-6F resVect CODE >224:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-0 code CODE >227:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-100 code CODE >228:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-100 code CODE >229:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-101 code CODE >230:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-102 code CODE >231:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-103 code CODE >232:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-104 code CODE >233:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-105 code CODE >234:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-106 code CODE >235:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-107 code CODE >236:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-108 code CODE >237:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-109 code CODE >238:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-10A code CODE >239:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-10B code CODE >240:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-10C code CODE >241:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-10D code CODE >242:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-10E code CODE >243:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-10F code CODE >244:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-110 code CODE >245:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-111 code CODE >246:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-112 code CODE >247:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-113 code CODE >248:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-114 code CODE >250:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-114 code CODE >251:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-116 code CODE >252:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-117 code CODE >253:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-118 code CODE >255:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-11A code CODE >256:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-11B code CODE >257:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-11C code CODE >258:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-11D code CODE >259:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-11E code CODE >260:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-11F code CODE >261:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-120 code CODE >262:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-121 code CODE >264:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-122 code CODE >266:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-123 code CODE >267:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-124 code CODE >268:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-125 code CODE >269:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-126 code CODE >272:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-128 code CODE >273:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-129 code CODE >274:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-12A code CODE >275:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-12B code CODE >276:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-12C code CODE >279:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-12D code CODE >280:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-12E code CODE >283:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-130 code CODE >284:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-131 code CODE >286:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-132 code CODE >287:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-133 code CODE >288:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-134 code CODE >293:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-135 code CODE >294:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-136 code CODE >295:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-137 code CODE >299:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-139 code CODE >300:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-13A code CODE >301:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-13B code CODE >302:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-13C code CODE >304:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-13D code CODE >305:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-13E code CODE >309:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-13E code CODE >312:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-13F code CODE >313:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-140 code CODE >314:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-141 code CODE >315:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-142 code CODE >317:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-143 code CODE >319:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-144 code CODE >320:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-145 code CODE >322:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-146 code CODE >328:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-146 code CODE >329:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-147 code CODE >331:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-148 code CODE >334:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+0 resVect CODE >82:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+0 resVect CODE >83:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+0 resVect CODE >84:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+2 resVect CODE >85:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+3 resVect CODE >89:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+4 resVect CODE >90:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+4 resVect CODE >91:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+5 resVect CODE >92:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+6 resVect CODE >93:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+7 resVect CODE >94:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+8 resVect CODE >95:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+8 resVect CODE >97:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+9 resVect CODE >98:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+A resVect CODE >99:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+B resVect CODE >100:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+C resVect CODE >101:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+D resVect CODE >102:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+E resVect CODE >104:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+E resVect CODE >105:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+F resVect CODE >106:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+10 resVect CODE >107:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+11 resVect CODE >108:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+12 resVect CODE >109:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+13 resVect CODE >112:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+13 resVect CODE >113:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+14 resVect CODE >114:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+15 resVect CODE >115:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+16 resVect CODE >116:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+17 resVect CODE >117:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+18 resVect CODE >118:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+19 resVect CODE >119:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A resVect CODE >120:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B resVect CODE >122:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B resVect CODE >123:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C resVect CODE >124:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D resVect CODE >125:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E resVect CODE >126:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F resVect CODE >127:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+20 resVect CODE >128:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+21 resVect CODE >129:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+22 resVect CODE >131:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+22 resVect CODE >132:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+23 resVect CODE >133:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+24 resVect CODE >134:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+25 resVect CODE >135:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+26 resVect CODE >136:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+27 resVect CODE >137:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+28 resVect CODE >138:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+29 resVect CODE >139:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+2A resVect CODE >140:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+2B resVect CODE >141:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+2C resVect CODE >142:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+2D resVect CODE >143:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+2E resVect CODE >144:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+2F resVect CODE >145:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+30 resVect CODE >146:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+31 resVect CODE >147:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+32 resVect CODE >148:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+33 resVect CODE >150:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+33 resVect CODE >151:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+34 resVect CODE >152:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+35 resVect CODE >153:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+36 resVect CODE >154:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+37 resVect CODE >155:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+38 resVect CODE >157:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+38 resVect CODE >158:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+39 resVect CODE >159:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+3A resVect CODE >160:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+3B resVect CODE >161:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+3C resVect CODE >162:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+3D resVect CODE >163:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+3E resVect CODE >165:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+3E resVect CODE >166:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+3F resVect CODE >167:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+40 resVect CODE >168:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+41 resVect CODE >169:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+42 resVect CODE >170:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+43 resVect CODE >171:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+44 resVect CODE >173:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+44 resVect CODE >174:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+45 resVect CODE >175:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+46 resVect CODE >176:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+47 resVect CODE >177:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+48 resVect CODE >178:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+49 resVect CODE >179:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+4A resVect CODE >181:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+4A resVect CODE >182:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+4B resVect CODE >183:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+4C resVect CODE >184:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+4D resVect CODE >185:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+4E resVect CODE >186:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+4F resVect CODE >187:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+50 resVect CODE >189:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+50 resVect CODE >190:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+51 resVect CODE >191:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+52 resVect CODE >192:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+53 resVect CODE >193:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+54 resVect CODE >194:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+55 resVect CODE >195:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+56 resVect CODE >197:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+56 resVect CODE >198:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+57 resVect CODE >199:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+58 resVect CODE >200:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+59 resVect CODE >201:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+5A resVect CODE >202:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+5B resVect CODE >203:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+5C resVect CODE >205:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+5C resVect CODE >206:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+5D resVect CODE >207:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+5E resVect CODE >208:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+5F resVect CODE >209:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+60 resVect CODE >210:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+61 resVect CODE >211:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+62 resVect CODE >214:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+62 resVect CODE >215:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+64 resVect CODE >216:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+65 resVect CODE >217:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+66 resVect CODE >218:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+67 resVect CODE >219:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+68 resVect CODE >221:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+68 resVect CODE >222:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+6A resVect CODE >223:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+6B resVect CODE >224:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+6C resVect CODE >225:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+6D resVect CODE >226:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+6E resVect CODE >227:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+6F resVect CODE >228:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+0 code CODE >231:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+100 code CODE >232:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+100 code CODE >233:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+101 code CODE >234:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+102 code CODE >235:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+103 code CODE >236:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+104 code CODE >237:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+105 code CODE >238:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+106 code CODE >239:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+107 code CODE >240:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+108 code CODE >241:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+109 code CODE >242:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+10A code CODE >243:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+10B code CODE >244:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+10C code CODE >245:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+10D code CODE >246:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+10E code CODE >247:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+10F code CODE >248:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+110 code CODE >249:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+111 code CODE >250:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+112 code CODE >251:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+113 code CODE >252:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+114 code CODE >254:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+114 code CODE >255:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+116 code CODE >256:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+117 code CODE >257:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+118 code CODE >259:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+11A code CODE >260:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+11B code CODE >261:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+11C code CODE >262:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+11D code CODE >263:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+11E code CODE >264:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+11F code CODE >265:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+120 code CODE >266:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+121 code CODE >268:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+122 code CODE >270:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+123 code CODE >271:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+124 code CODE >272:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+125 code CODE >273:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+126 code CODE >276:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+128 code CODE >277:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+129 code CODE >278:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+12A code CODE >279:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+12B code CODE >280:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+12C code CODE >283:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+12D code CODE >284:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+12E code CODE >287:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+130 code CODE >288:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+131 code CODE >290:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+132 code CODE >291:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+133 code CODE >292:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+134 code CODE >297:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+135 code CODE >298:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+136 code CODE >299:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+137 code CODE >303:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+139 code CODE >304:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+13A code CODE >305:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+13B code CODE >306:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+13C code CODE >308:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+13D code CODE >309:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+13E code CODE >313:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+13E code CODE >316:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+13F code CODE >317:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+140 code CODE >318:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+141 code CODE >319:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+142 code CODE >321:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+143 code CODE >323:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+144 code CODE >324:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+145 code CODE >326:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+146 code CODE >332:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+146 code CODE >333:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+147 code CODE >334:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 148 code CODE >335:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 149 code CODE >336:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 14A code CODE >337:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
@@ -259,125 +258,211 @@ F resVect CODE >102:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 14C code CODE >339:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 14D code CODE >340:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 14E code CODE >341:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-14F code CODE >343:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-14F code CODE >344:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+14F code CODE >342:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 150 code CODE >345:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-151 code CODE >346:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-152 code CODE >348:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-152 code CODE >349:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-153 code CODE >350:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-154 code CODE >351:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-155 code CODE >352:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-156 code CODE >353:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-157 code CODE >354:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-158 code CODE >355:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-159 code CODE >356:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-15A code CODE >357:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-15B code CODE >360:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-15B code CODE >361:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-15C code CODE >362:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-15D code CODE >363:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-15E code CODE >364:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-15F code CODE >365:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-160 code CODE >366:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-161 code CODE >367:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-162 code CODE >368:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-163 code CODE >369:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-164 code CODE >370:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-165 code CODE >372:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-165 code CODE >373:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-166 code CODE >374:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-167 code CODE >375:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-168 code CODE >376:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-169 code CODE >378:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-16A code CODE >379:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-16B code CODE >380:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-16C code CODE >382:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-16D code CODE >383:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-16E code CODE >384:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+151 code CODE >348:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+151 code CODE >349:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+152 code CODE >350:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+153 code CODE >351:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+154 code CODE >352:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+155 code CODE >353:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+156 code CODE >354:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+157 code CODE >355:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+158 code CODE >357:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+158 code CODE >358:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+159 code CODE >359:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+15A code CODE >361:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+15A code CODE >362:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+15B code CODE >363:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+15C code CODE >364:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+15D code CODE >365:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+15E code CODE >366:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+15F code CODE >367:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+160 code CODE >368:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+161 code CODE >370:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+161 code CODE >371:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+162 code CODE >372:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+163 code CODE >373:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+164 code CODE >374:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+165 code CODE >375:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+166 code CODE >376:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+167 code CODE >377:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+168 code CODE >379:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+168 code CODE >380:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+169 code CODE >381:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+16A code CODE >382:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+16B code CODE >383:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+16C code CODE >384:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+16D code CODE >385:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+16E code CODE >386:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 16F code CODE >387:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-170 code CODE >388:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-171 code CODE >389:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+170 code CODE >389:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+171 code CODE >390:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 172 code CODE >391:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 173 code CODE >392:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 174 code CODE >393:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-175 code CODE >395:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-176 code CODE >396:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-177 code CODE >397:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-178 code CODE >399:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-179 code CODE >400:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+175 code CODE >394:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+176 code CODE >395:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+177 code CODE >396:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+178 code CODE >398:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+179 code CODE >399:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 17A code CODE >401:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-17B code CODE >403:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-17C code CODE >404:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-17D code CODE >405:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-17E code CODE >407:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-17F code CODE >410:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-17F code CODE >411:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-180 code CODE >412:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-181 code CODE >413:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-182 code CODE >414:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-183 code CODE >415:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-184 code CODE >416:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-185 code CODE >418:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-186 code CODE >419:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-187 code CODE >421:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-188 code CODE >422:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-189 code CODE >423:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-18A code CODE >426:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-18A code CODE >427:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-18B code CODE >428:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-18C code CODE >429:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-18D code CODE >430:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-18E code CODE >431:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-18F code CODE >432:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-190 code CODE >434:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-191 code CODE >435:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-192 code CODE >437:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-193 code CODE >438:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-194 code CODE >439:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-195 code CODE >441:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-195 code CODE >442:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-196 code CODE >443:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-197 code CODE >445:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-198 code CODE >446:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-199 code CODE >448:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-19A code CODE >449:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-19B code CODE >451:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-19C code CODE >452:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-19D code CODE >454:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-19E code CODE >455:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-19F code CODE >457:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A0 code CODE >458:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A1 code CODE >460:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A2 code CODE >461:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A3 code CODE >463:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A4 code CODE >464:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A5 code CODE >466:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A6 code CODE >467:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A7 code CODE >469:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A8 code CODE >470:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1A9 code CODE >472:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1AA code CODE >473:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1AB code CODE >475:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1AC code CODE >476:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1AD code CODE >477:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1AE code CODE >479:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1AE code CODE >480:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1AF code CODE >481:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B0 code CODE >482:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B1 code CODE >483:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B2 code CODE >484:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B3 code CODE >485:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B4 code CODE >486:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B5 code CODE >487:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B6 code CODE >489:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B7 code CODE >490:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B8 code CODE >491:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1B9 code CODE >492:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1BA code CODE >493:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1BB code CODE >494:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1BC code CODE >495:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
-1BD code CODE >496:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+17B code CODE >402:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+17C code CODE >403:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+17D code CODE >404:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+17E code CODE >405:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+17F code CODE >406:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+180 code CODE >408:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+180 code CODE >409:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+181 code CODE >410:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+182 code CODE >411:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+183 code CODE >412:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+184 code CODE >413:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+185 code CODE >414:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+186 code CODE >415:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+187 code CODE >416:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+188 code CODE >418:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+189 code CODE >419:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+18A code CODE >420:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+18B code CODE >421:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+18C code CODE >422:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+18D code CODE >423:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+18E code CODE >425:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+18F code CODE >426:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+190 code CODE >427:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+191 code CODE >428:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+192 code CODE >429:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+193 code CODE >430:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+194 code CODE >432:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+194 code CODE >433:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+195 code CODE >434:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+196 code CODE >435:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+197 code CODE >436:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+198 code CODE >437:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+199 code CODE >439:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+19A code CODE >440:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+19B code CODE >441:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+19C code CODE >442:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+19D code CODE >443:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+19E code CODE >444:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+19F code CODE >446:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A0 code CODE >447:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A1 code CODE >448:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A2 code CODE >449:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A3 code CODE >452:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A4 code CODE >453:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A5 code CODE >454:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A6 code CODE >455:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A7 code CODE >456:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A8 code CODE >457:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1A9 code CODE >458:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1AA code CODE >459:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1AB code CODE >461:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1AB code CODE >462:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1AC code CODE >463:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1AD code CODE >464:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1AE code CODE >465:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1AF code CODE >466:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B0 code CODE >467:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B1 code CODE >468:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B2 code CODE >469:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B3 code CODE >470:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B4 code CODE >471:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B5 code CODE >472:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B6 code CODE >474:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B6 code CODE >475:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B7 code CODE >476:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B8 code CODE >477:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1B9 code CODE >478:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1BA code CODE >480:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1BB code CODE >481:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1BC code CODE >482:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1BD code CODE >484:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1BE code CODE >485:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1BF code CODE >486:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C0 code CODE >489:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C1 code CODE >490:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C2 code CODE >491:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C3 code CODE >493:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C4 code CODE >494:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C5 code CODE >495:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C6 code CODE >497:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C7 code CODE >498:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C8 code CODE >499:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1C9 code CODE >501:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1CA code CODE >502:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1CB code CODE >503:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1CC code CODE >505:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1CD code CODE >506:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1CE code CODE >507:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1CF code CODE >509:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D0 code CODE >512:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D0 code CODE >513:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D1 code CODE >514:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D2 code CODE >515:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D3 code CODE >516:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D4 code CODE >517:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D5 code CODE >518:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D6 code CODE >520:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D7 code CODE >521:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D8 code CODE >523:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1D9 code CODE >524:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1DA code CODE >525:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1DB code CODE >528:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1DB code CODE >529:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1DC code CODE >530:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1DD code CODE >531:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1DE code CODE >532:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1DF code CODE >533:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E0 code CODE >534:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E1 code CODE >536:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E2 code CODE >537:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E3 code CODE >539:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E4 code CODE >540:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E5 code CODE >541:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E6 code CODE >543:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E6 code CODE >544:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E7 code CODE >545:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E8 code CODE >547:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1E9 code CODE >548:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1EA code CODE >550:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1EB code CODE >551:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1EC code CODE >553:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1ED code CODE >554:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1EE code CODE >556:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1EF code CODE >557:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F0 code CODE >559:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F1 code CODE >560:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F2 code CODE >562:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F3 code CODE >563:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F4 code CODE >565:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F5 code CODE >566:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F6 code CODE >568:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F7 code CODE >569:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F8 code CODE >571:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1F9 code CODE >572:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1FA code CODE >574:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1FB code CODE >575:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1FC code CODE >577:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1FD code CODE >578:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1FE code CODE >579:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1FF code CODE >581:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+1FF code CODE >582:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+200 code CODE >583:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+201 code CODE >584:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+202 code CODE >585:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+203 code CODE >586:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+204 code CODE >587:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+205 code CODE >588:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+206 code CODE >589:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+207 code CODE >591:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+208 code CODE >592:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+209 code CODE >593:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+20A code CODE >594:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+20B code CODE >595:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+20C code CODE >596:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+20D code CODE >597:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
+20E code CODE >598:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -390,18 +475,18 @@ F resVect CODE >102:C:\Users\diego\Desktop\PgrMicros\Proyecto1\nbproject/Main.s
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 1BE 0 ABS 0 - -
-__Hspace_1 40 0 ABS 0 - -
+__Hspace_0 20F 0 ABS 0 - -
+__Hspace_1 44 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
 __Hudata_bank0 0 0 ABS 0 udata_bank0 -
 __Hudata_bank1 0 0 ABS 0 udata_bank1 -
 __Hudata_bank2 0 0 ABS 0 udata_bank2 -
 __Hudata_bank3 0 0 ABS 0 udata_bank3 -
-decenas1 31 0 BANK0 1 udata_bank0 build/default/production/nbproject/Main.o
-unidades1 36 0 BANK0 1 udata_bank0 build/default/production/nbproject/Main.o
-condisp1 28 0 BANK0 1 udata_bank0 build/default/production/nbproject/Main.o
-condisp4 2E 0 BANK0 1 udata_bank0 build/default/production/nbproject/Main.o
+decenas1 32 0 BANK0 1 udata_bank0 build/default/production/nbproject/Main.o
+unidades1 37 0 BANK0 1 udata_bank0 build/default/production/nbproject/Main.o
+condisp1 29 0 BANK0 1 udata_bank0 build/default/production/nbproject/Main.o
+condisp4 2F 0 BANK0 1 udata_bank0 build/default/production/nbproject/Main.o
 __LresVect 0 0 ABS 0 resVect -
 __Hedata 0 0 ABS 0 edata -
 __Hudata 0 0 ABS 0 udata -
@@ -413,7 +498,7 @@ __Hdata 0 0 ABS 0 data -
 __Lcode 0 0 ABS 0 code -
 __Ldata 0 0 ABS 0 data -
 __S0 0 0 ABS 0 - -
-__S1 40 0 ABS 0 - -
+__S1 44 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 STAT_Temp 22 0 BANK0 1 udata_bank0 build/default/production/nbproject/Main.o
 __HresVect 0 0 ABS 0 resVect -
@@ -455,7 +540,7 @@ __Ludata_shr 0 0 ABS 0 udata_shr -
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-udata_bank0 1 20 20 20 1
+udata_bank0 1 20 20 24 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
