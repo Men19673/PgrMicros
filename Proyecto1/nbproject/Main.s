@@ -435,14 +435,6 @@ PROCESSOR 16F887
 	bsf	flagnum, 4  ;apagar el conteo
 	bsf	flagnum, 5
 
-	BTFSC	flagint, 5	;Interaccion de las led de modo
-	BCF	PORTA, 4
-
-	BTFSC	flagint, 5	;Interaccion de las led de modo
-	BCF	PORTA, 5
-
-	BTFSC	flagint, 5	;Interaccion de las led de modo
-	BCF	PORTA, 6
 
 
 	MOVLW	01111000B
