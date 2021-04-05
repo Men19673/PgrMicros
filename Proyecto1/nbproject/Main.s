@@ -471,8 +471,11 @@ PROCESSOR 16F887
 	clrf	flagnum
 	RETURN
     mode4:
+	BTFSS	flag, 7
 	BSF	PORTB, 4	;Luces de modo
+	BTFSS	flag, 7
 	BSF	PORTB, 5
+	BTFSS	flag, 7
 	BSF	PORTB, 6
 	BTFSS	flag, 7
 	CALL	offdisp4

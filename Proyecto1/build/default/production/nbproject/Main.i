@@ -2894,7 +2894,6 @@ ENDM
  BTFSC flagint, 5 ;Interaccion de las led de modo
  BCF PORTA, 6
 
- BCF flagint, 5
 
  MOVLW 01111000B
  MOVWF flash
@@ -2921,8 +2920,11 @@ ENDM
  clrf flagnum
  RETURN
     mode4:
+ BTFSS flag, 7
  BSF PORTB, 4 ;Luces de modo
+ BTFSS flag, 7
  BSF PORTB, 5
+ BTFSS flag, 7
  BSF PORTB, 6
  BTFSS flag, 7
  CALL offdisp4
