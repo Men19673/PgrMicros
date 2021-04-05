@@ -10,7 +10,7 @@
 ; Hardware: Push buttons puerto B, 2Displays y Leds
 ;
 ; Creado: 22 feb, 2021
-; Última modificación: 22 feb, 2021
+; ï¿½ltima modificaciï¿½n: 22 feb, 2021
 
 PROCESSOR 16F887
 
@@ -2481,17 +2481,18 @@ ENDM
  CONFIG BOR4V=BOR40V
 
 ;------------------------------VARIABLES---------------------------------------
- PSECT udata_bank0 ;common memory
+ PSECT udata_bank0 ;bank0
 
- selec_disp: DS 1; 1 byte
+ selec_disp: DS 1; 1 byte Completa
  W_Temp: DS 1; 1 byte
  STAT_Temp: DS 1; 1 byte
 
- flagint: DS 1; 1 byte
- flagmode: DS 1; 1 byte
- flag: DS 1; 1 byte
- flagnum: DS 1; 1 byte
+ flagint: DS 1; 1 byte 6 y 7 libre
+ flagmode: DS 1; 1 byte 4 para arriba libre
+ flag: DS 1; 1 byte 7 libre
+ flagnum: DS 1; 1 byte usada completa
 
+ selector: DS 1; 1 byte
         condisp: DS 2; 2 bytes
  condisp1: DS 2; 2 bytes
  condisp2: DS 2; 2 bytes
@@ -2514,15 +2515,22 @@ ENDM
  valorsemaf2: DS 1; 1 byte
  valorsemaf3: DS 1; 1 byte
 
+ semaf1temp: DS 1; 1 byte
+ semaf2temp: DS 1; 1 byte
+ semaf3temp: DS 1; 1 byte
+
+ flash: DS 1; 1 byte
+ twofive: DS 1; 1 byte
  semaforo1: DS 1; 1 byte
  semaforo2: DS 1; 1 byte
  semaforo3: DS 1; 1 byte
  oneseg: DS 1; 1 byte
  tempt: DS 1; 1 byte
  valor: DS 1; 1 byte
+ threeseg: DS 1; 1 byte
 
     GLOBAL flagint, condisp1, selec_disp, W_Temp, STAT_Temp
-    GLOBAL decenas1, unidades1, condisp4
+    GLOBAL decenas1, unidades1, condisp4, flash, flagnum, semaforo1, semaforo2
 
 
 
@@ -2535,7 +2543,7 @@ ENDM
  goto main
 
 ;---------------------------VECTOR INTERRUPT------------------------------------
-  ;Vector para la interrupción
+  ;Vector para la interrupciï¿½n
    ORG 004h
    PUSH:
  BCF INTCON, 7 ;Apagar el General Interrupt
@@ -2550,6 +2558,8 @@ ENDM
  call timer0flag
  BTFSC PIR1, 0
  call timer1flag
+ BTFSC PIR1, 1
+ call timer2flag
 
    POP:
  SWAPF STAT_Temp, W ;Guardar STATUS original en W
@@ -2578,6 +2588,16 @@ ENDM
     BSF flagint, 3 ;Encender bandera externa
     RETURN
 
+   timer2flag:
+    banksel PIR1
+    BCF PIR1, 1
+    DECFSZ twofive ; Contamos 10 para que sea 10 x 25 asi 250ms
+    RETURN
+    MOVLW 10
+    MOVWF twofive ;Ingresar el valor 10
+    BSF flagint, 5 ;Encender bandera externa
+    RETURN
+
    timer0flag:
     BSF flagint, 4 ;Encender una bandera externa
     call Ntimer0 ;Reiniciar el timer0
@@ -2598,66 +2618,81 @@ ENDM
  goto display7
 
    display0:
+    BSF selec_disp, 0 ;Proximo interrupt ir a display1
+    BTFSC flag,3 ;Control para titiliteo
+    RETURN
     MOVF condisp1, W ;Mover el valor de la variable al PORT
     MOVWF PORTC
     BSF PORTD,0 ;Encender el display 0
-    BSF selec_disp, 0 ;Proximo interrupt ir a display1
     RETURN
 
    display1:
     BCF selec_disp, 0 ;Limpiar bandera de display 1
+    BSF selec_disp, 1 ;Proximo interrupt ir a display2
+    BTFSC flag,3 ;Control para titiliteo
+    RETURN
     MOVF condisp1+1, W ;Mover el valor de la variable al port
     MOVWF PORTC
     BSF PORTD,1 ;Encender el display 1
-    BSF selec_disp, 1 ;Proximo interrupt ir a display2
     RETURN
 
    display2:
+    BSF selec_disp, 2 ;Proximo display sea 3
     BCF selec_disp, 1 ;Limpiar bandera de display 2
+    BTFSC flag,4 ;Control para titiliteo
+    RETURN
     MOVF condisp2,W ;Mover el valor de centenas al PORTC
     MOVWF PORTC
     BSF PORTD, 2 ;Encender el display 2
-    BSF selec_disp, 2 ;Proximo display sea 3
     RETURN
 
    display3:
     BCF selec_disp, 2 ;Limpiar bandera de display 3
+    BSF selec_disp, 3 ;Proximo display sea el 4
+    BTFSC flag,4 ;Control para titiliteo
+    RETURN
     MOVF condisp2+1,W ;Mover el valor de decenas al PORTC
     MOVWF PORTC
     BSF PORTD, 3 ;Encender el display 3
-    BSF selec_disp, 3 ;Proximo display sea el 4
     RETURN
 
    display4:
+    BSF selec_disp, 4 ;Proximo display sea el 5
     BCF selec_disp, 3 ;Limpiar bandera de display 3
+    BTFSC flag,5 ;Control para titiliteo
+    RETURN
     MOVF condisp3,W ;Mover el valor de decenas al PORTC
     MOVWF PORTC
     BSF PORTD, 4 ;Encender el display 4
-    BSF selec_disp, 4 ;Proximo display sea el 5
     RETURN
 
    display5:
     BCF selec_disp, 4 ;Limpiar bandera de display 4
+    BSF selec_disp, 5 ;Proximo display sea el 6
+    BTFSC flag,5 ;Control para titiliteo
+    RETURN
     MOVF condisp3+1,W ;Mover el valor de decenas al PORTC
     MOVWF PORTC
     BSF PORTD, 5 ;Encender el display 5
-    BSF selec_disp, 5 ;Proximo display sea el 6
     RETURN
 
    display6:
     BCF selec_disp, 5 ;Limpiar bandera de display 5
+    BSF selec_disp, 6 ;Proximo display sea el 7
+    BTFSC flag,6 ;Control para titiliteo
+    RETURN
     MOVF condisp4,W ;Mover el valor de decenas al PORTC
     MOVWF PORTC
     BSF PORTD, 6 ;Encender el display 6
-    BSF selec_disp, 6 ;Proximo display sea el 7
     RETURN
 
    display7:
-    BCF selec_disp, 6 ;Limpiar bandera de display 6
+    clrf selec_disp
+    BTFSC flag,6 ;Control para titiliteo
+    RETURN
     MOVF condisp4+1,W ;Mover el valor de decenas al PORTC
     MOVWF PORTC
     BSF PORTD, 7 ;Encender el display 7
-    clrf selec_disp
     RETURN
 
 
@@ -2729,17 +2764,23 @@ ENDM
  clrf PORTD ;Colocar pines de D en 0
  clrf PORTE ;Colocar pines de E en 0
 
- ;T1CON se encuentra en el mismo banco que los ports
+ ;T1CON y T2CON se encuentra en el mismo banco que los ports
  bsf T1CON, 4 ;Colocar el prescaler de timer1 a 1:2
  bsf T1CON, 0 ;Encender el timer 1
+ MOVLW 00110110B ;Configurar 1:16 Pre y 1:7 Post
+ MOVWF T2CON
 
 
- banksel OPTION_REG ;Configurar prescaler
+ banksel OPTION_REG ;Configurar Enable
  bsf PIE1, 0 ;Activar el Interrupt del Timer 1
+ bsf PIE1, 1 ;Activar Interrupt Timer 2
+ MOVLW 223 ;Valor para el comparator
+ MOVWF PR2
+
 
  CLRWDT ;Limpiar WDT
- MOVLW 01000100B ;Poner el prescaler en 32, activar PULLUP y WDT en timer0
- MOVWF OPTION_REG
+ MOVLW 01000011B ;Poner el prescaler en 1:16, activar el WeakPullup
+ MOVWF OPTION_REG ;y WDT en timer0
 
 
 
@@ -2754,21 +2795,37 @@ ENDM
  MOVLW 00111111B ;Darle un valor al puerto D
  MOVWF PORTD
  MOVWF PORTC
-
+ clrf PORTB
+ clrf flagnum
+ clrf flag
+ clrf flash
+ ;valores iniciales de algunas variables
  MOVLW 10
  MOVWF oneseg
+ MOVWF twofive
+ MOVWF tempt
+ MOVLW 3
+ MOVWF threeseg
 
 
 ;--------------------------------LOOP-------------------------------------------
     loop:
- ;BTFSC flagint, 0
 
- BTFSC flagint, 1 ;Verificar si la bandera de PORTB 0 on change
- CALL inc_num ;Incrementar contador
- BTFSC flagint, 2 ;Verificar si la bandera de PORTB 1 on change
- CALL dec_num ;Decrementar contador
+ BTFSC flagint, 0
+ call modeselector
+ call modeselect
 
+
+ BTFSC flagmode, 0
  CALL mode0
+ BTFSC flagmode, 1
+ CALL mode1
+ BTFSC flagmode, 2
+ CALL mode2
+ BTFSC flagmode, 3
+ CALL mode3
+ BTFSC flagmode, 4
+ CALL mode4
 
  CALL decimales
  CALL disp_refresh ;preparar para un refresh
@@ -2776,7 +2833,6 @@ ENDM
  goto loop
 
 ;---------------------------------SUBRUTINA-------------------------------------
-<<<<<<< HEAD
     modeselector:
  BCF flagint, 0 ;Apagar bander de boton mode
  BCF flagint, 2
@@ -2825,7 +2881,6 @@ ENDM
  MOVF semaf3temp, W
  MOVWF valorsemaf3
 
- clrf flash
  bsf flagnum, 3
  bsf flagnum, 4 ;apagar el conteo
  bsf flagnum, 5
@@ -2839,7 +2894,6 @@ ENDM
  BTFSC flagint, 5 ;Interaccion de las led de modo
  BCF PORTA, 6
 
- BCF flagint, 5
 
  MOVLW 01111000B
  MOVWF flash
@@ -2908,9 +2962,60 @@ ENDM
  call via2
  BTFSS flagnum, 5
  call via3
- RETURN
 
+ BSF PORTB, 4 ;Luces de modo
+ BCF PORTB, 5
+ RETURN
+    mode2:
+ BTFSS flag, 7
+ CALL initdisp4
+ BSF flag, 7
+
+ BTFSC flagint, 1 ;Verificar si la bandera de PORTB 0 on change
+ CALL inc_num ;Incrementar contador
+ BTFSC flagint, 2 ;Verificar si la bandera de PORTB 1 on change
+ CALL dec_num ;Decrementar contador
+
+ MOVF tempt, W ;Guardar el numero en el display en variable
+ MOVWF semaf2temp ;Temporal
+
+ BTFSS flagnum, 3
+ call via1
+ BTFSS flagnum, 4
+ call via2
+ BTFSS flagnum, 5
+ call via3
+
+ BSF PORTB, 5
+ BCF PORTB, 6
+ RETURN
+    mode1:
+ BTFSS flag, 7
+ CALL initdisp4 ;Reset del display
+ BSF flag, 7
+
+ BTFSS flagnum, 3
+ call via1
+ BTFSS flagnum, 4
+ call via2
+ BTFSS flagnum, 5
+ call via3
+
+ MOVF tempt, W ;Guardar el numero en el display en variable
+ MOVWF semaf1temp ;Temporal
+
+ BTFSC flagint, 1 ;Verificar si la bandera de PORTB 0 on change
+ CALL inc_num ;Incrementar contador
+ BTFSC flagint, 2 ;Verificar si la bandera de PORTB 1 on change
+ CALL dec_num ;Decrementar contador
+
+ BSF PORTB, 6 ;Encender luz
+ RETURN
     mode0:
+ BTFSS flag, 7
+ CALL offdisp4
+ BSF flag, 7
+
  MOVLW 10
  MOVWF valorsemaf1
  MOVWF valorsemaf2
@@ -2922,12 +3027,25 @@ ENDM
  BTFSS flagnum, 5
  call via3
 
-
+ BCF PORTB, 4 ;Luces de modo
+ BCF PORTB, 5
+ BCF PORTB, 6
  RETURN
 
 
+    initdisp4:
+ BCF flag, 6
+ MOVLW 10
+ MOVWF tempt
+ RETURN
+    offdisp4:
+ BSF flag, 6
+ clrf PORTC
+ BSF PORTD, 6
+ BSF PORTD, 7
+ RETURN
     setvar1: ;La via 1 empieza con 10
- MOVF valorsemaf1
+ MOVF valorsemaf1, w
  MOVWF semaforo1
  ADDLW 3
  MOVWF semaforo2
@@ -2940,7 +3058,7 @@ ENDM
  RETURN
 
     setvar3:
- MOVF valorsemaf2
+ MOVF valorsemaf2, w
  MOVWF semaforo2
  ADDLW 3
  MOVWF semaforo3
@@ -2949,7 +3067,7 @@ ENDM
  RETURN
 
     setvar4:
- MOVF valorsemaf3
+ MOVF valorsemaf3, w
  MOVWF semaforo3
  ADDLW 3
  MOVWF semaforo1
@@ -2957,29 +3075,119 @@ ENDM
  MOVWF semaforo2
  RETURN
 
+    titileo:
+ BCF flagint, 5
+ BTFSC flash, 4
+     goto lightoff ;Toogle
+    lighton:
+ BTFSC flash, 0 ;Ver que luz se debe de encender
+ bsf PORTA, 0
+ BTFSC flash, 0 ;Display 1
+ bcf flag, 3
+
+ BTFSC flash, 1 ;Ver que luz se debe de encender
+ bsf PORTA, 3
+ BTFSC flash, 1 ;Display 2
+ bcf flag, 4
+
+ BTFSC flash, 2 ;Ver que luz se debe de encender
+ bsf PORTA, 6
+ BTFSC flash, 2 ;Display 3
+ bcf flag, 5
+
+ BTFSC flash, 3 ;Ver que luz se debe de encender
+ bsf PORTB, 6
+ BTFSC flash, 3 ;Ver que luz se debe de encender
+ bsf PORTB, 5
+ BTFSC flash, 3 ;Ver que luz se debe de encender
+ bsf PORTB, 4
+ bsf flash, 4
+ RETURN
+    lightoff:
+ clrf PORTC
+ BTFSC flash, 0
+ bcf PORTA, 0
+ BTFSC flash, 0 ;Display 1
+ bsf flag, 3
+ BTFSC flash, 0 ;Display 1
+ bsf PORTD, 0
+ BTFSC flash, 0 ;Display 1
+ bsf PORTD, 1
+
+
+ BTFSC flash, 1
+ bcf PORTA, 3
+ BTFSC flash, 1 ;Display 2
+ bsf flag, 4
+ BTFSC flash, 1 ;Display 2
+ bsf PORTD, 2
+ BTFSC flash, 1 ;Display 2
+ bsf PORTD, 3
+
+ BTFSC flash, 2 ;Ver que luz se debe de encender
+ bcf PORTA, 6
+ BTFSC flash, 2 ;Display 3
+ bsf flag, 5
+ BTFSC flash, 2 ;Display 3
+ bsf PORTD, 4
+ BTFSC flash, 2 ;Display 3
+ bsf PORTD, 5
+
+ BTFSC flash, 3 ;Ver que luz se debe de encender
+ bcf PORTB, 4
+ BTFSC flash, 3 ;Ver que luz se debe de encender
+ bcf PORTB, 5
+ BTFSC flash, 3 ;Ver que luz se debe de encender
+ bcf PORTB, 6
+ bcf flash, 4
+ RETURN
+
     via1:
  BSF flagnum, 4 ;Desactivar el modulo via 2 y 3
- BSF flagnum, 5
+ BSF flagnum, 5 ;
+ BSF PORTA, 5
+ BSF PORTB, 3
+ BCF PORTA, 2
+ BCF PORTA, 7 ;Apagar luz amarilla
+
+ ;Poner valores iniciales
+ BTFSS flagnum, 0 ;Limpiar port A
+ clrf PORTA
+ BTFSS flagnum, 0 ;Limpiar flash
+ clrf flash
+ BTFSS flagnum, 0 ;Enceder la luz verde solo una vez
  BSF PORTA, 0
  BTFSS flagnum,0 ;Hacer que solo se carguen valores 1 vez
  call setvar1
  BSF flagnum,0
+ ;Decrementar los contadores
  BTFSC flagint, 3
  call semafdec ;decrementar semaforos
-
+ ;Titileo de las luz verde
+ MOVF semaforo2, w
+ XORLW 00000110B
+ BTFSC STATUS, 2
+ bsf flash, 0 ;Activar el titiliteo
+ BTFSC flagint, 5 ;Verificar si pasaron 250ms
+ call titileo
+ ;3 segundos en verde
  BTFSC flag, 0 ;Revisar bandera de Zero en el semaforo 1
  call setvar2
  BTFSC flag, 0
  MOVWF semaforo1 ;Cargar los 3 segundos de amarillo
  BTFSC flag, 0
- BCF PORTA, 0
+ BCF PORTA, 0 ;Apagar la luz verde
  BTFSC flag, 0
- BSF PORTA, 1
-
+ BCF flash, 0 ;Apagar titileo
  BTFSC flag, 0
+ BCF flag, 3 ;Apagar titileo display
+ BTFSC flag, 0
+ BSF PORTA, 1 ;Encender luz amarilla
+ BTFSC flag, 0 ;Apagar la bandera del semaforo1
  BCF flag, 0
 
- BTFSC flag, 1
+
+ BTFSC flag, 1 ;Ver si el semaforo2 llego a 0
  BSF flagnum, 3 ;Avisar que la siguiente es via 2
  BTFSC flag, 1
  BCF flagnum, 4
@@ -2987,21 +3195,43 @@ ENDM
  RETURN
 
     via2:
- clrf PORTA
- BSF PORTA, 2
+ BSF PORTA, 2 ;Enceder rojo de semaforo 1
+ BSF PORTB, 3 ;Encender rojo de semaforo 3
+ BCF PORTA, 5 ;Apagar rojo de semaforo 2
+ BCF PORTA, 1 ;Apagar luz amarilla semaforo 1
+ ;Variables inciales
+ BTFSS flagnum, 1 ;Enceder la luz verde solo una vez
  BSF PORTA, 3
  BTFSS flagnum, 1
  call setvar3 ;Colocar valores iniciales para la via dos
  BSF flagnum, 1 ;Encender la bandera para que no se repita
  BTFSC flagint, 3 ;Revisar si paso un segundo
  call semafdec
+ ;Luz verde titilante
+ MOVF semaforo3, w
+ XORLW 00000110B
+ BTFSC STATUS, 2
+ bsf flash, 1 ;Activar el titiliteo
+ BTFSC flagint, 5 ;Verificar si pasaron 250ms
+ call titileo
+
  ;3 segundos amarillo
  BTFSC flag, 1
  call setvar2
  BTFSC flag, 1
  MOVWF semaforo2
  BTFSC flag, 1
+ BCF PORTA, 3 ;Apagar la luz verde
+ BTFSC flag, 1
+ BCF flash, 1 ;Apagar el titileo
+ BTFSC flag, 1
+ BCF flag, 4 ;Apagar titileo display
+ BTFSC flag, 1
+ BSF PORTA, 4 ;Encender luz amarilla
+ BTFSC flag, 1 ;Apagar la bandera del semaforo1
  BCF flag, 1
+
+
  ;Avisar que la siguiente es via 3
  BTFSC flag, 2 ;Revisar si el semaforo 3 esta en 0
  BSF flagnum, 4 ;Avisar que la siguiente es via 2
@@ -3011,31 +3241,50 @@ ENDM
  RETURN
 
      via3:
+ BSF PORTA, 2 ;Encender luz roja semaforo 1
+ BSF PORTA, 5 ;Encender luz roja semaforo 2
+ BCF PORTB, 3 ;Apagar luz roja de semaforo 3
+ BCF PORTA, 4 ;Apagar luz amarilla de semaforo 2
+ ;Variables inciales
+ BTFSS flagnum, 2 ;Enceder la luz verde solo una vez
+ BSF PORTA, 6
  BTFSS flagnum, 2
  call setvar4 ;Colocar valores iniciales para la via dos
  BSF flagnum, 2 ;Encender la bandera para que no se repita
  BTFSC flagint, 3 ;Revisar si paso un segundo
  call semafdec
+ ;Luz verde titilante
+ MOVF semaforo1, w
+ XORLW 00000110B
+ BTFSC STATUS, 2
+ bsf flash, 2 ;Activar el titiliteo
+ BTFSC flagint, 5 ;Verificar si pasaron 250ms
+ call titileo
  ;3 segundos amarillo
  BTFSC flag, 2
  call setvar2
  BTFSC flag, 2
  MOVWF semaforo3
  BTFSC flag, 2
+ BCF PORTA, 6 ;Apagar la luz verde
+ BTFSC flag, 2
+ BCF flash, 2 ;Apagar el titileo
+ BTFSC flag, 2
+ BCF flag, 5 ;Apagar titileo display
+ BTFSC flag, 2
+ BSF PORTA, 7
+ BTFSC flag, 2 ;Apagar la bandera del semaforo1
  BCF flag, 2
  ;Avisar que la siguiente es via 3
  BTFSC flag, 0 ;Revisar si el semaforo 1 esta en 0
- BSF flagnum, 5 ;Avisar que la siguiente es via 2
+ BSF flagnum, 5 ;Avisar que via 3 ya paso
  BTFSC flag, 0
  BCF flagnum, 3 ;Activar el modulo de via 1
 
+
  ;Activar la lectura de intial values
  BTFSC flag, 0
- BCF flagnum, 0
- BTFSC flag, 0
- BCF flagnum, 1
- BTFSC flag, 0
- BCF flagnum, 2
+ clrf flagnum
  BCF flag, 0
  RETURN
 
@@ -3093,16 +3342,17 @@ ENDM
     inc_num:
  bcf flagint,1
  incf tempt, F ;Incrementar el contador
+
  MOVF tempt, W
- call restas
- MOVF decenas, W ;Mover el contador de decenas a variable de display
- MOVWF decenas4, F
+ XORLW 00010101B
+ BTFSC STATUS, 2 ;Ver si paso de 20
+ BSF flagnum, 7 ;Avisar que paso de 20
+ BTFSC flagnum, 7
+ MOVLW 10 ;Mover el valor deseado
+ BTFSC flagnum, 7
+ MOVWF tempt, F
+ BCF flagnum, 7
 
- MOVF unidades, W ;Mover el contador de unidades a
- MOVWF unidades4, F
-
- clrf unidades
- clrf decenas
  RETURN ;Regresar al loop
 
 
@@ -3110,15 +3360,15 @@ ENDM
  bcf flagint, 2
  decf tempt, F ;Decrementar el puerto
  MOVF tempt, W
- call restas
- MOVF decenas, W ;Mover el contador de decenas a variable de display
- MOVWF decenas4, F
-
- MOVF unidades, W ;Mover el contador de unidades a
- MOVWF unidades4, F
-
- clrf unidades
- clrf decenas
+ ;Hacer el loop
+ XORLW 9
+ BTFSC STATUS, 2 ;Ver si es menor con la bander zero
+ BSF flagnum, 6 ;Avisar si es menor
+ BTFSC flagnum, 6
+ MOVLW 20 ;Mover el valor deseado
+ BTFSC flagnum, 6
+ MOVWF tempt
+ BCF flagnum, 6
  RETURN
 
    decimales:
@@ -3154,6 +3404,19 @@ ENDM
 
  MOVF unidades, W ;Mover el contador de unidades a
  MOVWF unidades3, F
+
+ clrf unidades
+ clrf decenas
+
+
+ ;Pasar a decimales display extra
+ MOVF tempt, W
+ call restas
+ MOVF decenas, W ;Mover el contador de decenas a variable de display
+ MOVWF decenas4, F
+
+ MOVF unidades, W ;Mover el contador de unidades a
+ MOVWF unidades4, F
 
  clrf unidades
  clrf decenas
