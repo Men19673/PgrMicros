@@ -2459,7 +2459,8 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\xc.inc" 2 3
-# 14 "nbproject/Main.s" 2
+# 13 "nbproject/Main.s" 2
+
 ;------------------------- CONFIGURATION WORDS----------------------------------
 
     ; config 1
@@ -2775,9 +2776,60 @@ ENDM
  goto loop
 
 ;---------------------------------SUBRUTINA-------------------------------------
-
-
 <<<<<<< HEAD
+    modeselector:
+ BCF flagint, 0 ;Apagar bander de boton mode
+ BCF flagint, 2
+ BCF flag, 7 ;Modificar bandera de pantalla 4
+ incf selector
+ MOVF selector, W
+ XORLW 5
+ BTFSC STATUS, 2 ;Ver si paso de 4
+ clrf selector
+ RETURN
+
+    modeselect:
+ clrf flagmode
+ MOVF selector, W ;Revisar que modo es
+ XORLW 0
+ BTFSC STATUS, 2
+ BSF flagmode, 0 ;Modo 0
+
+ MOVF selector, W ;Revisar que modo es
+ XORLW 1
+ BTFSC STATUS, 2
+ BSF flagmode, 1 ;Modo 1
+
+ MOVF selector, W ;Revisar que modo es
+ XORLW 2
+ BTFSC STATUS, 2
+ BSF flagmode, 2 ;Modo 2
+
+ MOVF selector, W ;Revisar que modo es
+ XORLW 3
+ BTFSC STATUS, 2
+ BSF flagmode, 3 ;Modo3
+
+ MOVF selector, W ;Revisar que modo es
+ XORLW 4
+ BTFSC STATUS, 2
+ BSF flagmode, 4 ;Modo 4
+        RETURN
+
+    aceptar:
+
+ MOVF semaf1temp, W
+ MOVWF valorsemaf1
+ MOVF semaf2temp, W
+ MOVWF valorsemaf2
+ MOVF semaf3temp, W
+ MOVWF valorsemaf3
+
+ clrf flash
+ bsf flagnum, 3
+ bsf flagnum, 4 ;apagar el conteo
+ bsf flagnum, 5
+
  BTFSC flagint, 5 ;Interaccion de las led de modo
  BCF PORTA, 4
 
@@ -2858,8 +2910,7 @@ ENDM
  call via2
  BTFSS flagnum, 5
  call via3
-=======
->>>>>>> parent of 804ba56 (Casi completo, faltan las leds de modo 5)
+ RETURN
 
     mode0:
  MOVLW 10

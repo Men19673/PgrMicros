@@ -460,10 +460,7 @@ PROCESSOR 16F887
 	call	via2 
 	BTFSS	flagnum, 5
 	call	via3
-=======
->>>>>>> parent of 804ba56 (Casi completo, faltan las leds de modo 5)
-	
-    
+	RETURN
     
     mode0:
 	MOVLW	10
