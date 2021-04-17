@@ -354,7 +354,7 @@ PROCESSOR 16F887
 	MOVWF oneseg
 	MOVWF twofive
 	MOVWF tempt
-	MOVLW	3
+	MOVLW	5
 	MOVWF threeseg
 
 
@@ -425,6 +425,7 @@ PROCESSOR 16F887
     aceptar:
 
 	MOVF	semaf1temp, W
+	ADDLW	1
 	MOVWF	valorsemaf1
 	MOVF	semaf2temp, W
 	MOVWF	valorsemaf2
@@ -455,7 +456,7 @@ PROCESSOR 16F887
 	DECFSZ	threeseg
 	RETURN
 
-	MOVLW	3
+	MOVLW	5
 	MOVWF	threeseg
 	bcf	flagint, 1
 	clrf	flash

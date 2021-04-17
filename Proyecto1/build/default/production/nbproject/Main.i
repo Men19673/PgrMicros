@@ -2804,7 +2804,7 @@ ENDM
  MOVWF oneseg
  MOVWF twofive
  MOVWF tempt
- MOVLW 3
+ MOVLW 5
  MOVWF threeseg
 
 
@@ -2875,6 +2875,7 @@ ENDM
     aceptar:
 
  MOVF semaf1temp, W
+ ADDLW 1
  MOVWF valorsemaf1
  MOVF semaf2temp, W
  MOVWF valorsemaf2
@@ -2885,14 +2886,6 @@ ENDM
  bsf flagnum, 4 ;apagar el conteo
  bsf flagnum, 5
 
- BTFSC flagint, 5 ;Interaccion de las led de modo
- BCF PORTA, 4
-
- BTFSC flagint, 5 ;Interaccion de las led de modo
- BCF PORTA, 5
-
- BTFSC flagint, 5 ;Interaccion de las led de modo
- BCF PORTA, 6
 
 
  MOVLW 01111000B
@@ -2913,7 +2906,7 @@ ENDM
  DECFSZ threeseg
  RETURN
 
- MOVLW 3
+ MOVLW 5
  MOVWF threeseg
  bcf flagint, 1
  clrf flash
