@@ -1,4 +1,4 @@
-# 1 "Main.c"
+# 1 "MainP2.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Main.c" 2
-# 10 "Main.c"
+# 1 "MainP2.c" 2
+# 10 "MainP2.c"
 # 1 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2488,7 +2488,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 10 "Main.c" 2
+# 10 "MainP2.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdint.h" 3
@@ -2623,7 +2623,7 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 11 "Main.c" 2
+# 11 "MainP2.c" 2
 
 
 
@@ -2662,109 +2662,32 @@ typedef uint16_t uintptr_t;
 
 
 void setup(void);
-
+void decimal(uint8_t);
 uint8_t table(uint8_t);
-# 106 "Main.c"
-uint8_t valor;
-uint8_t var0;
-uint8_t var1;
-uint8_t var2;
-uint8_t var3;
-uint8_t var4;
-unsigned char str[96] = " Que accion desea ejecutar?\r(1)Desplegar cadena de caracteres\r(2)Cambiar PORTA\r(3)Cambiar PORTB\0";
-unsigned char cad[26] = " \rBienvenido, como estas?\r";
-unsigned char car[24] = " \rQue caracter desea?\r";
-
+void dispasign(uint8_t, uint8_t, uint8_t);
+void chselect (void);
+void ctrservo (void);
+# 119 "MainP2.c"
 void __attribute__((picinterrupt((""))))isr(void){
-
-
+# 161 "MainP2.c"
+    if(RCIF == 1){
+        PORTB = RCREG;
+    }
 }
 
 void main(void) {
     setup();
-    var0 = 0;
+
 
 
 while(1) {
-
-    if (var0 == 0){
-       if(var1 <= 96){
-           var1++;
-       }
-       else{
-            if(RCIF == 1){
-                        var0 = RCREG;
-            }
-       }
-       if(TXIF == 1){
-        TXREG = str[var1];
-       }
-        _delay((unsigned long)((100)*(4000000/4000.0)));
+   if(TXIF == 1){
+        TXREG = 97;
     }
+   _delay((unsigned long)((500)*(4000000/4000.0)));
 
 
-    if (var0 == 49){
-       if(var2 <= 26){
-           var2++;
-       }
-       else {
-           var0=0;
-           var1=0;
-           var2=0;
-       }
-       if(TXIF == 1){
-        TXREG = cad[var2];
-       }
-        _delay((unsigned long)((100)*(4000000/4000.0)));
     }
-
-     if (var0 == 50){
-       if(var3 <= 24){
-           var3++;
-       }
-       else {
-          while(RCIF == 0){
-           }
-          if(RCIF ==1){
-             PORTA = RCREG;
-            }
-
-           var0=0;
-           var1=0;
-           var2=0;
-           var3=0;
-           var4=0;
-       }
-       if(TXIF == 1){
-        TXREG = car[var3];
-       }
-        _delay((unsigned long)((100)*(4000000/4000.0)));
-    }
-
-    if (var0 == 51){
-       if(var4 <= 24){
-           var4++;
-       }
-       else {
-          while(RCIF == 0){
-           }
-          if(RCIF ==1){
-             PORTB = RCREG;
-            }
-           var0=0;
-           var1=0;
-           var2=0;
-           var3=0;
-           var4=0;
-       }
-       if(TXIF == 1){
-        TXREG = car[var4];
-       }
-        _delay((unsigned long)((100)*(4000000/4000.0)));
-    }
-
-
-  }
 }
 
 
@@ -2784,16 +2707,10 @@ void setup(void){
 
 
   OPTION_REG = 0b11000100;
-
-
-
-
+# 216 "MainP2.c"
   OSCCONbits.IRCF = 0b110;
   OSCCONbits.SCS = 1;
-
-
-
-
+# 226 "MainP2.c"
   TXSTAbits.SYNC = 0;
   TXSTAbits.BRGH = 1;
   TXSTAbits.TX9 = 0;
@@ -2811,7 +2728,7 @@ void setup(void){
 
 
 
-  INTCON = 0b00000000;
+  INTCON = 0b11000000;
   PIE1 = 0b00100000;
   PIE2 = 0b00000000;
 

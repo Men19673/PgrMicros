@@ -1,16 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
-[p mainexit ]
-"48 Main.c
-[v _setup `(v ~T0 @X0 0 ef ]
 "4175 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4175: extern volatile __bit RCIF __attribute__((address(0x65)));
 [v _RCIF `Vb ~T0 @X0 0 e@101 ]
+"228
+[; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "1140
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
 [v _RCREG `Vuc ~T0 @X0 0 e@26 ]
-"4544
+[p mainexit ]
+"48 MainP2.c
+[v _setup `(v ~T0 @X0 0 ef ]
+"4544 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4544: extern volatile __bit TXIF __attribute__((address(0x64)));
 [v _TXIF `Vb ~T0 @X0 0 e@100 ]
 "1133
@@ -20,13 +23,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
 [p i __delay ]
-"166 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
-[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
-"228
-[; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"3387
+"3387 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "3449
@@ -133,6 +130,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1758
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1758: extern volatile unsigned char PIE2 __attribute__((address(0x08D)));
 [v _PIE2 `Vuc ~T0 @X0 0 e@141 ]
+"166
+[; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
 "290
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
 [v _PORTC `Vuc ~T0 @X0 0 e@7 ]
@@ -382,7 +382,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"15 Main.c
+"15 MainP2.c
 [p x FOSC  =  INTRC_NOCLKOUT ]
 "18
 [p x WDTE  =  OFF        ]
@@ -406,587 +406,163 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x BOR4V  =  BOR40V    ]
 "40
 [p x WRT  =  OFF         ]
-"106
-[; ;Main.c: 106: uint8_t valor;
-[v _valor `uc ~T0 @X0 1 e ]
-"107
-[; ;Main.c: 107: uint8_t var0;
-[v _var0 `uc ~T0 @X0 1 e ]
-"108
-[; ;Main.c: 108: uint8_t var1;
-[v _var1 `uc ~T0 @X0 1 e ]
-"109
-[; ;Main.c: 109: uint8_t var2;
-[v _var2 `uc ~T0 @X0 1 e ]
-"110
-[; ;Main.c: 110: uint8_t var3;
-[v _var3 `uc ~T0 @X0 1 e ]
-"111
-[; ;Main.c: 111: uint8_t var4;
-[v _var4 `uc ~T0 @X0 1 e ]
-"112
-[; ;Main.c: 112: unsigned char str[96] = " Que accion desea ejecutar?\r(1)Desplegar cadena de caracteres\r(2)Cambiar PORTA\r(3)Cambiar PORTB\0";
-[v _str `uc ~T0 @X0 -> 96 `i e ]
-[i _str
-:U ..
--> 32 `c
--> 81 `c
--> 117 `c
--> 101 `c
--> 32 `c
--> 97 `c
--> 99 `c
--> 99 `c
--> 105 `c
--> 111 `c
--> 110 `c
--> 32 `c
--> 100 `c
--> 101 `c
--> 115 `c
--> 101 `c
--> 97 `c
--> 32 `c
--> 101 `c
--> 106 `c
--> 101 `c
--> 99 `c
--> 117 `c
--> 116 `c
--> 97 `c
--> 114 `c
--> 63 `c
--> 13 `c
--> 40 `c
--> 49 `c
--> 41 `c
--> 68 `c
--> 101 `c
--> 115 `c
--> 112 `c
--> 108 `c
--> 101 `c
--> 103 `c
--> 97 `c
--> 114 `c
--> 32 `c
--> 99 `c
--> 97 `c
--> 100 `c
--> 101 `c
--> 110 `c
--> 97 `c
--> 32 `c
--> 100 `c
--> 101 `c
--> 32 `c
--> 99 `c
--> 97 `c
--> 114 `c
--> 97 `c
--> 99 `c
--> 116 `c
--> 101 `c
--> 114 `c
--> 101 `c
--> 115 `c
--> 13 `c
--> 40 `c
--> 50 `c
--> 41 `c
--> 67 `c
--> 97 `c
--> 109 `c
--> 98 `c
--> 105 `c
--> 97 `c
--> 114 `c
--> 32 `c
--> 80 `c
--> 79 `c
--> 82 `c
--> 84 `c
--> 65 `c
--> 13 `c
--> 40 `c
--> 51 `c
--> 41 `c
--> 67 `c
--> 97 `c
--> 109 `c
--> 98 `c
--> 105 `c
--> 97 `c
--> 114 `c
--> 32 `c
--> 80 `c
--> 79 `c
--> 82 `c
--> 84 `c
--> 66 `c
--> 0 `c
-..
-]
-"113
-[; ;Main.c: 113: unsigned char cad[26] = " \rBienvenido, como estas?\r";
-[v _cad `uc ~T0 @X0 -> 26 `i e ]
-[i _cad
-:U ..
--> 32 `c
--> 13 `c
--> 66 `c
--> 105 `c
--> 101 `c
--> 110 `c
--> 118 `c
--> 101 `c
--> 110 `c
--> 105 `c
--> 100 `c
--> 111 `c
--> 44 `c
--> 32 `c
--> 99 `c
--> 111 `c
--> 109 `c
--> 111 `c
--> 32 `c
--> 101 `c
--> 115 `c
--> 116 `c
--> 97 `c
--> 115 `c
--> 63 `c
--> 13 `c
-..
-]
-"114
-[; ;Main.c: 114: unsigned char car[24] = " \rQue caracter desea?\r";
-[v _car `uc ~T0 @X0 -> 24 `i e ]
-[i _car
-:U ..
--> 32 `c
--> 13 `c
--> 81 `c
--> 117 `c
--> 101 `c
--> 32 `c
--> 99 `c
--> 97 `c
--> 114 `c
--> 97 `c
--> 99 `c
--> 116 `c
--> 101 `c
--> 114 `c
--> 32 `c
--> 100 `c
--> 101 `c
--> 115 `c
--> 101 `c
--> 97 `c
--> 63 `c
--> 13 `c
--> 0 `c
-..
-]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"116
-[; ;Main.c: 116: void __attribute__((picinterrupt((""))))isr(void){
+"119
+[; ;MainP2.c: 119: void __attribute__((picinterrupt((""))))isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"119
-[; ;Main.c: 119: }
+"161
+[; ;MainP2.c: 161:     if(RCIF == 1){
+[e $ ! == -> _RCIF `i -> 1 `i 139  ]
+{
+"162
+[; ;MainP2.c: 162:         PORTB = RCREG;
+[e = _PORTB _RCREG ]
+"163
+[; ;MainP2.c: 163:     }
+}
+[e :U 139 ]
+"164
+[; ;MainP2.c: 164: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"121
-[; ;Main.c: 121: void main(void) {
+"166
+[; ;MainP2.c: 166: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"122
-[; ;Main.c: 122:     setup();
-[e ( _setup ..  ]
-"123
-[; ;Main.c: 123:     var0 = 0;
-[e = _var0 -> -> 0 `i `uc ]
-"126
-[; ;Main.c: 126: while(1) {
-[e :U 141 ]
-{
-"128
-[; ;Main.c: 128:     if (var0 == 0){
-[e $ ! == -> _var0 `i -> 0 `i 143  ]
-{
-"129
-[; ;Main.c: 129:        if(var1 <= 96){
-[e $ ! <= -> _var1 `i -> 96 `i 144  ]
-{
-"130
-[; ;Main.c: 130:            var1++;
-[e ++ _var1 -> -> 1 `i `uc ]
-"131
-[; ;Main.c: 131:        }
-}
-[e $U 145  ]
-"132
-[; ;Main.c: 132:        else{
-[e :U 144 ]
-{
-"133
-[; ;Main.c: 133:             if(RCIF == 1){
-[e $ ! == -> _RCIF `i -> 1 `i 146  ]
-{
-"134
-[; ;Main.c: 134:                         var0 = RCREG;
-[e = _var0 _RCREG ]
-"135
-[; ;Main.c: 135:             }
-}
-[e :U 146 ]
-"136
-[; ;Main.c: 136:        }
-}
-[e :U 145 ]
-"137
-[; ;Main.c: 137:        if(TXIF == 1){
-[e $ ! == -> _TXIF `i -> 1 `i 147  ]
-{
-"138
-[; ;Main.c: 138:         TXREG = str[var1];
-[e = _TXREG *U + &U _str * -> _var1 `ux -> -> # *U &U _str `ui `ux ]
-"139
-[; ;Main.c: 139:        }
-}
-[e :U 147 ]
-"140
-[; ;Main.c: 140:         _delay((unsigned long)((100)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"141
-[; ;Main.c: 141:     }
-}
-[e :U 143 ]
-"144
-[; ;Main.c: 144:     if (var0 == 49){
-[e $ ! == -> _var0 `i -> 49 `i 148  ]
-{
-"145
-[; ;Main.c: 145:        if(var2 <= 26){
-[e $ ! <= -> _var2 `i -> 26 `i 149  ]
-{
-"146
-[; ;Main.c: 146:            var2++;
-[e ++ _var2 -> -> 1 `i `uc ]
-"147
-[; ;Main.c: 147:        }
-}
-[e $U 150  ]
-"148
-[; ;Main.c: 148:        else {
-[e :U 149 ]
-{
-"149
-[; ;Main.c: 149:            var0=0;
-[e = _var0 -> -> 0 `i `uc ]
-"150
-[; ;Main.c: 150:            var1=0;
-[e = _var1 -> -> 0 `i `uc ]
-"151
-[; ;Main.c: 151:            var2=0;
-[e = _var2 -> -> 0 `i `uc ]
-"152
-[; ;Main.c: 152:        }
-}
-[e :U 150 ]
-"153
-[; ;Main.c: 153:        if(TXIF == 1){
-[e $ ! == -> _TXIF `i -> 1 `i 151  ]
-{
-"154
-[; ;Main.c: 154:         TXREG = cad[var2];
-[e = _TXREG *U + &U _cad * -> _var2 `ux -> -> # *U &U _cad `ui `ux ]
-"155
-[; ;Main.c: 155:        }
-}
-[e :U 151 ]
-"156
-[; ;Main.c: 156:         _delay((unsigned long)((100)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"157
-[; ;Main.c: 157:     }
-}
-[e :U 148 ]
-"159
-[; ;Main.c: 159:      if (var0 == 50){
-[e $ ! == -> _var0 `i -> 50 `i 152  ]
-{
-"160
-[; ;Main.c: 160:        if(var3 <= 24){
-[e $ ! <= -> _var3 `i -> 24 `i 153  ]
-{
-"161
-[; ;Main.c: 161:            var3++;
-[e ++ _var3 -> -> 1 `i `uc ]
-"162
-[; ;Main.c: 162:        }
-}
-[e $U 154  ]
-"163
-[; ;Main.c: 163:        else {
-[e :U 153 ]
-{
-"164
-[; ;Main.c: 164:           while(RCIF == 0){
-[e $U 155  ]
-[e :U 156 ]
-{
-"165
-[; ;Main.c: 165:            }
-}
-[e :U 155 ]
-"164
-[; ;Main.c: 164:           while(RCIF == 0){
-[e $ == -> _RCIF `i -> 0 `i 156  ]
-[e :U 157 ]
-"166
-[; ;Main.c: 166:           if(RCIF ==1){
-[e $ ! == -> _RCIF `i -> 1 `i 158  ]
-{
 "167
-[; ;Main.c: 167:              PORTA = RCREG;
-[e = _PORTA _RCREG ]
-"168
-[; ;Main.c: 168:             }
-}
-[e :U 158 ]
-"170
-[; ;Main.c: 170:            var0=0;
-[e = _var0 -> -> 0 `i `uc ]
+[; ;MainP2.c: 167:     setup();
+[e ( _setup ..  ]
 "171
-[; ;Main.c: 171:            var1=0;
-[e = _var1 -> -> 0 `i `uc ]
-"172
-[; ;Main.c: 172:            var2=0;
-[e = _var2 -> -> 0 `i `uc ]
-"173
-[; ;Main.c: 173:            var3=0;
-[e = _var3 -> -> 0 `i `uc ]
-"174
-[; ;Main.c: 174:            var4=0;
-[e = _var4 -> -> 0 `i `uc ]
-"175
-[; ;Main.c: 175:        }
-}
-[e :U 154 ]
-"176
-[; ;Main.c: 176:        if(TXIF == 1){
-[e $ ! == -> _TXIF `i -> 1 `i 159  ]
-{
-"177
-[; ;Main.c: 177:         TXREG = car[var3];
-[e = _TXREG *U + &U _car * -> _var3 `ux -> -> # *U &U _car `ui `ux ]
-"178
-[; ;Main.c: 178:        }
-}
-[e :U 159 ]
-"179
-[; ;Main.c: 179:         _delay((unsigned long)((100)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"180
-[; ;Main.c: 180:     }
-}
-[e :U 152 ]
-"182
-[; ;Main.c: 182:     if (var0 == 51){
-[e $ ! == -> _var0 `i -> 51 `i 160  ]
-{
-"183
-[; ;Main.c: 183:        if(var4 <= 24){
-[e $ ! <= -> _var4 `i -> 24 `i 161  ]
-{
-"184
-[; ;Main.c: 184:            var4++;
-[e ++ _var4 -> -> 1 `i `uc ]
-"185
-[; ;Main.c: 185:        }
-}
-[e $U 162  ]
-"186
-[; ;Main.c: 186:        else {
-[e :U 161 ]
-{
-"187
-[; ;Main.c: 187:           while(RCIF == 0){
-[e $U 163  ]
-[e :U 164 ]
-{
-"188
-[; ;Main.c: 188:            }
-}
-[e :U 163 ]
-"187
-[; ;Main.c: 187:           while(RCIF == 0){
-[e $ == -> _RCIF `i -> 0 `i 164  ]
-[e :U 165 ]
-"189
-[; ;Main.c: 189:           if(RCIF ==1){
-[e $ ! == -> _RCIF `i -> 1 `i 166  ]
-{
-"190
-[; ;Main.c: 190:              PORTB = RCREG;
-[e = _PORTB _RCREG ]
-"191
-[; ;Main.c: 191:             }
-}
-[e :U 166 ]
-"192
-[; ;Main.c: 192:            var0=0;
-[e = _var0 -> -> 0 `i `uc ]
-"193
-[; ;Main.c: 193:            var1=0;
-[e = _var1 -> -> 0 `i `uc ]
-"194
-[; ;Main.c: 194:            var2=0;
-[e = _var2 -> -> 0 `i `uc ]
-"195
-[; ;Main.c: 195:            var3=0;
-[e = _var3 -> -> 0 `i `uc ]
-"196
-[; ;Main.c: 196:            var4=0;
-[e = _var4 -> -> 0 `i `uc ]
-"197
-[; ;Main.c: 197:        }
-}
-[e :U 162 ]
-"198
-[; ;Main.c: 198:        if(TXIF == 1){
-[e $ ! == -> _TXIF `i -> 1 `i 167  ]
-{
-"199
-[; ;Main.c: 199:         TXREG = car[var4];
-[e = _TXREG *U + &U _car * -> _var4 `ux -> -> # *U &U _car `ui `ux ]
-"200
-[; ;Main.c: 200:        }
-}
-[e :U 167 ]
-"201
-[; ;Main.c: 201:         _delay((unsigned long)((100)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"202
-[; ;Main.c: 202:     }
-}
-[e :U 160 ]
-"205
-[; ;Main.c: 205:   }
-}
-[e :U 140 ]
-[e $U 141  ]
+[; ;MainP2.c: 171: while(1) {
 [e :U 142 ]
-"206
-[; ;Main.c: 206: }
-[e :UE 139 ]
+{
+"172
+[; ;MainP2.c: 172:    if(TXIF == 1){
+[e $ ! == -> _TXIF `i -> 1 `i 144  ]
+{
+"173
+[; ;MainP2.c: 173:         TXREG = 97;
+[e = _TXREG -> -> 97 `i `uc ]
+"174
+[; ;MainP2.c: 174:     }
 }
-"210
-[; ;Main.c: 210: void setup(void){
+[e :U 144 ]
+"175
+[; ;MainP2.c: 175:    _delay((unsigned long)((500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"178
+[; ;MainP2.c: 178:     }
+}
+[e :U 141 ]
+[e $U 142  ]
+[e :U 143 ]
+"179
+[; ;MainP2.c: 179: }
+[e :UE 140 ]
+}
+"183
+[; ;MainP2.c: 183: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"212
-[; ;Main.c: 212:   ANSEL = 0b00000000;
+"185
+[; ;MainP2.c: 185:   ANSEL = 0b00000000;
 [e = _ANSEL -> -> 0 `i `uc ]
-"213
-[; ;Main.c: 213:   ANSELH = 0b00000000;
+"186
+[; ;MainP2.c: 186:   ANSELH = 0b00000000;
 [e = _ANSELH -> -> 0 `i `uc ]
-"215
-[; ;Main.c: 215:   TRISA = 0b00000000;
+"188
+[; ;MainP2.c: 188:   TRISA = 0b00000000;
 [e = _TRISA -> -> 0 `i `uc ]
-"216
-[; ;Main.c: 216:   TRISB = 0b00000000;
+"189
+[; ;MainP2.c: 189:   TRISB = 0b00000000;
 [e = _TRISB -> -> 0 `i `uc ]
-"217
-[; ;Main.c: 217:   TRISC = 0b10000000;
+"190
+[; ;MainP2.c: 190:   TRISC = 0b10000000;
 [e = _TRISC -> -> 128 `i `uc ]
-"218
-[; ;Main.c: 218:   TRISD = 0x00;
+"191
+[; ;MainP2.c: 191:   TRISD = 0x00;
 [e = _TRISD -> -> 0 `i `uc ]
-"219
-[; ;Main.c: 219:   TRISE = 0x00;
+"192
+[; ;MainP2.c: 192:   TRISE = 0x00;
 [e = _TRISE -> -> 0 `i `uc ]
-"224
-[; ;Main.c: 224:   OPTION_REG = 0b11000100;
+"197
+[; ;MainP2.c: 197:   OPTION_REG = 0b11000100;
 [e = _OPTION_REG -> -> 196 `i `uc ]
-"229
-[; ;Main.c: 229:   OSCCONbits.IRCF = 0b110;
+"216
+[; ;MainP2.c: 216:   OSCCONbits.IRCF = 0b110;
 [e = . . _OSCCONbits 0 4 -> -> 6 `i `uc ]
-"230
-[; ;Main.c: 230:   OSCCONbits.SCS = 1;
+"217
+[; ;MainP2.c: 217:   OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"235
-[; ;Main.c: 235:   TXSTAbits.SYNC = 0;
+"226
+[; ;MainP2.c: 226:   TXSTAbits.SYNC = 0;
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-"236
-[; ;Main.c: 236:   TXSTAbits.BRGH = 1;
+"227
+[; ;MainP2.c: 227:   TXSTAbits.BRGH = 1;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-"237
-[; ;Main.c: 237:   TXSTAbits.TX9 = 0;
+"228
+[; ;MainP2.c: 228:   TXSTAbits.TX9 = 0;
 [e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
-"238
-[; ;Main.c: 238:   TXSTAbits.TXEN= 1;
+"229
+[; ;MainP2.c: 229:   TXSTAbits.TXEN= 1;
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"239
-[; ;Main.c: 239:   RCSTAbits.SPEN = 1;
+"230
+[; ;MainP2.c: 230:   RCSTAbits.SPEN = 1;
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-"242
-[; ;Main.c: 242:   RCSTAbits.RX9 = 0;
+"233
+[; ;MainP2.c: 233:   RCSTAbits.RX9 = 0;
 [e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
-"243
-[; ;Main.c: 243:   RCSTAbits.CREN = 1;
+"234
+[; ;MainP2.c: 234:   RCSTAbits.CREN = 1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"246
-[; ;Main.c: 246:     BAUDCTLbits.BRG16 = 0;
+"237
+[; ;MainP2.c: 237:     BAUDCTLbits.BRG16 = 0;
 [e = . . _BAUDCTLbits 0 3 -> -> 0 `i `uc ]
-"247
-[; ;Main.c: 247:     SPBRG =25;
+"238
+[; ;MainP2.c: 238:     SPBRG =25;
 [e = _SPBRG -> -> 25 `i `uc ]
-"248
-[; ;Main.c: 248:     SPBRGH = 1;
+"239
+[; ;MainP2.c: 239:     SPBRGH = 1;
 [e = _SPBRGH -> -> 1 `i `uc ]
-"252
-[; ;Main.c: 252:   INTCON = 0b00000000;
-[e = _INTCON -> -> 0 `i `uc ]
-"253
-[; ;Main.c: 253:   PIE1 = 0b00100000;
+"243
+[; ;MainP2.c: 243:   INTCON = 0b11000000;
+[e = _INTCON -> -> 192 `i `uc ]
+"244
+[; ;MainP2.c: 244:   PIE1 = 0b00100000;
 [e = _PIE1 -> -> 32 `i `uc ]
-"254
-[; ;Main.c: 254:   PIE2 = 0b00000000;
+"245
+[; ;MainP2.c: 245:   PIE2 = 0b00000000;
 [e = _PIE2 -> -> 0 `i `uc ]
-"258
-[; ;Main.c: 258:   PORTA = 0x00;
+"249
+[; ;MainP2.c: 249:   PORTA = 0x00;
 [e = _PORTA -> -> 0 `i `uc ]
-"259
-[; ;Main.c: 259:   PORTB = 0x00;
+"250
+[; ;MainP2.c: 250:   PORTB = 0x00;
 [e = _PORTB -> -> 0 `i `uc ]
-"260
-[; ;Main.c: 260:   PORTC = 0x00;
+"251
+[; ;MainP2.c: 251:   PORTC = 0x00;
 [e = _PORTC -> -> 0 `i `uc ]
-"261
-[; ;Main.c: 261:   PORTD = 0x00;
+"252
+[; ;MainP2.c: 252:   PORTD = 0x00;
 [e = _PORTD -> -> 0 `i `uc ]
-"262
-[; ;Main.c: 262:   PORTE = 0x00;
+"253
+[; ;MainP2.c: 253:   PORTE = 0x00;
 [e = _PORTE -> -> 0 `i `uc ]
-"263
-[; ;Main.c: 263:   PIR1 = 0x00;
+"254
+[; ;MainP2.c: 254:   PIR1 = 0x00;
 [e = _PIR1 -> -> 0 `i `uc ]
-"264
-[; ;Main.c: 264:   PIR2 = 0x00;
+"255
+[; ;MainP2.c: 255:   PIR2 = 0x00;
 [e = _PIR2 -> -> 0 `i `uc ]
-"266
-[; ;Main.c: 266: }
-[e :UE 168 ]
+"257
+[; ;MainP2.c: 257: }
+[e :UE 145 ]
 }

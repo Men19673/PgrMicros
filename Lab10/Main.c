@@ -46,7 +46,7 @@
 /******************************Prototipos**************************************/
 
 void setup(void);   //Anunciar funcion setup
-void decimal(uint8_t); //Funcion de restas
+
 uint8_t table(uint8_t);     //Funcion tabla
 
 /********************************TABLA*****************************************/
@@ -102,37 +102,107 @@ uint8_t table(uint8_t);     //Funcion tabla
 }
 */
 /********************************Variables*************************************/
-/*uint8_t flagint;
-uint8_t centenas;
-uint8_t decenas;
-uint8_t unidades;
+
 uint8_t valor;
-uint8_t disp0;
-uint8_t disp1;
-uint8_t disp2;
-uint8_t multiplex;
 uint8_t var0;
-uint8_t var1;*/
+uint8_t var1;
+uint8_t var2;
+uint8_t var3;
+uint8_t var4;
+unsigned char  str[96] = " Que accion desea ejecutar?\r(1)Desplegar cadena de caracteres\r(2)Cambiar PORTA\r(3)Cambiar PORTB\0";
+unsigned char  cad[26] = " \rBienvenido, como estas?\r";
+unsigned char  car[24] = " \rQue caracter desea?\r";
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
  
-    if(RCIF == 1){
-        PORTB = RCREG;
-    }
+    
 }
 /****************************** MAIN ******************************************/
 void main(void) {
     setup();
-    
+    var0 = 0;
 
 /****************************** LOOP ******************************************/
 while(1) {
-   if(TXIF == 1){
-        TXREG = 97; //Enviar a
-    }
-   __delay_ms(500);
     
+    if (var0 == 0){
+       if(var1 <= 96){      //verficar que no pase del limite 
+           var1++;          //Ir cambiando de character
+       }
+       else{
+            if(RCIF == 1){
+                        var0 = RCREG; //Asignar el valor de selector de accion  
+            }
+       }       
+       if(TXIF == 1){
+        TXREG = str[var1]; //Enviar a terminal palabras
+       }
+        __delay_ms(100);
     }
+    
+   //Cadena de caracteres
+    if (var0 == 49){
+       if(var2 <= 26){
+           var2++;          //Ir cambiando de character
+       }
+       else {
+           var0=0;
+           var1=0;
+           var2=0;
+       }
+       if(TXIF == 1){
+        TXREG = cad[var2]; //Enviar a termial palabras
+       }
+        __delay_ms(100);
+    }
+    //PORTA
+     if (var0 == 50){
+       if(var3 <= 24){
+           var3++;          //Ir cambiando de character
+       }
+       else {
+          while(RCIF == 0){ //Esperar a valor 
+           }
+          if(RCIF ==1){
+             PORTA = RCREG; //Asignar el valor a una variable   
+            } 
+           
+           var0=0;
+           var1=0;
+           var2=0;
+           var3=0;
+           var4=0;
+       }
+       if(TXIF == 1){
+        TXREG = car[var3]; //Enviar a termial palabras
+       }
+        __delay_ms(100);
+    }
+    //PORTB
+    if (var0 == 51){
+       if(var4 <= 24){
+           var4++;          //Ir cambiando de character
+       }
+       else {
+          while(RCIF == 0){ //Esperar el valor 
+           }
+          if(RCIF ==1){
+             PORTB = RCREG; //Asignar el valor a una variable   
+            } 
+           var0=0;
+           var1=0;
+           var2=0;
+           var3=0;
+           var4=0;
+       }
+       if(TXIF == 1){
+        TXREG = car[var4]; //Enviar a termial palabras
+       }
+        __delay_ms(100);
+    }
+    
+    
+  }
 }
 
 
@@ -179,7 +249,7 @@ void setup(void){
    
   
   //Interrupciones
-  INTCON = 0b11000000;  //GIE, PIE, toie, inte, rbie, t0if, intf, rbif
+  INTCON = 0b00000000;  //GIE, PIE, toie, inte, rbie, t0if, intf, rbif
   PIE1 = 0b00100000; // 0, adie, RCIE, txie, sspie, ccp1ie, tmr2, tmr1
   PIE2 = 0b00000000; // osfie, c2ie, c1ie, eeie, bclie, 0, ccpie2
   
