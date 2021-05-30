@@ -2705,7 +2705,6 @@ void main(void) {
 
 while(1) {
 
-
     chselect();
     ctrservo();
     }
@@ -2768,7 +2767,7 @@ void setup(void){
   PIR2 = 0x00;
   TRISC = 0b00000000;
 }
-# 248 "MainPgr9.c"
+# 247 "MainPgr9.c"
 void ctrservo (void) {
     CCPR1L = ((0.247 * var0) + 62);
     CCPR2L = ((0.247 * var1) + 62);

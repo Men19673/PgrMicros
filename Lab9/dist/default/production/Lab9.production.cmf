@@ -29,7 +29,7 @@ intentry CODE 0 4 4 8 2
 bssBANK0 BANK0 1 67 67 8 1
 bssCOMMON COMMON 1 77 77 3 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
+$C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -84,24 +84,24 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab9.production.o
-F cinit CODE >495:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-F cinit CODE >498:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-F cinit CODE >542:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-10 cinit CODE >543:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-11 cinit CODE >544:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-12 cinit CODE >547:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-13 cinit CODE >548:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-14 cinit CODE >549:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-15 cinit CODE >550:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-16 cinit CODE >551:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-17 cinit CODE >552:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-18 cinit CODE >553:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-19 cinit CODE >554:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-1A cinit CODE >555:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-1B cinit CODE >556:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-1C cinit CODE >562:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-1C cinit CODE >564:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
-1D cinit CODE >565:C:\Users\diego\AppData\Local\Temp\xcAsg3k.s
+F cinit CODE >495:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+F cinit CODE >498:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+F cinit CODE >542:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+10 cinit CODE >543:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+11 cinit CODE >544:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+12 cinit CODE >547:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+13 cinit CODE >548:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+14 cinit CODE >549:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+15 cinit CODE >550:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+16 cinit CODE >551:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+17 cinit CODE >552:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+18 cinit CODE >553:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+19 cinit CODE >554:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+1A cinit CODE >555:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+1B cinit CODE >556:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+1C cinit CODE >562:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+1C cinit CODE >564:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
+1D cinit CODE >565:C:\Users\diego\AppData\Local\Temp\xcAs8b0.s
 4 intentry CODE >119:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F69 text9 CODE >119:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F69 text9 CODE >146:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
@@ -114,16 +114,16 @@ F81 text9 CODE >153:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F82 text9 CODE >156:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F86 text9 CODE >157:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F87 text9 CODE >160:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F4A text8 CODE >252:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F4A text8 CODE >253:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F4A text8 CODE >254:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F50 text8 CODE >255:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F55 text8 CODE >255:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F59 text8 CODE >256:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F5D text8 CODE >257:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F5E text8 CODE >259:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F60 text8 CODE >261:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F65 text8 CODE >262:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F68 text8 CODE >264:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F50 text8 CODE >254:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F55 text8 CODE >254:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F59 text8 CODE >255:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F5D text8 CODE >256:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F5E text8 CODE >258:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F60 text8 CODE >260:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F65 text8 CODE >261:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F68 text8 CODE >263:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 381 text7 CODE >10:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcadd.c
 381 text7 CODE >21:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcadd.c
 388 text7 CODE >22:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcadd.c
@@ -578,49 +578,49 @@ FF text5 CODE >125:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\s
 6BB text3 CODE >42:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\xxtofl.c
 6BC text3 CODE >43:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\xxtofl.c
 6C4 text3 CODE >44:C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\xxtofl.c
+6C5 text2 CODE >247:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 6C5 text2 CODE >248:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-6C5 text2 CODE >249:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-71B text2 CODE >250:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-76F text2 CODE >251:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FB7 text1 CODE >177:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FB7 text1 CODE >179:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FBB text1 CODE >180:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FBC text1 CODE >182:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FC0 text1 CODE >183:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FC1 text1 CODE >184:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FC3 text1 CODE >185:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FC4 text1 CODE >186:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FC5 text1 CODE >191:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FC7 text1 CODE >195:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FCB text1 CODE >196:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FCF text1 CODE >200:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FD5 text1 CODE >201:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FD9 text1 CODE >203:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FDC text1 CODE >204:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FE0 text1 CODE >205:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FE3 text1 CODE >206:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FE4 text1 CODE >207:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FE5 text1 CODE >210:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FE6 text1 CODE >213:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FEA text1 CODE >214:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FEC text1 CODE >217:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FEE text1 CODE >218:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FF2 text1 CODE >219:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FF3 text1 CODE >223:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FF6 text1 CODE >224:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FF7 text1 CODE >225:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FF8 text1 CODE >226:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FF9 text1 CODE >227:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FFA text1 CODE >228:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FFB text1 CODE >229:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FFC text1 CODE >230:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-FFF text1 CODE >231:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+71B text2 CODE >249:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+76F text2 CODE >250:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FB7 text1 CODE >176:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FB7 text1 CODE >178:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FBB text1 CODE >179:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FBC text1 CODE >181:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FC0 text1 CODE >182:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FC1 text1 CODE >183:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FC3 text1 CODE >184:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FC4 text1 CODE >185:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FC5 text1 CODE >190:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FC7 text1 CODE >194:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FCB text1 CODE >195:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FCF text1 CODE >199:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FD5 text1 CODE >200:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FD9 text1 CODE >202:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FDC text1 CODE >203:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FE0 text1 CODE >204:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FE3 text1 CODE >205:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FE4 text1 CODE >206:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FE5 text1 CODE >209:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FE6 text1 CODE >212:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FEA text1 CODE >213:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FEC text1 CODE >216:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FEE text1 CODE >217:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FF2 text1 CODE >218:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FF3 text1 CODE >222:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FF6 text1 CODE >223:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FF7 text1 CODE >224:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FF8 text1 CODE >225:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FF9 text1 CODE >226:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FFA text1 CODE >227:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FFB text1 CODE >228:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FFC text1 CODE >229:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+FFF text1 CODE >230:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F34 maintext CODE >162:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F34 maintext CODE >163:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F39 maintext CODE >164:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 F3C maintext CODE >167:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F3C maintext CODE >170:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
-F41 maintext CODE >171:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F3C maintext CODE >169:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+F41 maintext CODE >170:C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -645,12 +645,12 @@ _PIE1 8C 0 ABS 0 - dist/default/production\Lab9.production.o
 _PIE2 8D 0 ABS 0 - dist/default/production\Lab9.production.o
 _PIR1 C 0 ABS 0 - dist/default/production\Lab9.production.o
 _PIR2 D 0 ABS 0 - dist/default/production\Lab9.production.o
-___sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
+___sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
 _main 1E68 0 CODE 0 maintext dist/default/production\Lab9.production.o
 _var0 79 0 COMMON 1 bssCOMMON dist/default/production\Lab9.production.o
 _var1 78 0 COMMON 1 bssCOMMON dist/default/production\Lab9.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab9.production.o
-start 18 0 CODE 0 init C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
+start 18 0 CODE 0 init C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
 ___flmul@aexp 3C 0 BANK0 1 cstackBANK0 dist/default/production\Lab9.production.o
 ___flmul@bexp 3D 0 BANK0 1 cstackBANK0 dist/default/production\Lab9.production.o
 ___flmul@prod 3E 0 BANK0 1 cstackBANK0 dist/default/production\Lab9.production.o
@@ -662,12 +662,12 @@ __size_of___fltol 0 0 ABS 0 - dist/default/production\Lab9.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab9.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Lab9.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab9.production.o
@@ -687,8 +687,8 @@ __end_of___fltol FD8 0 CODE 0 text4 dist/default/production\Lab9.production.o
 _INTCON B 0 ABS 0 - dist/default/production\Lab9.production.o
 __Umul8_16@multiplicand 73 0 COMMON 1 cstackCOMMON dist/default/production\Lab9.production.o
 _OPTION_REG 81 0 ABS 0 - dist/default/production\Lab9.production.o
-___stackhi 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
-___stacklo 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
+___stackhi 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
+___stacklo 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
 ___fladd@a 48 0 BANK0 1 cstackBANK0 dist/default/production\Lab9.production.o
 ___fladd@b 44 0 BANK0 1 cstackBANK0 dist/default/production\Lab9.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Lab9.production.o
@@ -697,7 +697,7 @@ ___flmul@b 2A 0 BANK0 1 cstackBANK0 dist/default/production\Lab9.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Lab9.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab9.production.o
 __size_of_ctrservo 0 0 ABS 0 - dist/default/production\Lab9.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
+___int_sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -748,7 +748,7 @@ __end_of_ctrservo EE0 0 CODE 0 text2 dist/default/production\Lab9.production.o
 ___xxtofl C12 0 CODE 0 text3 dist/default/production\Lab9.production.o
 __end_of_isr 1F1C 0 CODE 0 text9 dist/default/production\Lab9.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\diego\AppData\Local\Temp\xcAsg3k.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\diego\AppData\Local\Temp\xcAs8b0.o
 __end_of___xxtofl D8A 0 CODE 0 text3 dist/default/production\Lab9.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 ___fladd@signs 54 0 BANK0 1 cstackBANK0 dist/default/production\Lab9.production.o

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Tue Apr 27 11:51:02 2021
+                                                                                               Tue May 25 15:55:08 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F887
@@ -537,11 +537,11 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    523                           ;MainPgr9.c: 167: while(1) {
    524                           
    525                           
-   526                           ;MainPgr9.c: 170:     chselect();
+   526                           ;MainPgr9.c: 169:     chselect();
    527  0F3C  120A  158A  274A  120A  158A  	fcall	_chselect
    528  0F41                     l1717:
    529                           
-   530                           ;MainPgr9.c: 171:     ctrservo();
+   530                           ;MainPgr9.c: 170:     ctrservo();
    531  0F41  120A  118A  26C5  120A  158A  	fcall	_ctrservo
    532  0F46  2F3C               	goto	l102
    533  0F47  120A  118A  280C   	ljmp	start
@@ -551,7 +551,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    537  0FB7                     __ptext1:	
    538 ;; *************** function _setup *****************
    539 ;; Defined at:
-   540 ;;		line 177 in file "MainPgr9.c"
+   540 ;;		line 176 in file "MainPgr9.c"
    541 ;; Parameters:    Size  Location     Type
    542 ;;		None
    543 ;; Auto vars:     Size  Location     Type
@@ -587,60 +587,60 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    573                           ; Regs used in _setup: [wreg+status,2+status,0]
    574                           
    575                           
-   576                           ;MainPgr9.c: 179:   ANSEL = 0b00000011;
+   576                           ;MainPgr9.c: 178:   ANSEL = 0b00000011;
    577  0FB7  3003               	movlw	3
    578  0FB8  1683               	bsf	3,5	;RP0=1, select bank3
    579  0FB9  1703               	bsf	3,6	;RP1=1, select bank3
    580  0FBA  0088               	movwf	8	;volatile
    581  0FBB                     l1139:
    582                           
-   583                           ;MainPgr9.c: 180:   ANSELH = 0b00000000;
+   583                           ;MainPgr9.c: 179:   ANSELH = 0b00000000;
    584  0FBB  0189               	clrf	9	;volatile
    585  0FBC                     l1141:
    586                           
-   587                           ;MainPgr9.c: 182:   TRISA = 0b00000011;
+   587                           ;MainPgr9.c: 181:   TRISA = 0b00000011;
    588  0FBC  3003               	movlw	3
    589  0FBD  1683               	bsf	3,5	;RP0=1, select bank1
    590  0FBE  1303               	bcf	3,6	;RP1=0, select bank1
    591  0FBF  0085               	movwf	5	;volatile
    592                           
-   593                           ;MainPgr9.c: 183:   TRISB = 0b00000000;
+   593                           ;MainPgr9.c: 182:   TRISB = 0b00000000;
    594  0FC0  0186               	clrf	6	;volatile
    595  0FC1                     l1143:
    596                           
-   597                           ;MainPgr9.c: 184:   TRISC = 0b00000110;
+   597                           ;MainPgr9.c: 183:   TRISC = 0b00000110;
    598  0FC1  3006               	movlw	6
    599  0FC2  0087               	movwf	7	;volatile
    600  0FC3                     l1145:
    601                           
-   602                           ;MainPgr9.c: 185:   TRISD = 0x00;
+   602                           ;MainPgr9.c: 184:   TRISD = 0x00;
    603  0FC3  0188               	clrf	8	;volatile
    604  0FC4                     l1147:
    605                           
-   606                           ;MainPgr9.c: 186:   TRISE = 0x00;
+   606                           ;MainPgr9.c: 185:   TRISE = 0x00;
    607  0FC4  0189               	clrf	9	;volatile
    608  0FC5                     l1149:
    609                           
-   610                           ;MainPgr9.c: 191:   OPTION_REG = 0b11000100;
+   610                           ;MainPgr9.c: 190:   OPTION_REG = 0b11000100;
    611  0FC5  30C4               	movlw	196
    612  0FC6  0081               	movwf	1	;volatile
    613  0FC7                     l1151:
    614                           
-   615                           ;MainPgr9.c: 195:   T2CON = 0x26;
+   615                           ;MainPgr9.c: 194:   T2CON = 0x26;
    616  0FC7  3026               	movlw	38
    617  0FC8  1283               	bcf	3,5	;RP0=0, select bank0
    618  0FC9  1303               	bcf	3,6	;RP1=0, select bank0
    619  0FCA  0092               	movwf	18	;volatile
    620  0FCB                     l1153:
    621                           
-   622                           ;MainPgr9.c: 196:   PR2 = 250;
+   622                           ;MainPgr9.c: 195:   PR2 = 250;
    623  0FCB  30FA               	movlw	250
    624  0FCC  1683               	bsf	3,5	;RP0=1, select bank1
    625  0FCD  1303               	bcf	3,6	;RP1=0, select bank1
    626  0FCE  0092               	movwf	18	;volatile
    627  0FCF                     l1155:
    628                           
-   629                           ;MainPgr9.c: 200:   ADCON0bits.CHS= 1;
+   629                           ;MainPgr9.c: 199:   ADCON0bits.CHS= 1;
    630  0FCF  1283               	bcf	3,5	;RP0=0, select bank0
    631  0FD0  1303               	bcf	3,6	;RP1=0, select bank0
    632  0FD1  081F               	movf	31,w	;volatile
@@ -649,7 +649,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    635  0FD4  009F               	movwf	31	;volatile
    636  0FD5                     l1157:
    637                           
-   638                           ;MainPgr9.c: 201:   _delay((unsigned long)((100)*(4000000/4000000.0)));
+   638                           ;MainPgr9.c: 200:   _delay((unsigned long)((100)*(4000000/4000000.0)));
    639  0FD5  3021               	movlw	33
    640  0FD6  00F3               	movwf	??_setup
    641  0FD7                     u2407:
@@ -657,96 +657,96 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    643  0FD8  2FD7               	goto	u2407
    644  0FD9                     l1159:
    645                           
-   646                           ;MainPgr9.c: 203:   ADCON0bits.ADON = 1;
+   646                           ;MainPgr9.c: 202:   ADCON0bits.ADON = 1;
    647  0FD9  1283               	bcf	3,5	;RP0=0, select bank0
    648  0FDA  1303               	bcf	3,6	;RP1=0, select bank0
    649  0FDB  141F               	bsf	31,0	;volatile
    650  0FDC                     l1161:
    651                           
-   652                           ;MainPgr9.c: 204:   ADCON0bits.ADCS = 1;
+   652                           ;MainPgr9.c: 203:   ADCON0bits.ADCS = 1;
    653  0FDC  081F               	movf	31,w	;volatile
    654  0FDD  393F               	andlw	-193
    655  0FDE  3840               	iorlw	64
    656  0FDF  009F               	movwf	31	;volatile
    657  0FE0                     l1163:
    658                           
-   659                           ;MainPgr9.c: 205:   ADCON1bits.ADFM = 0;
+   659                           ;MainPgr9.c: 204:   ADCON1bits.ADFM = 0;
    660  0FE0  1683               	bsf	3,5	;RP0=1, select bank1
    661  0FE1  1303               	bcf	3,6	;RP1=0, select bank1
    662  0FE2  139F               	bcf	31,7	;volatile
    663  0FE3                     l1165:
    664                           
-   665                           ;MainPgr9.c: 206:   ADCON1bits.VCFG0 = 0;
+   665                           ;MainPgr9.c: 205:   ADCON1bits.VCFG0 = 0;
    666  0FE3  121F               	bcf	31,4	;volatile
    667  0FE4                     l1167:
    668                           
-   669                           ;MainPgr9.c: 207:   ADCON1bits.VCFG1 = 0;
+   669                           ;MainPgr9.c: 206:   ADCON1bits.VCFG1 = 0;
    670  0FE4  129F               	bcf	31,5	;volatile
    671  0FE5                     l1169:
    672                           
-   673                           ;MainPgr9.c: 210:   OSCCONbits.SCS = 1;
+   673                           ;MainPgr9.c: 209:   OSCCONbits.SCS = 1;
    674  0FE5  140F               	bsf	15,0	;volatile
    675  0FE6                     l1171:
    676                           
-   677                           ;MainPgr9.c: 213:   CCP1CON = 0b00001100;
+   677                           ;MainPgr9.c: 212:   CCP1CON = 0b00001100;
    678  0FE6  300C               	movlw	12
    679  0FE7  1283               	bcf	3,5	;RP0=0, select bank0
    680  0FE8  1303               	bcf	3,6	;RP1=0, select bank0
    681  0FE9  0097               	movwf	23	;volatile
    682  0FEA                     l1173:
    683                           
-   684                           ;MainPgr9.c: 214:   CCP2CON = 0b00001100;
+   684                           ;MainPgr9.c: 213:   CCP2CON = 0b00001100;
    685  0FEA  300C               	movlw	12
    686  0FEB  009D               	movwf	29	;volatile
    687  0FEC                     l1175:
    688                           
-   689                           ;MainPgr9.c: 217:   INTCON = 0b11001000;
+   689                           ;MainPgr9.c: 216:   INTCON = 0b11001000;
    690  0FEC  30C8               	movlw	200
    691  0FED  008B               	movwf	11	;volatile
    692  0FEE                     l1177:
    693                           
-   694                           ;MainPgr9.c: 218:   PIE1 = 0b01000010;
+   694                           ;MainPgr9.c: 217:   PIE1 = 0b01000010;
    695  0FEE  3042               	movlw	66
    696  0FEF  1683               	bsf	3,5	;RP0=1, select bank1
    697  0FF0  1303               	bcf	3,6	;RP1=0, select bank1
    698  0FF1  008C               	movwf	12	;volatile
    699  0FF2                     l1179:
    700                           
-   701                           ;MainPgr9.c: 219:   PIE2 = 0b00000000;
+   701                           ;MainPgr9.c: 218:   PIE2 = 0b00000000;
    702  0FF2  018D               	clrf	13	;volatile
    703  0FF3                     l1181:
    704                           
-   705                           ;MainPgr9.c: 223:   PORTA = 0x00;
+   705                           ;MainPgr9.c: 222:   PORTA = 0x00;
    706  0FF3  1283               	bcf	3,5	;RP0=0, select bank0
    707  0FF4  1303               	bcf	3,6	;RP1=0, select bank0
    708  0FF5  0185               	clrf	5	;volatile
    709  0FF6                     l1183:
    710                           
-   711                           ;MainPgr9.c: 224:   PORTB = 0x00;
+   711                           ;MainPgr9.c: 223:   PORTB = 0x00;
    712  0FF6  0186               	clrf	6	;volatile
    713  0FF7                     l1185:
    714                           
-   715                           ;MainPgr9.c: 225:   PORTC = 0x00;
+   715                           ;MainPgr9.c: 224:   PORTC = 0x00;
    716  0FF7  0187               	clrf	7	;volatile
    717  0FF8                     l1187:
    718                           
-   719                           ;MainPgr9.c: 226:   PORTD = 0x00;
+   719                           ;MainPgr9.c: 225:   PORTD = 0x00;
    720  0FF8  0188               	clrf	8	;volatile
    721  0FF9                     l1189:
    722                           
-   723                           ;MainPgr9.c: 227:   PORTE = 0x00;
+   723                           ;MainPgr9.c: 226:   PORTE = 0x00;
    724  0FF9  0189               	clrf	9	;volatile
    725  0FFA                     l1191:
    726                           
-   727                           ;MainPgr9.c: 228:   PIR1 = 0x00;
+   727                           ;MainPgr9.c: 227:   PIR1 = 0x00;
    728  0FFA  018C               	clrf	12	;volatile
    729  0FFB                     l1193:
    730                           
-   731                           ;MainPgr9.c: 229:   PIR2 = 0x00;
+   731                           ;MainPgr9.c: 228:   PIR2 = 0x00;
    732  0FFB  018D               	clrf	13	;volatile
    733  0FFC                     l1195:
    734                           
-   735                           ;MainPgr9.c: 230:   TRISC = 0b00000000;
+   735                           ;MainPgr9.c: 229:   TRISC = 0b00000000;
    736  0FFC  1683               	bsf	3,5	;RP0=1, select bank1
    737  0FFD  1303               	bcf	3,6	;RP1=0, select bank1
    738  0FFE  0187               	clrf	7	;volatile
@@ -758,7 +758,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    744  06C5                     __ptext2:	
    745 ;; *************** function _ctrservo *****************
    746 ;; Defined at:
-   747 ;;		line 248 in file "MainPgr9.c"
+   747 ;;		line 247 in file "MainPgr9.c"
    748 ;; Parameters:    Size  Location     Type
    749 ;;		None
    750 ;; Auto vars:     Size  Location     Type
@@ -797,7 +797,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    783                           ; Regs used in _ctrservo: [wreg+status,2+status,0+btemp+1+pclath+cstack]
    784                           
    785                           
-   786                           ;MainPgr9.c: 249:     CCPR1L = ((0.247 * var0) + 62);
+   786                           ;MainPgr9.c: 248:     CCPR1L = ((0.247 * var0) + 62);
    787  06C5  0879               	movf	_var0,w
    788  06C6  1283               	bcf	3,5	;RP0=0, select bank0
    789  06C7  1303               	bcf	3,6	;RP1=0, select bank0
@@ -869,7 +869,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    855  0719  0858               	movf	?___fltol,w
    856  071A  0095               	movwf	21	;volatile
    857                           
-   858                           ;MainPgr9.c: 250:     CCPR2L = ((0.247 * var1) + 62);
+   858                           ;MainPgr9.c: 249:     CCPR2L = ((0.247 * var1) + 62);
    859  071B  0878               	movf	_var1,w
    860  071C  00E3               	movwf	??_ctrservo
    861  071D  01E4               	clrf	??_ctrservo+1
@@ -3445,7 +3445,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3431  0F4A                     __ptext8:	
   3432 ;; *************** function _chselect *****************
   3433 ;; Defined at:
-  3434 ;;		line 253 in file "MainPgr9.c"
+  3434 ;;		line 252 in file "MainPgr9.c"
   3435 ;; Parameters:    Size  Location     Type
   3436 ;;		None
   3437 ;; Auto vars:     Size  Location     Type
@@ -3481,7 +3481,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3467                           ; Regs used in _chselect: [wreg+status,2+status,0]
   3468                           
   3469                           
-  3470                           ;MainPgr9.c: 254:     if(ADCON0bits.GO == 0){
+  3470                           ;MainPgr9.c: 253:     if(ADCON0bits.GO == 0){
   3471  0F4A  1283               	bcf	3,5	;RP0=0, select bank0
   3472  0F4B  1303               	bcf	3,6	;RP1=0, select bank0
   3473  0F4C  189F               	btfsc	31,1	;volatile
@@ -3492,7 +3492,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3478  0F50                     u1110:
   3479  0F50                     l1199:
   3480                           
-  3481                           ;MainPgr9.c: 255:        if(ADCON0bits.CHS == 0){
+  3481                           ;MainPgr9.c: 254:        if(ADCON0bits.CHS == 0){
   3482  0F50  0C1F               	rrf	31,w	;volatile
   3483  0F51  00F3               	movwf	??_chselect
   3484  0F52  0C73               	rrf	??_chselect,w
@@ -3506,22 +3506,22 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3492  0F59                     u1120:
   3493  0F59                     l1201:
   3494                           
-  3495                           ;MainPgr9.c: 256:             ADCON0bits.CHS = 1;
+  3495                           ;MainPgr9.c: 255:             ADCON0bits.CHS = 1;
   3496  0F59  081F               	movf	31,w	;volatile
   3497  0F5A  39C3               	andlw	-61
   3498  0F5B  3804               	iorlw	4
   3499  0F5C  009F               	movwf	31	;volatile
   3500                           
-  3501                           ;MainPgr9.c: 257:         }
+  3501                           ;MainPgr9.c: 256:         }
   3502  0F5D  2F60               	goto	l1205
   3503  0F5E                     l1203:
   3504                           
-  3505                           ;MainPgr9.c: 259:            ADCON0bits.CHS = 0;
+  3505                           ;MainPgr9.c: 258:            ADCON0bits.CHS = 0;
   3506  0F5E  30C3               	movlw	-61
   3507  0F5F  059F               	andwf	31,f	;volatile
   3508  0F60                     l1205:
   3509                           
-  3510                           ;MainPgr9.c: 261:             _delay((unsigned long)((150)*(4000000/4000000.0)));
+  3510                           ;MainPgr9.c: 260:             _delay((unsigned long)((150)*(4000000/4000000.0)));
   3511  0F60  3031               	movlw	49
   3512  0F61  00F3               	movwf	??_chselect
   3513  0F62                     u2417:
@@ -3530,7 +3530,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   3516  0F64  2F65               	nop2
   3517  0F65                     l1207:
   3518                           
-  3519                           ;MainPgr9.c: 262:             ADCON0bits.GO = 1;
+  3519                           ;MainPgr9.c: 261:             ADCON0bits.GO = 1;
   3520  0F65  1283               	bcf	3,5	;RP0=0, select bank0
   3521  0F66  1303               	bcf	3,6	;RP1=0, select bank0
   3522  0F67  149F               	bsf	31,1	;volatile
@@ -3868,7 +3868,7 @@ DATA                 0      0      59      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Tue Apr 27 11:51:02 2021
+Symbol Table                                                                                   Tue May 25 15:55:08 2021
 
     __Umul8_16@word_mpld 0022                      l102 0F3C                      l111 076F  
                     l108 0FFF                      l117 0F68                      l500 048B  

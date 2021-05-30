@@ -21,11 +21,11 @@
 [v _isr isr `II(v  1 e 1 0 ]
 "162
 [v _main main `(v  1 e 1 0 ]
-"177
+"176
 [v _setup setup `(v  1 e 1 0 ]
-"248
+"247
 [v _ctrservo ctrservo `(v  1 e 1 0 ]
-"253
+"252
 [v _chselect chselect `(v  1 e 1 0 ]
 "166 E:/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -141,17 +141,17 @@
 "162
 [v _main main `(v  1 e 1 0 ]
 {
-"173
+"172
 } 0
-"177
+"176
 [v _setup setup `(v  1 e 1 0 ]
 {
-"231
+"230
 } 0
-"248
+"247
 [v _ctrservo ctrservo `(v  1 e 1 0 ]
 {
-"251
+"250
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -233,10 +233,10 @@
 [v ___fladd@a a `d  1 p 4 40 ]
 "237
 } 0
-"253 C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
+"252 C:\Users\diego\Desktop\PgrMicros\Lab9\MainPgr9.c
 [v _chselect chselect `(v  1 e 1 0 ]
 {
-"264
+"263
 } 0
 "119
 [v _isr isr `II(v  1 e 1 0 ]

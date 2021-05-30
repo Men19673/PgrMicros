@@ -1,5 +1,5 @@
 /*
- * Archivo: Lab10.c
+ * Archivo: Proyecto2.c
  * Dispositivo: PIC16F887
  * Autor: Diego Mendez
  * Compilador: XC8 (v2.32), MPLABX v5.40
@@ -47,134 +47,99 @@
 
 void setup(void);   //Anunciar funcion setup
 void decimal(uint8_t); //Funcion de restas
-uint8_t table(uint8_t);     //Funcion tabla
-void dispasign(uint8_t, uint8_t, uint8_t);//Funcion donde pasa por tabla y regresa valor para display
+void extraservo(void);
 void chselect (void); //Canal
 void ctrservo (void); //Control del servo
-/********************************TABLA*****************************************/
 
-/*uint8_t table(uint8_t val){
-    uint8_t tempo;
-    
-    switch(val){
-        case 0:
-            tempo = 0b00111111;
-            break;
-            
-        case 1:
-            tempo = 0b00000110;
-            break;
-            
-        case 2:
-            tempo = 0b01011011;
-            break;
-            
-        case 3:
-            tempo = 0b01001111;
-            break;
-       
-        case 4:
-            tempo = 0b01100110;
-            break;
-            
-        case 5:
-            tempo = 0b01101101;
-            break;
-        
-        case 6:
-            tempo = 0b01111101;
-            break;
-        
-        case 7:
-            tempo = 0b00000111;
-            break;
-        
-        case 8:
-            tempo = 0b01111111;
-            break;
-            
-        case 9:
-            tempo = 0b01100111;
-            break;
-        
-        default:
-            tempo = 0b00111111;
-    }
-    return(tempo);
-}
-*/
 /********************************Variables*************************************/
-/*uint8_t flagint;
-uint8_t centenas;
-uint8_t decenas;
-uint8_t unidades;
+uint8_t flagint;
 uint8_t valor;
-uint8_t disp0;
-uint8_t disp1;
-uint8_t disp2;
+uint8_t REC;
+uint16_t contpwm;
+
 uint8_t multiplex;
 uint8_t var0;
-uint8_t var1;*/
+uint8_t var1;
+uint8_t var2;
+uint8_t var3;
+uint16_t PWMEX;
+
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
   
-  /*  if (T0IF==1){ 
-    TMR0		 = 100;         //Resetear timer0
-    INTCONbits.T0IF = 0; 
-    PORTB = 0x00;
-    switch(multiplex){      //Multiplexado de las displays 
-        case 0:
-            PORTC = disp0;
-            RB4 = 1;
-            multiplex++;
-            break;
-            
-        case 1:
-            PORTC = disp1;
-            RB5 = 1;
-            multiplex++;
-            break;
-            
-        case 2:
-            PORTC = disp2;
-            RB6 = 1;
-            multiplex = 0x00;
-            break;
-        }       
-    }*/
+  if (T0IF==1){ 
+        TMR0     = 6;
+        contpwm = 0;
+        T0IF	 = 0; 
+        TMR1IF = 1;
+        
+    }
     
-   /* if(PIR1bits.ADIF){
-        if(ADCON0bits.CHS == 0){    //Ver canal 0
-            var0 = ADRESH;     //Mover a leds
+     if (TMR1IF == 1 ){ 
+            TMR1IF = 0;
+            TMR1	 = PWMEX;
+            contpwm++;
+            
+            if (contpwm ==1) {
+                RC3=1;
+            }  
+            else {
+                RC3=0;
+            }
+     }
+                    
+       /*  contpwm++;
+        if (contpwm <= PWMEX) {
+            RC3 =1;
         }
-        else{                   //ver canal 1
-            var1 = ADRESH;       //Guardar en variable para display
+        else {
+            RC3 =0;
+            
         }
+            contpwm =0;*/
+        
+
+    if(PIR1bits.ADIF){
+        switch (ADCON0bits.CHS){
+         case (0):
+            var0 = ADRESH;
+            break;
+           
+         case (1):
+            var1= ADRESH;
+            break;
+            
+         case (2):
+            var2= ADRESH;
+            break;
+        }     
         PIR1bits.ADIF = 0;
     }
    
-    if (PIR1bits.TMR2IF ==1){ 
+     if (PIR1bits.TMR2IF ==1){ 
         PIR1bits.TMR2IF = 0; 
-  }*/
+    }
     
-    
-    if(RCIF == 1){
-        PORTB = RCREG;
+    if(PIR1bits.RCIF == 1){
+        REC = RCREG;
     }
 }
 /****************************** MAIN ******************************************/
 void main(void) {
     setup();
-    //ADCON0bits.GO = 1; //Activar el protocolo de lectura de pines
+    ADCON0bits.GO = 1; //Activar el protocolo de lectura de pines
 
 /****************************** LOOP ******************************************/
 while(1) {
-   if(TXIF == 1){
+   /*if(TXIF == 1){
         TXREG = 97; //Enviar @
     }
-   __delay_ms(500);
-    /*chselect();
-    ctrservo();*/
+   __delay_ms(500);*/
+   
+       
+    
+    chselect();
+    ctrservo();
     }
 }
 
@@ -182,28 +147,37 @@ while(1) {
 /********************************Subrutinas************************************/
 void setup(void){
   
-  ANSEL = 0b00000000;  //Apagar analogo
+  ANSEL = 0b00000111;  //Encender analogo
   ANSELH = 0b00000000;
   
-  TRISA = 0b00000000;     //Output     
-  TRISB = 0b00000000;//Output excepto por pin 0 y 1    
-  TRISC = 0b10000000;     //Output bit 7 recibe SERIAL
+  TRISA = 0b00000111;     //Output     
+  TRISB = 0b00000000;//Output excepto  
+  TRISC = 0b10000110;     //Output bit 7 recibe SERIAL
   TRISD = 0x00;     //Output
   TRISE = 0x00;     //Output
   
 
 
-  //Timer0
-  OPTION_REG = 0b11000100; //prescaler en 32, activar PULLUP y WDT en timer0
+  //Timer0 0.1ms
+  //OPTION_REG = 0b01000110; //prescaler en 1:128, activar PULLUP y WDT en timer0
   //TMR0		 = 100;
-  
-  //Timer2 -- 20 ms TMR2 Preload = 250; 
-  /*T2CON	 = 0x26;        //Prescaler 1:16; TMR2 ON, Postscaler 1:5;   
-  PR2    = 250;*/
+  OPTION_REG	 = 0x83;
+  TMR0		 = 6;
+
+  //Timer 1
+  T1CON	 = 0x01;
+  TMR1IF = 0;
+  TMR1H	 = 0xFC;
+  TMR1L	 = 0x18;
+
+
+  //Timer2 20ms
+  T2CON	 = 0x26;        //Prescaler 1:16; TMR2 ON, Postscaler 1:5;   
+  PR2		 = 250;
   
   
  //ADC
-  /*ADCON0bits.CHS= 1;
+  ADCON0bits.CHS= 1;
   __delay_us(100);
   
   ADCON0bits.ADON = 1;      //Activar modulo
@@ -217,10 +191,10 @@ void setup(void){
   OSCCONbits.SCS = 1;   //utilizar oscilador interno para reloj del sistema
  
  //CCP1 Y CCP2
-  /*CCP1CON = 0b00001100; //Single Output; XX; PWM P1A
-  CCP2CON = 0b00001100; //XX, PWM 1100*/
+  CCP1CON = 0b00001100; //Single Output; XX; PWM P1A
+  CCP2CON = 0b00001100; //XX, PWM 1100
   
- //CONFIG EUSART
+ /*//CONFIG EUSART
   
   //TX CONFIG
   TXSTAbits.SYNC = 0;       //Modo Asincrono
@@ -237,11 +211,11 @@ void setup(void){
     BAUDCTLbits.BRG16 = 0;  //Generador de 8bits activo)
     SPBRG =25;
     SPBRGH = 1;
-   
+   */
   
   //Interrupciones
-  INTCON = 0b11000000;  //GIE, PIE, toie, inte, rbie, t0if, intf, rbif
-  PIE1 = 0b00100000; // 0, adie, RCIE, txie, sspie, ccp1ie, tmr2, tmr1
+  INTCON = 0b11100000;  //GIE, PIE, TOIE, inte, rbie, t0if, intf, rbif
+  PIE1 = 0b01000011; // 0, ADIE, rcie, txie, sspie, ccp1ie, TMR2, TMR1
   PIE2 = 0b00000000; // osfie, c2ie, c1ie, eeie, bclie, 0, ccpie2
   
   //Limpieza profunda
@@ -253,38 +227,37 @@ void setup(void){
   PORTE = 0x00;
   PIR1 = 0x00; //Limpiar banderas
   PIR2 = 0x00;
-  //TRISC = 0b00000000; //PONER EN OUTPUT PORTC PARA USAR PWM
-}
-/*void dispasign(uint8_t arg1, uint8_t arg2, uint8_t arg3){
-    disp0 = table(arg1);
-    disp1 = table(arg2); //Convertimos de numero binario al compatible con
-    disp2 = table(arg3);//el display
-    
-}
-void decimal(uint8_t variable){
-    valor = variable;              //guardar el valor del port
-    centenas = valor/100;       //dividir entre 100 para centenas
-    valor = (valor - (centenas*100));
-    decenas = valor/10;         //dividir entre 10 para decenas
-    valor = (valor - (decenas*10));
-    unidades = valor/1;         //dividir entre 1 para unidades
-    
+  TRISC = 0b10000000; //PONER EN OUTPUT PORTC PARA USAR PWM
 }
 
+
 void ctrservo (void) {
-    CCPR1L = ((0.247 * var0) + 62);
-    CCPR2L = ((0.247 * var1) + 62);
+    CCPR1L = ((0.247 * var1) + 62);
+    CCPR2L = ((0.247 * var0) + 62);
+    PWMEX = ((3.92 * var2) + 63536);
+    
+    
+    
 }
 
 void chselect (void){
     if(ADCON0bits.GO == 0){
-       if(ADCON0bits.CHS == 0){
-            ADCON0bits.CHS = 1;        //Cambiar a canal 1
-        }
-        else{
-           ADCON0bits.CHS = 0;        //Cambiar a canal 0
-        }
+       
+        switch (ADCON0bits.CHS){
+         case (0):
+             ADCON0bits.CHS = 1;        //Cambiar a canal 1
+            break;
+           
+         case (1):
+             ADCON0bits.CHS = 2;        //Cambiar a canal 2
+            break;
+            
+         case (2):
+            ADCON0bits.CHS = 0;        //Cambiar a canal 0
+            break;
+        }     
+       
             __delay_us(150);
             ADCON0bits.GO = 1;
     }
-}*/
+}

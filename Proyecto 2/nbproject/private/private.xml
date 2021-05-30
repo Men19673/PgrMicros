@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Program%20Files/Microchip/xc8/v2.32/pic/sources/c90/common/sprcadd.c</file>
+            <file>file:/C:/Program%20Files/Microchip/xc8/v2.32/pic/sources/c90/common/sprcmul.c</file>
+            <file>file:/C:/Program%20Files/Microchip/xc8/v2.32/pic/sources/c90/common/fltol.c</file>
+            <file>file:/C:/Program%20Files/Microchip/xc8/v2.32/pic/sources/c90/common/Umul8_16.c</file>
+            <file>file:/C:/Users/diego/Desktop/PgrMicros/Proyecto%202/MainP2.c</file>
+            <file>file:/C:/Program%20Files/Microchip/xc8/v2.32/pic/sources/c90/common/xxtofl.c</file>
+        </group>
     </open-files>
 </project-private>

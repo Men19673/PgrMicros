@@ -2663,30 +2663,88 @@ typedef uint16_t uintptr_t;
 
 void setup(void);
 void decimal(uint8_t);
-uint8_t table(uint8_t);
-void dispasign(uint8_t, uint8_t, uint8_t);
+void extraservo(void);
 void chselect (void);
 void ctrservo (void);
-# 119 "MainP2.c"
+
+
+uint8_t flagint;
+uint8_t valor;
+uint8_t REC;
+uint16_t contpwm;
+
+uint8_t multiplex;
+uint8_t var0;
+uint8_t var1;
+uint8_t var2;
+uint8_t var3;
+uint16_t PWMEX;
+
+
 void __attribute__((picinterrupt((""))))isr(void){
-# 161 "MainP2.c"
-    if(RCIF == 1){
-        PORTB = RCREG;
+
+  if (T0IF==1){
+        TMR0 = 6;
+        contpwm = 0;
+        T0IF = 0;
+        TMR1IF = 1;
+
+    }
+
+     if (TMR1IF == 1 ){
+            TMR1IF = 0;
+            TMR1 = PWMEX;
+            contpwm++;
+
+            if (contpwm ==1) {
+                RC3=1;
+            }
+            else {
+                RC3=0;
+            }
+     }
+# 102 "MainP2.c"
+    if(PIR1bits.ADIF){
+        switch (ADCON0bits.CHS){
+         case (0):
+            var0 = ADRESH;
+            break;
+
+         case (1):
+            var1= ADRESH;
+            break;
+
+         case (2):
+            var2= ADRESH;
+            break;
+        }
+        PIR1bits.ADIF = 0;
+    }
+
+     if (PIR1bits.TMR2IF ==1){
+        PIR1bits.TMR2IF = 0;
+    }
+
+    if(PIR1bits.RCIF == 1){
+        REC = RCREG;
     }
 }
 
 void main(void) {
     setup();
-
+    ADCON0bits.GO = 1;
 
 
 while(1) {
-   if(TXIF == 1){
-        TXREG = 97;
-    }
-   _delay((unsigned long)((500)*(4000000/4000.0)));
 
 
+
+
+
+
+
+    chselect();
+    ctrservo();
     }
 }
 
@@ -2694,42 +2752,55 @@ while(1) {
 
 void setup(void){
 
-  ANSEL = 0b00000000;
+  ANSEL = 0b00000111;
   ANSELH = 0b00000000;
 
-  TRISA = 0b00000000;
+  TRISA = 0b00000111;
   TRISB = 0b00000000;
-  TRISC = 0b10000000;
+  TRISC = 0b10000110;
   TRISD = 0x00;
   TRISE = 0x00;
 
 
 
 
-  OPTION_REG = 0b11000100;
-# 216 "MainP2.c"
+
+
+  OPTION_REG = 0x83;
+  TMR0 = 6;
+
+
+  T1CON = 0x01;
+  TMR1IF = 0;
+  TMR1H = 0xFC;
+  TMR1L = 0x18;
+
+
+
+  T2CON = 0x26;
+  PR2 = 250;
+
+
+
+  ADCON0bits.CHS= 1;
+  _delay((unsigned long)((100)*(4000000/4000000.0)));
+
+  ADCON0bits.ADON = 1;
+  ADCON0bits.ADCS = 1;
+  ADCON1bits.ADFM = 0;
+  ADCON1bits.VCFG0 = 0;
+  ADCON1bits.VCFG1 = 0;
+
+
   OSCCONbits.IRCF = 0b110;
   OSCCONbits.SCS = 1;
-# 226 "MainP2.c"
-  TXSTAbits.SYNC = 0;
-  TXSTAbits.BRGH = 1;
-  TXSTAbits.TX9 = 0;
-  TXSTAbits.TXEN= 1;
-  RCSTAbits.SPEN = 1;
 
 
-  RCSTAbits.RX9 = 0;
-  RCSTAbits.CREN = 1;
-
-
-    BAUDCTLbits.BRG16 = 0;
-    SPBRG =25;
-    SPBRGH = 1;
-
-
-
-  INTCON = 0b11000000;
-  PIE1 = 0b00100000;
+  CCP1CON = 0b00001100;
+  CCP2CON = 0b00001100;
+# 217 "MainP2.c"
+  INTCON = 0b11100000;
+  PIE1 = 0b01000011;
   PIE2 = 0b00000000;
 
 
@@ -2741,5 +2812,37 @@ void setup(void){
   PORTE = 0x00;
   PIR1 = 0x00;
   PIR2 = 0x00;
+  TRISC = 0b10000000;
+}
 
+
+void ctrservo (void) {
+    CCPR1L = ((0.247 * var1) + 62);
+    CCPR2L = ((0.247 * var0) + 62);
+    PWMEX = ((3.92 * var2) + 63536);
+
+
+
+}
+
+void chselect (void){
+    if(ADCON0bits.GO == 0){
+
+        switch (ADCON0bits.CHS){
+         case (0):
+             ADCON0bits.CHS = 1;
+            break;
+
+         case (1):
+             ADCON0bits.CHS = 2;
+            break;
+
+         case (2):
+            ADCON0bits.CHS = 0;
+            break;
+        }
+
+            _delay((unsigned long)((150)*(4000000/4000000.0)));
+            ADCON0bits.GO = 1;
+    }
 }

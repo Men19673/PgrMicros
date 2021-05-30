@@ -25,7 +25,7 @@ dataBANK0 BANK0 1 20 20 32 1
 dataBANK3 BANK3 1 190 190 60 1
 bssCOMMON COMMON 1 70 70 6 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\diego\AppData\Local\Temp\xcAs46g.o
+$C:\Users\diego\AppData\Local\Temp\xcAsei4.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -73,37 +73,37 @@ STRING 1E4-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab10.production.o
-F cinit CODE >654:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-F cinit CODE >657:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-F cinit CODE >733:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-10 cinit CODE >734:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-11 cinit CODE >735:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-12 cinit CODE >736:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-13 cinit CODE >737:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-14 cinit CODE >738:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-15 cinit CODE >739:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-16 cinit CODE >740:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-17 cinit CODE >741:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-18 cinit CODE >742:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1D cinit CODE >746:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1E cinit CODE >747:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1F cinit CODE >748:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-20 cinit CODE >749:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-21 cinit CODE >750:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-22 cinit CODE >751:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-23 cinit CODE >752:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-24 cinit CODE >753:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-25 cinit CODE >754:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-26 cinit CODE >755:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-2B cinit CODE >759:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-2C cinit CODE >760:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-2D cinit CODE >761:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-2E cinit CODE >762:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-2F cinit CODE >763:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-30 cinit CODE >764:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-31 cinit CODE >770:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-31 cinit CODE >772:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-32 cinit CODE >773:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
+F cinit CODE >654:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+F cinit CODE >657:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+F cinit CODE >733:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+10 cinit CODE >734:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+11 cinit CODE >735:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+12 cinit CODE >736:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+13 cinit CODE >737:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+14 cinit CODE >738:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+15 cinit CODE >739:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+16 cinit CODE >740:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+17 cinit CODE >741:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+18 cinit CODE >742:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1D cinit CODE >746:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1E cinit CODE >747:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1F cinit CODE >748:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+20 cinit CODE >749:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+21 cinit CODE >750:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+22 cinit CODE >751:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+23 cinit CODE >752:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+24 cinit CODE >753:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+25 cinit CODE >754:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+26 cinit CODE >755:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+2B cinit CODE >759:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+2C cinit CODE >760:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+2D cinit CODE >761:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+2E cinit CODE >762:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+2F cinit CODE >763:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+30 cinit CODE >764:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+31 cinit CODE >770:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+31 cinit CODE >772:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+32 cinit CODE >773:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
 4 intentry CODE >116:C:\Users\diego\Desktop\PgrMicros\Lab10\Main.c
 1DD text2 CODE >116:C:\Users\diego\Desktop\PgrMicros\Lab10\Main.c
 1DD text2 CODE >119:C:\Users\diego\Desktop\PgrMicros\Lab10\Main.c
@@ -198,23 +198,23 @@ EB maintext CODE >196:C:\Users\diego\Desktop\PgrMicros\Lab10\Main.c
 EC maintext CODE >198:C:\Users\diego\Desktop\PgrMicros\Lab10\Main.c
 F2 maintext CODE >199:C:\Users\diego\Desktop\PgrMicros\Lab10\Main.c
 F8 maintext CODE >201:C:\Users\diego\Desktop\PgrMicros\Lab10\Main.c
-1CA inittext CODE >707:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1CA inittext CODE >708:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1CB inittext CODE >709:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1CC inittext CODE >710:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1CD inittext CODE >711:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1CE inittext CODE >718:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1CE inittext CODE >719:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1D3 inittext CODE >720:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1D4 inittext CODE >721:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1D5 inittext CODE >722:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1D6 inittext CODE >723:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1D7 inittext CODE >724:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1D8 inittext CODE >725:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1D9 inittext CODE >726:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1DA inittext CODE >727:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1DB inittext CODE >728:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
-1DC inittext CODE >729:C:\Users\diego\AppData\Local\Temp\xcAs46g.s
+1CA inittext CODE >707:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1CA inittext CODE >708:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1CB inittext CODE >709:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1CC inittext CODE >710:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1CD inittext CODE >711:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1CE inittext CODE >718:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1CE inittext CODE >719:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1D3 inittext CODE >720:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1D4 inittext CODE >721:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1D5 inittext CODE >722:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1D6 inittext CODE >723:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1D7 inittext CODE >724:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1D8 inittext CODE >725:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1D9 inittext CODE >726:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1DA inittext CODE >727:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1DB inittext CODE >728:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
+1DC inittext CODE >729:C:\Users\diego\AppData\Local\Temp\xcAsei4.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -245,7 +245,7 @@ _PIR1 C 0 ABS 0 - dist/default/production\Lab10.production.o
 _PIR2 D 0 ABS 0 - dist/default/production\Lab10.production.o
 _RCIF 65 0 ABS 0 - dist/default/production\Lab10.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\Lab10.production.o
-___sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAs46g.o
+___sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAsei4.o
 _main 6A 0 CODE 0 maintext dist/default/production\Lab10.production.o
 _var0 74 0 COMMON 1 bssCOMMON dist/default/production\Lab10.production.o
 _var1 73 0 COMMON 1 bssCOMMON dist/default/production\Lab10.production.o
@@ -253,18 +253,18 @@ _var2 72 0 COMMON 1 bssCOMMON dist/default/production\Lab10.production.o
 _var3 71 0 COMMON 1 bssCOMMON dist/default/production\Lab10.production.o
 _var4 70 0 COMMON 1 bssCOMMON dist/default/production\Lab10.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab10.production.o
-start 18 0 CODE 0 init C:\Users\diego\AppData\Local\Temp\xcAs46g.o
+start 18 0 CODE 0 init C:\Users\diego\AppData\Local\Temp\xcAsei4.o
 __size_of_main 0 0 ABS 0 - dist/default/production\Lab10.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __LidataBANK3 0 0 ABS 0 idataBANK3 -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs46g.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs46g.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs46g.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs46g.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs46g.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAs46g.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsei4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsei4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsei4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsei4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsei4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\diego\AppData\Local\Temp\xcAsei4.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Lab10.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab10.production.o
@@ -274,13 +274,13 @@ _ANSELH 189 0 ABS 0 - dist/default/production\Lab10.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _INTCON B 0 ABS 0 - dist/default/production\Lab10.production.o
 _OPTION_REG 81 0 ABS 0 - dist/default/production\Lab10.production.o
-___stackhi 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAs46g.o
-___stacklo 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAs46g.o
+___stackhi 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAsei4.o
+___stacklo 0 0 ABS 0 - C:\Users\diego\AppData\Local\Temp\xcAsei4.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\Lab10.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\Lab10.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\Lab10.production.o
 _SPBRGH 9A 0 ABS 0 - dist/default/production\Lab10.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAs46g.o
+___int_sp 0 0 STACK 2 stack C:\Users\diego\AppData\Local\Temp\xcAsei4.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -325,7 +325,7 @@ _str 190 0 BANK3 1 dataBANK3 dist/default/production\Lab10.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\Lab10.production.o
 __end_of_isr 3C8 0 CODE 0 text2 dist/default/production\Lab10.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\diego\AppData\Local\Temp\xcAs46g.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\diego\AppData\Local\Temp\xcAsei4.o
 __pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production\Lab10.production.o
 __pdataBANK3 190 0 BANK3 1 dataBANK3 dist/default/production\Lab10.production.o
 _RCSTAbits 18 0 ABS 0 - dist/default/production\Lab10.production.o
