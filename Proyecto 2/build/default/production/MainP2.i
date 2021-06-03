@@ -2673,7 +2673,7 @@ void play(void);
 
 uint8_t flagint;
 uint8_t valor;
-uint8_t REC;
+uint8_t RXREC;
 uint16_t contpwm;
 uint8_t order;
 uint8_t orderp;
@@ -2691,28 +2691,31 @@ char reproducir = 112;
 void __attribute__((picinterrupt((""))))isr(void){
 
   if (T0IF==1){
-        TMR0 = 6;
-        contpwm = 0;
-        T0IF = 0;
-        TMR1IF = 1;
-
-    }
-
-    if (TMR1IF == 1 ){
-        TMR1IF = 0;
-        TMR1 = PWMEX;
-
-
 
         contpwm++;
-        if (contpwm == 1) {
+        if (contpwm <= PWMEX) {
             RC3=1;
         }
         else {
             RC3=0;
         }
+
+        if (contpwm <= PWMEX2) {
+            RC4=1;
+        }
+        else {
+            RC4=0;
+        }
+
+       if (contpwm >=250){
+           contpwm=0;
+       }
+        TMR0 = 176;
+        T0IF = 0;
     }
-# 110 "MainP2.c"
+
+
+
     if(PIR1bits.ADIF){
         switch (ADCON0bits.CHS){
          case (0):
@@ -2726,6 +2729,10 @@ void __attribute__((picinterrupt((""))))isr(void){
          case (2):
             var2= ADRESH;
             break;
+
+         case (3):
+            var3 = ADRESH;
+            break;
         }
        PIR1bits.ADIF = 0;
     }
@@ -2735,7 +2742,7 @@ void __attribute__((picinterrupt((""))))isr(void){
     }
 
     if(PIR1bits.RCIF == 1){
-        REC = RCREG;
+        RXREC = RCREG;
     }
 }
 
@@ -2754,11 +2761,14 @@ while(1) {
 
     chselect();
     ctrservo();
-    if(REC == grabar){
+    if(RXREC == grabar){
         record();
     }
-    if(REC == reproducir){
+    if(RXREC == reproducir){
         play();
+    }
+    if(RXREC == 97){
+        RD0=1;
     }
  }
 }
@@ -2767,10 +2777,10 @@ while(1) {
 
 void setup(void){
 
-  ANSEL = 0b00000111;
+  ANSEL = 0b00001111;
   ANSELH = 0b00000000;
 
-  TRISA = 0b00000111;
+  TRISA = 0b00001111;
   TRISB = 0b00000000;
   TRISC = 0b10000110;
   TRISD = 0x00;
@@ -2779,25 +2789,12 @@ void setup(void){
 
 
 
-
-
-  OPTION_REG = 0x83;
-  TMR0 = 6;
-
-
-  T1CON = 0x00;
-  TMR1IF = 0;
-  TMR1H = 0xFC;
-  TMR1L = 0x18;
-
-
-
-
-
-
+  OPTION_REG = 0x88;
+  TMR0 = 176;
+# 190 "MainP2.c"
   T2CON = 0x26;
   PR2 = 250;
-
+  PIR1bits.TMR2IF = 0;
 
 
   ADCON0bits.CHS= 1;
@@ -2808,14 +2805,14 @@ void setup(void){
   ADCON1bits.ADFM = 0;
   ADCON1bits.VCFG0 = 0;
   ADCON1bits.VCFG1 = 0;
-
+  PIR1bits.ADIF = 0;
 
   OSCCONbits.IRCF = 0b110;
   OSCCONbits.SCS = 1;
 
 
   CCP1CON = 0b00001100;
-  CCP2CON = 0b00001100;
+  CCP2CON = 0b00001111;
 
 
 
@@ -2838,7 +2835,7 @@ void setup(void){
 
 
   INTCON = 0b11100000;
-  PIE1 = 0b01100011;
+  PIE1 = 0b01100010;
   PIE2 = 0b00000000;
 
 
@@ -2851,15 +2848,16 @@ void setup(void){
   PIR1 = 0x00;
   PIR2 = 0x00;
   TRISC = 0b10000000;
-  T1CON = 0x01;
+
 }
 
 
 void ctrservo (void) {
    CCPR1L = ((0.247 * var1) + 62);
    CCPR2L = ((0.247 * var0) + 62);
-   PWMEX = ((3.92 * var2) + 63536);
 
+   PWMEX = ((0.049* var2)+7);
+   PWMEX2= ((0.049 * var3)+7);
 
 
 
@@ -2878,6 +2876,10 @@ void chselect (void){
             break;
 
          case (2):
+            ADCON0bits.CHS = 3;
+            break;
+
+         case (3):
             ADCON0bits.CHS = 0;
             break;
         }
@@ -2888,32 +2890,48 @@ void chselect (void){
 }
 
 void record(void){
-    REC = 0;
+    RXREC = 0;
 
     switch (order){
         case (0):
             writeEEPROM(0x00, var0);
             writeEEPROM(0x01, var1);
             writeEEPROM(0x02, var2);
+            writeEEPROM(0x03, var3);
             order=1;
+            RD0 =1;
             break;
         case (1):
-            writeEEPROM(0x03, var0);
-            writeEEPROM(0x04, var1);
-            writeEEPROM(0x05, var2);
+            writeEEPROM(0x04, var0);
+            writeEEPROM(0x05, var1);
+            writeEEPROM(0x06, var2);
+            writeEEPROM(0x07, var3);
+
             order=2;
+            RD1 =1;
             break;
         case (2):
-            writeEEPROM(0x06, var0);
-            writeEEPROM(0x07, var1);
-            writeEEPROM(0x08, var2);
-            order=0;
+            writeEEPROM(0x08, var0);
+            writeEEPROM(0x09, var1);
+            writeEEPROM(0x0A, var2);
+            writeEEPROM(0x0B, var3);
+
+            order=3;
+            RD2 =1;
             break;
+        case (3):
+            order=0;
+            RD0 =0;
+            RD1 = 0;
+            RD2 = 0;
+            break;
+
     }
+
 }
 
 void play(void){
-    REC = 0;
+    RXREC = 0;
 
     switch (orderp){
         case (0):
@@ -2921,28 +2939,29 @@ void play(void){
             var0 = readEEPROM(0x00);
             var1 = readEEPROM(0x01);
             var2 = readEEPROM(0x02);
+            var3 = readEEPROM(0x03);
             orderp=1;
             break;
         case (1):
-            var0 = readEEPROM(0x03);
-            var1 = readEEPROM(0x04);
-            var2 = readEEPROM(0x05);
+            var0 = readEEPROM(0x04);
+            var1 = readEEPROM(0x05);
+            var2 = readEEPROM(0x06);
+            var3 = readEEPROM(0x07);
             orderp=2;
             break;
         case (2):
-            var0 = readEEPROM(0x06);
-            var1 = readEEPROM(0x07);
-            var2 = readEEPROM(0x08);
+            var0 = readEEPROM(0x08);
+            var1 = readEEPROM(0x09);
+            var2 = readEEPROM(0x0A);
+            var3 = readEEPROM(0x0B);
             orderp=3;
             break;
         case (3):
             ADCON0bits.CHS= 1;
-             _delay((unsigned long)((100)*(4000000/4000000.0)));
+             _delay((unsigned long)((200)*(4000000/4000000.0)));
             ADCON0bits.ADON = 1;
             orderp = 0;
             break;
-
-    PORTD = readEEPROM(0x02);
 
 }
 }

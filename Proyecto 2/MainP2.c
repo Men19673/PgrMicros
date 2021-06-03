@@ -57,7 +57,7 @@ void play(void);
 /********************************Variables*************************************/
 uint8_t flagint;
 uint8_t valor;
-uint8_t REC;
+uint8_t RXREC;
 uint16_t contpwm;
 uint8_t order;
 uint8_t orderp;
@@ -75,36 +75,29 @@ char reproducir = 112;
 void __interrupt()isr(void){
   
   if (T0IF==1){ 
-        TMR0     = 6;
-        contpwm = 0;
-        T0IF	 = 0; 
-        TMR1IF = 1;
-        
-    }
-    
-    if (TMR1IF == 1 ){ 
-        TMR1IF = 0;
-        TMR1	 = PWMEX;
-        //TMR1H	 = 0xFF;
-        //TMR1L	 = 0xF6;
-
+                
         contpwm++;
-        if (contpwm == 1) {
+        if (contpwm <= PWMEX) {
             RC3=1;
         }  
         else {
             RC3=0;
-        }
-    }
-                    
-        /*contpwm++;
-        if (contpwm <= PWMEX) {
-            RC3 =1;
-        }
+        } 
+        
+        if (contpwm <= PWMEX2) {
+            RC4=1;
+        }  
         else {
-            RC3 =0;   
-        }
-            contpwm =0;*/
+            RC4=0;
+        } 
+        
+       if (contpwm >=250){
+           contpwm=0;
+       }
+        TMR0     = 176;
+        T0IF	 = 0;
+    }
+ 
         
 
     if(PIR1bits.ADIF){
@@ -120,6 +113,10 @@ void __interrupt()isr(void){
          case (2):
             var2= ADRESH;
             break;
+            
+         case (3):
+            var3 = ADRESH;
+            break;
         }     
        PIR1bits.ADIF = 0;
     }
@@ -129,7 +126,7 @@ void __interrupt()isr(void){
     }
     
     if(PIR1bits.RCIF == 1){
-        REC = RCREG;
+        RXREC = RCREG;
     }
 }
 /****************************** MAIN ******************************************/
@@ -148,11 +145,14 @@ while(1) {
     
     chselect();
     ctrservo();
-    if(REC == grabar){
+    if(RXREC == grabar){
         record();
     }
-    if(REC == reproducir){
+    if(RXREC == reproducir){
         play();
+    }
+    if(RXREC == 97){
+        RD0=1;
     }
  }
 }
@@ -161,10 +161,10 @@ while(1) {
 /********************************Subrutinas************************************/
 void setup(void){
   
-  ANSEL = 0b00000111;  //Encender analogo
+  ANSEL = 0b00001111;  //Encender analogo
   ANSELH = 0b00000000;
   
-  TRISA = 0b00000111;     //Output     
+  TRISA = 0b00001111;     //Output     
   TRISB = 0b00000000;//Output excepto  
   TRISC = 0b10000110;     //Output bit 7 recibe SERIAL
   TRISD = 0x00;     //Output
@@ -172,17 +172,15 @@ void setup(void){
   
 
 
-  //Timer0 0.1ms
-  //OPTION_REG = 0b01000110; //prescaler en 1:128, activar PULLUP y WDT en timer0
-  //TMR0		 = 100;
-  OPTION_REG	 = 0x83;
-  TMR0		 = 6;
+  //Timer0 0.08ms
+  OPTION_REG = 0x88; //prescaler en 1:1, desactivar PULLUP y WDT en timer0
+  TMR0		 = 176;
 
   //Timer 1
-  T1CON	 = 0x00; //prescaler 1:1
-  TMR1IF = 0;
-  TMR1H	 = 0xFC;
-  TMR1L	 = 0x18;
+  //T1CON	 = 0x00; //prescaler 1:1
+  //TMR1IF = 0;
+  //TMR1H	 = 0xFC;
+  //TMR1L	 = 0x18;
   //0.01ms
   //TMR1H	 = 0xFF;
   //TMR1L	 = 0xF6;
@@ -191,7 +189,7 @@ void setup(void){
   //Timer2 20ms
   T2CON	 = 0x26;        //Prescaler 1:16; TMR2 ON, Postscaler 1:5;   
   PR2	 = 250;
-  
+  PIR1bits.TMR2IF = 0;  
   
  //ADC
   ADCON0bits.CHS= 1;
@@ -202,14 +200,14 @@ void setup(void){
   ADCON1bits.ADFM = 0;      //Justificado derecho
   ADCON1bits.VCFG0 = 0;     //Referencia alta es VCC
   ADCON1bits.VCFG1 = 0;     //Referencia baja es Ground*/
-  
+  PIR1bits.ADIF = 0;           // Limpiar bandera  ADC
   //Osccon
   OSCCONbits.IRCF = 0b110; //Oscilador 4MHZ
   OSCCONbits.SCS = 1;   //utilizar oscilador interno para reloj del sistema
  
  //CCP1 Y CCP2
   CCP1CON = 0b00001100; //Single Output; XX; PWM P1A
-  CCP2CON = 0b00001100; //XX, PWM 1100
+  CCP2CON = 0b00001111; //XX, PWM 1100
   
  //CONFIG EUSART
   
@@ -232,7 +230,7 @@ void setup(void){
   
   //Interrupciones
   INTCON = 0b11100000;  //GIE, PIE, TOIE, inte, rbie, t0if, intf, rbif
-  PIE1 = 0b01100011; // 0, ADIE, RCIE, txie, sspie, ccp1ie, TMR2, TMR1
+  PIE1 = 0b01100010; // 0, ADIE, RCIE, txie, sspie, ccp1ie, TMR2, tmr1
   PIE2 = 0b00000000; // osfie, c2ie, c1ie, eeie, bclie, 0, ccpie2
   
   //Limpieza profunda
@@ -245,16 +243,17 @@ void setup(void){
   PIR1 = 0x00; //Limpiar banderas
   PIR2 = 0x00;
   TRISC = 0b10000000; //PONER EN OUTPUT PORTC PARA USAR PWM
-  T1CON = 0x01;
+  //T1CON = 0x01;
 }
 
 
 void ctrservo (void) {
    CCPR1L = ((0.247 * var1) + 62);
    CCPR2L = ((0.247 * var0) + 62);
-   PWMEX = ((3.92 * var2) + 63536);
-   //PWMEX2= ((3.9 * var2)+1000);
-    
+   //PWMEX = ((3.92 * var2) + 63536);
+   PWMEX = ((0.049* var2)+7);
+   PWMEX2= ((0.049 * var3)+7);
+   
     
     
 }
@@ -272,6 +271,10 @@ void chselect (void){
             break;
             
          case (2):
+            ADCON0bits.CHS = 3;        //Cambiar a canal 3
+            break;
+            
+         case (3):
             ADCON0bits.CHS = 0;        //Cambiar a canal 0
             break;
         }     
@@ -282,32 +285,48 @@ void chselect (void){
 }
 
 void record(void){
-    REC = 0;
+    RXREC = 0;
     
     switch (order){
         case (0): 
             writeEEPROM(0x00, var0);
             writeEEPROM(0x01, var1);
             writeEEPROM(0x02, var2);
+            writeEEPROM(0x03, var3);
             order=1;
+            RD0 =1;
             break;
         case (1):
-            writeEEPROM(0x03, var0);
-            writeEEPROM(0x04, var1);
-            writeEEPROM(0x05, var2);
+            writeEEPROM(0x04, var0);
+            writeEEPROM(0x05, var1);
+            writeEEPROM(0x06, var2);
+            writeEEPROM(0x07, var3);
+
             order=2;
+            RD1 =1;
             break;
         case (2):
-            writeEEPROM(0x06, var0);
-            writeEEPROM(0x07, var1);
-            writeEEPROM(0x08, var2);
-            order=0;
+            writeEEPROM(0x08, var0);
+            writeEEPROM(0x09, var1);
+            writeEEPROM(0x0A, var2);
+            writeEEPROM(0x0B, var3);
+
+            order=3;
+            RD2 =1;
             break;
+        case (3): 
+            order=0;
+            RD0 =0;
+            RD1 = 0;
+            RD2 = 0;
+            break;
+    
     }
+    
 }
 
 void play(void){
-    REC = 0;
+    RXREC = 0;
     
     switch (orderp){
         case (0): 
@@ -315,28 +334,29 @@ void play(void){
             var0 = readEEPROM(0x00);
             var1 = readEEPROM(0x01);
             var2 = readEEPROM(0x02);
+            var3 = readEEPROM(0x03);
             orderp=1;
             break;
         case (1):
-            var0 = readEEPROM(0x03);
-            var1 = readEEPROM(0x04);
-            var2 = readEEPROM(0x05);
+            var0 = readEEPROM(0x04);
+            var1 = readEEPROM(0x05);
+            var2 = readEEPROM(0x06);
+            var3 = readEEPROM(0x07);
             orderp=2;
             break;
         case (2):
-            var0 = readEEPROM(0x06);
-            var1 = readEEPROM(0x07);
-            var2 = readEEPROM(0x08);
+            var0 = readEEPROM(0x08);
+            var1 = readEEPROM(0x09);
+            var2 = readEEPROM(0x0A);
+            var3 = readEEPROM(0x0B);
             orderp=3;
             break;
         case (3):
             ADCON0bits.CHS= 1;
-             __delay_us(100);
+             __delay_us(200);
             ADCON0bits.ADON = 1;      //Activar modulo de nuevo
             orderp = 0;
             break;
-    
-    PORTD = readEEPROM(0x02);
 
 }
 }
