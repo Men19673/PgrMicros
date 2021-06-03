@@ -76,38 +76,38 @@ void __interrupt()isr(void){
   
   if (T0IF==1){ 
                 
-        contpwm++;
+        contpwm++; //Contador 
         if (contpwm <= PWMEX) {
-            RC3=1;
+            RC3=1; //Encender el pin 
         }  
-        else {
+        else {      //Apagar el pin cuando pasa de la cantidad PWMEX
             RC3=0;
         } 
         
-        if (contpwm <= PWMEX2) {
+        if (contpwm <= PWMEX2) {    //Lo mismo que el anterior
             RC4=1;
         }  
         else {
             RC4=0;
         } 
         
-       if (contpwm >=250){
+       if (contpwm >=250){      //Contar hasta 20ms y reiniciar el perido
            contpwm=0;
        }
-        TMR0     = 176;
+        TMR0     = 176; //Reinciar Timer 0 y apagar la bandera
         T0IF	 = 0;
     }
  
         
 
     if(PIR1bits.ADIF){
-        switch (ADCON0bits.CHS){
+        switch (ADCON0bits.CHS){    //Switch para lectura de analogicos
          case (0):
-            var0 = ADRESH;
+            var0 = ADRESH;          //Asignacion de las variables segun el canal
             break;
            
          case (1):
-            var1= ADRESH;
+            var1= ADRESH;           
             break;
             
          case (2):
@@ -122,11 +122,11 @@ void __interrupt()isr(void){
     }
    
      if(PIR1bits.TMR2IF ==1){ 
-        PIR1bits.TMR2IF = 0; 
+        PIR1bits.TMR2IF = 0; //Apagar la bandera del timer 2
     }
     
     if(PIR1bits.RCIF == 1){
-        RXREC = RCREG;
+        RXREC = RCREG;      //Guardar el dato que se recibe en uart 
     }
 }
 /****************************** MAIN ******************************************/
@@ -145,14 +145,11 @@ while(1) {
     
     chselect();
     ctrservo();
-    if(RXREC == grabar){
+    if(RXREC == grabar){ //Si se apacha la r en la terminar grabar valores
         record();
     }
-    if(RXREC == reproducir){
+    if(RXREC == reproducir){    //Si se apacha p en terminar reproducir valores
         play();
-    }
-    if(RXREC == 97){
-        RD0=1;
     }
  }
 }
@@ -248,9 +245,8 @@ void setup(void){
 
 
 void ctrservo (void) {
-   CCPR1L = ((0.247 * var1) + 62);
+   CCPR1L = ((0.247 * var1) + 62); //Ecuaciones de mapeo para los servos 
    CCPR2L = ((0.247 * var0) + 62);
-   //PWMEX = ((3.92 * var2) + 63536);
    PWMEX = ((0.049* var2)+7);
    PWMEX2= ((0.049 * var3)+7);
    
@@ -288,15 +284,15 @@ void record(void){
     RXREC = 0;
     
     switch (order){
-        case (0): 
+        case (0): //Guardar los valores para posición 1
             writeEEPROM(0x00, var0);
             writeEEPROM(0x01, var1);
             writeEEPROM(0x02, var2);
             writeEEPROM(0x03, var3);
             order=1;
-            RD0 =1;
+            RD0 =1; //encender led para avisar ocupacion del espacio 1
             break;
-        case (1):
+        case (1): //Guardar los valores para posicion 2
             writeEEPROM(0x04, var0);
             writeEEPROM(0x05, var1);
             writeEEPROM(0x06, var2);
@@ -305,20 +301,20 @@ void record(void){
             order=2;
             RD1 =1;
             break;
-        case (2):
+        case (2): //Guardar los valores para posicion3 
             writeEEPROM(0x08, var0);
             writeEEPROM(0x09, var1);
             writeEEPROM(0x0A, var2);
             writeEEPROM(0x0B, var3);
 
             order=3;
-            RD2 =1;
+            RD2 =1; //Encender led para posicion 3 guardada
             break;
         case (3): 
             order=0;
             RD0 =0;
             RD1 = 0;
-            RD2 = 0;
+            RD2 = 0; //Reiniciar
             break;
     
     }
@@ -329,22 +325,22 @@ void play(void){
     RXREC = 0;
     
     switch (orderp){
-        case (0): 
-            ADCON0bits.ADON = 0;
+        case (0): //Reproducir Grabacion 1
+            ADCON0bits.ADON = 0; //Apagar la lectura de los pines analogicos
             var0 = readEEPROM(0x00);
             var1 = readEEPROM(0x01);
-            var2 = readEEPROM(0x02);
-            var3 = readEEPROM(0x03);
+            var2 = readEEPROM(0x02);//Asiganr valor a las variables para hacer 
+            var3 = readEEPROM(0x03);//PWM
             orderp=1;
             break;
-        case (1):
+        case (1): //Reproducir Grabacion 2
             var0 = readEEPROM(0x04);
             var1 = readEEPROM(0x05);
             var2 = readEEPROM(0x06);
             var3 = readEEPROM(0x07);
             orderp=2;
             break;
-        case (2):
+        case (2): // Reproducir Grabacion 3
             var0 = readEEPROM(0x08);
             var1 = readEEPROM(0x09);
             var2 = readEEPROM(0x0A);
@@ -352,9 +348,9 @@ void play(void){
             orderp=3;
             break;
         case (3):
-            ADCON0bits.CHS= 1;
+            ADCON0bits.CHS= 1; //Salir del modo reproducir
              __delay_us(200);
-            ADCON0bits.ADON = 1;      //Activar modulo de nuevo
+            ADCON0bits.ADON = 1;      //Activar modulo ADC de nuevo
             orderp = 0;
             break;
 
