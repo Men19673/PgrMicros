@@ -109,7 +109,7 @@ uint8_t var1;
 uint8_t var2;
 uint8_t var3;
 uint8_t var4;
-unsigned char  str[96] = " Que accion desea ejecutar?\r(1)Desplegar cadena de caracteres\r(2)Cambiar PORTA\r(3)Cambiar PORTB\0";
+unsigned char  str[96] = " Que accion desea ejecutar?\r(r)Desplegar cadena de caracteres\r(2)Cambiar PORTA\r(3)Cambiar PORTB\0";
 unsigned char  cad[26] = " \rBienvenido, como estas?\r";
 unsigned char  car[24] = " \rQue caracter desea?\r";
 /********************************Interrupcion**********************************/

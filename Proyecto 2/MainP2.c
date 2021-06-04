@@ -62,6 +62,8 @@ uint16_t contpwm;
 uint8_t order;
 uint8_t orderp;
 uint8_t multiplex;
+uint8_t varUART;
+uint8_t varUART2;
 uint8_t var0;
 uint8_t var1;
 uint8_t var2;
@@ -70,6 +72,10 @@ uint16_t PWMEX;
 uint16_t PWMEX2;
 char grabar = 114;
 char reproducir = 112;
+unsigned char  str[77] = " \nQue accion desea ejecutar?\n(r)Guardar posicion\n(p)Reproducir posiciones \n";
+unsigned char  pos1[28] = " \nSe encuentra en posicion 1\n";
+unsigned char  pos2[28] = " \nSe encuentra en posicion 2\n";
+unsigned char  pos3[28] = " \nSe encuentra en posicion 3\n";
 
 /********************************Interrupcion**********************************/
 void __interrupt()isr(void){
@@ -133,25 +139,32 @@ void __interrupt()isr(void){
 void main(void) {
     setup();
     ADCON0bits.GO = 1; //Activar el protocolo de lectura de pines
-
+    varUART =0;
 /****************************** LOOP ******************************************/
 while(1) {
-   /*if(TXIF == 1){
-        TXREG = 97; //Enviar @
-    }
-   __delay_ms(500);*/
-   
-       
+      
     
     chselect();
     ctrservo();
+    if (RXREC == 0){
+        
+       while(varUART <= 75){      //verficar que no pase del limite 
+           varUART++;          //Ir cambiando de character
+                   
+       if(TXIF == 1){
+        TXREG = str[varUART]; //Enviar a terminal palabras
+       }
+        __delay_ms(15);
+     }
+    }
+    
     if(RXREC == grabar){ //Si se apacha la r en la terminar grabar valores
         record();
     }
     if(RXREC == reproducir){    //Si se apacha p en terminar reproducir valores
         play();
     }
- }
+   }
 }
 
 
@@ -326,32 +339,64 @@ void play(void){
     
     switch (orderp){
         case (0): //Reproducir Grabacion 1
+            varUART2 =0;            //Limpiar contador para UART
             ADCON0bits.ADON = 0; //Apagar la lectura de los pines analogicos
+            
             var0 = readEEPROM(0x00);
             var1 = readEEPROM(0x01);
             var2 = readEEPROM(0x02);//Asiganr valor a las variables para hacer 
             var3 = readEEPROM(0x03);//PWM
             orderp=1;
+            
+            while (varUART2 <= 26){
+                varUART2++; //Ir cambiando de caracter
+                 if(TXIF == 1){
+                    TXREG = pos1[varUART2]; //Enviar a terminal palabras
+                   }
+                __delay_ms(15);
+            }
             break;
+            
         case (1): //Reproducir Grabacion 2
+            varUART2 =0;            //Limpiar contador para UART
             var0 = readEEPROM(0x04);
             var1 = readEEPROM(0x05);
             var2 = readEEPROM(0x06);
             var3 = readEEPROM(0x07);
             orderp=2;
+           
+            while (varUART2 <= 27){
+                varUART2++; //Ir cambiando de caracter
+                 if(TXIF == 1){
+                    TXREG = pos2[varUART2]; //Enviar a terminal palabras
+                   }
+                __delay_ms(15);
+            }
             break;
+            
         case (2): // Reproducir Grabacion 3
+            varUART2 =0;            //Limpiar contador para UART
             var0 = readEEPROM(0x08);
             var1 = readEEPROM(0x09);
             var2 = readEEPROM(0x0A);
             var3 = readEEPROM(0x0B);
             orderp=3;
+            
+            while (varUART2 <= 26){
+                varUART2++; //Ir cambiando de caracter
+                 if(TXIF == 1){
+                    TXREG = pos3[varUART2]; //Enviar a terminal palabras
+                   }
+                __delay_ms(15);
+            }
             break;
+            
         case (3):
             ADCON0bits.CHS= 1; //Salir del modo reproducir
              __delay_us(200);
             ADCON0bits.ADON = 1;      //Activar modulo ADC de nuevo
             orderp = 0;
+            varUART = 0; //Limpiar bandera de menu principal
             break;
 
 }

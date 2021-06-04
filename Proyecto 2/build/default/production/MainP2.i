@@ -2678,6 +2678,8 @@ uint16_t contpwm;
 uint8_t order;
 uint8_t orderp;
 uint8_t multiplex;
+uint8_t varUART;
+uint8_t varUART2;
 uint8_t var0;
 uint8_t var1;
 uint8_t var2;
@@ -2686,6 +2688,10 @@ uint16_t PWMEX;
 uint16_t PWMEX2;
 char grabar = 114;
 char reproducir = 112;
+unsigned char str[77] = " \nQue accion desea ejecutar?\n(r)Guardar posicion\n(p)Reproducir posiciones \n";
+unsigned char pos1[28] = " \nSe encuentra en posicion 1\n";
+unsigned char pos2[28] = " \nSe encuentra en posicion 2\n";
+unsigned char pos3[28] = " \nSe encuentra en posicion 3\n";
 
 
 void __attribute__((picinterrupt((""))))isr(void){
@@ -2749,28 +2755,32 @@ void __attribute__((picinterrupt((""))))isr(void){
 void main(void) {
     setup();
     ADCON0bits.GO = 1;
-
+    varUART =0;
 
 while(1) {
 
 
-
-
-
-
-
     chselect();
     ctrservo();
+    if (RXREC == 0){
+
+       while(varUART <= 75){
+           varUART++;
+
+       if(TXIF == 1){
+        TXREG = str[varUART];
+       }
+        _delay((unsigned long)((15)*(4000000/4000.0)));
+     }
+    }
+
     if(RXREC == grabar){
         record();
     }
     if(RXREC == reproducir){
         play();
     }
-    if(RXREC == 97){
-        RD0=1;
-    }
- }
+   }
 }
 
 
@@ -2791,7 +2801,7 @@ void setup(void){
 
   OPTION_REG = 0x88;
   TMR0 = 176;
-# 190 "MainP2.c"
+# 200 "MainP2.c"
   T2CON = 0x26;
   PR2 = 250;
   PIR1bits.TMR2IF = 0;
@@ -2855,7 +2865,6 @@ void setup(void){
 void ctrservo (void) {
    CCPR1L = ((0.247 * var1) + 62);
    CCPR2L = ((0.247 * var0) + 62);
-
    PWMEX = ((0.049* var2)+7);
    PWMEX2= ((0.049 * var3)+7);
 
@@ -2935,32 +2944,64 @@ void play(void){
 
     switch (orderp){
         case (0):
+            varUART2 =0;
             ADCON0bits.ADON = 0;
+
             var0 = readEEPROM(0x00);
             var1 = readEEPROM(0x01);
             var2 = readEEPROM(0x02);
             var3 = readEEPROM(0x03);
             orderp=1;
+
+            while (varUART2 <= 26){
+                varUART2++;
+                 if(TXIF == 1){
+                    TXREG = pos1[varUART2];
+                   }
+                _delay((unsigned long)((15)*(4000000/4000.0)));
+            }
             break;
+
         case (1):
+            varUART2 =0;
             var0 = readEEPROM(0x04);
             var1 = readEEPROM(0x05);
             var2 = readEEPROM(0x06);
             var3 = readEEPROM(0x07);
             orderp=2;
+
+            while (varUART2 <= 27){
+                varUART2++;
+                 if(TXIF == 1){
+                    TXREG = pos2[varUART2];
+                   }
+                _delay((unsigned long)((15)*(4000000/4000.0)));
+            }
             break;
+
         case (2):
+            varUART2 =0;
             var0 = readEEPROM(0x08);
             var1 = readEEPROM(0x09);
             var2 = readEEPROM(0x0A);
             var3 = readEEPROM(0x0B);
             orderp=3;
+
+            while (varUART2 <= 26){
+                varUART2++;
+                 if(TXIF == 1){
+                    TXREG = pos3[varUART2];
+                   }
+                _delay((unsigned long)((15)*(4000000/4000.0)));
+            }
             break;
+
         case (3):
             ADCON0bits.CHS= 1;
              _delay((unsigned long)((200)*(4000000/4000000.0)));
             ADCON0bits.ADON = 1;
             orderp = 0;
+            varUART = 0;
             break;
 
 }
